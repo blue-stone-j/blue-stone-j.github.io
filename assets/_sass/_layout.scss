@@ -1,0 +1,252 @@
+/**
+ * Reset some basic elements
+ */
+body {
+  height:100%;
+} 
+
+header, section {
+  width: 100%;
+  position: relative;
+}
+
+section {
+  padding: $spacing-unit 0;
+}
+
+.main-wrapper,.error-wrapper {
+  min-width: 320px;
+  min-height: 100%;
+  height: auto;
+  position: relative;
+}
+
+/**
+ * Site header
+ */
+
+#header {
+  background-color: $light-blue;
+  font-size: 20px;
+  height: 50px;
+  margin-top: -40px;
+}
+
+/**
+ * Site banner
+ */
+
+#banner {
+  background-color: $light-red;
+  padding-bottom: 0;
+  height: 250px;
+  // overflow: hidden;
+  .wrapper {
+    height: 110%;
+    margin-top: -15px;
+    position: relative;
+    padding: 0;
+    svg {
+      position: absolute;
+      bottom: 0;
+    }
+  }
+}
+
+/**
+ * About me
+ */
+#about {
+  height: auto;
+  width: 24%;
+  margin: 0 0 0 0;
+  float: left;
+  .wrapper {
+    .content {
+      .about  {
+        text-indent: 2em;
+        text-align:justify;
+        color: $text-color;
+        margin: 20px 10%;
+        // height: 100px;
+        min-height: 80px;
+      }
+      position: relative;
+      margin: 10px auto;
+      width: 100%;
+    }
+  }
+  a {
+    &:not(:last-child) {
+      margin-right: 20px;
+    }
+  }
+  .avatar {
+    position: relative;
+    background: url(../images/logo.jpg) center no-repeat;
+    background-size: 100% 100%;
+    left: 50%;
+    margin-left: -75px;
+  }
+}
+
+/**
+ * Blog
+ */
+
+#blog {
+  height: auto;
+  // min-height: 500px;
+  width: 24%;
+  margin: 0 0 0 0;
+  float: left;
+
+  // #sky {
+  //   position: absolute;
+	//   max-height: 150px;
+  // }
+  .wrapper {
+    position: relative;
+    padding: 0;
+    margin: 0px 0 0 -30px;
+    .content {
+      .about  {
+        text-indent: 2em;
+        text-align:justify;
+        color: $text-color;
+        margin: 20px 10%;
+        // height: 100px;
+        min-height: 80px;
+      }
+      position: relative;
+      margin: 10px auto;
+      width: 100%;
+    }
+  }
+  .avatar {
+    position: relative;
+    background: url(../images/gear.png) center no-repeat;
+    background-size: 100% 100%;
+    left: 50%;
+    margin-left: -75px;
+  }
+}
+/**
+ * social_science
+ */
+#social_science{
+  // background-color: $light-blue;
+  height: auto;
+  width: 24%;
+  margin: 0 0 0 0;
+  float: left;
+  .wrapper {
+    position: relative;
+    padding: 0;
+    margin: 0px 0 0 -30px;
+    .content {
+      .about  {
+        text-indent: 2em;
+        text-align:justify;
+        color: $grey-color;
+        margin: 20px 10%;
+        // height: 100px;
+        min-height: 80px;
+      }
+      position: relative;
+      margin: 10px auto;
+      width: 100%;
+    }
+  }
+  .avatar {
+    position: relative;
+    background: url(../images/social.jpeg) center no-repeat;
+    background-size: 100% 100%;
+    left: 50%;
+    margin-left: -75px;
+  }
+}
+
+/*
+
+*/
+#business{
+  // background-color: $light-blue;
+  height: auto;
+  width: 24%;
+  margin: 0 0 0 0;
+  float: left;
+  .wrapper {
+    position: relative;
+    padding: 0;
+    margin: 0px 0 0 -30px;
+    .content {
+      .about  {
+        text-indent: 2em;
+        text-align:justify;
+        color: $grey-color;
+        margin: 20px 10%;
+        // height: 100px;
+        min-height: 80px;
+      }
+      position: relative;
+      margin: 10px auto;
+      width: 100%;
+    }
+  }
+  .avatar {
+    position: relative;
+    background: url(../images/dollar.jpeg) center no-repeat;
+    background-size: 100% 100%;
+    left: 50%;
+    margin-left: -75px;
+  }
+}
+
+
+
+/**
+ * Comments
+ */
+#comments {
+  padding-top: 0;
+}
+
+/**
+ * Site footer
+ */
+
+#footer {
+  width: 100%;
+  height: 100px;
+  position: relative;
+  margin-bottom: 0;
+  bottom: 0px;
+  .footer-border {
+    width: 100%;
+    height:20px;
+    background: url(../images/wave.png);
+    background-size: 50px 20px;
+    padding-top: 20px;
+    background-repeat: repeat-x;
+  }
+  .footer-content {
+    background-color: $blue;
+    padding: 5px 5px;
+    border: 1px solid $blue;
+  }
+  .social-wrapper {
+    width: 100%;
+    padding-top: 10px;
+    // margin-top: 10px;
+  }
+}
+
+/**
+ * 404
+ */
+ 
+.error-content {
+  background-color: $blue;
+  padding: 2em;
+}

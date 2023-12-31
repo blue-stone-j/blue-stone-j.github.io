@@ -1,0 +1,22 @@
+
+  nav {
+    // float: right;
+    // float: left;
+    margin: 2em 0 0 50px;
+    a {
+      color: $blue;
+      text-decoration: none;
+      font-size:x-large;
+      text-shadow: 1px 1px $white, 2px 2px $darker-white;
+      // &:not(:last-child) {
+      //   margin-right: 20px;
+      // }
+    }
+  }
+
+.error-wrapper {
+  nav {
+    float: none;
+	font-size: $large-font-size;
+  }
+}

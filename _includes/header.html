@@ -1,0 +1,17 @@
+<header id="header">
+  <div class="wrapper">
+    <nav>
+      {% if page.nav != 'home' %}
+        <a href=" /">Home</a>
+        <a href=" /blog ">STEM</a>
+        <a href=" /feed.xml "><i class="fa fa-rss" aria-hidden="true"></i></a>
+      {% else %}
+        <a href=" # ">Home</a>
+        <a href=" #about " style="border-width: 1px; border-style: solid;">About</a>
+        <a href=" #blog " style="border-width: 1px; border-style: solid;">STEM</a>
+        <a href=" #social_science" style="border-width: 1px; border-style: solid;">social science</a>
+        <a href=" #business" style="border-width: 1px; border-style: solid;">business</a>
+      {% endif %}
+    </nav>
+  </div>
+</header>
