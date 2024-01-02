@@ -1,16 +1,20 @@
 <header id="header">
+  <div class="wrapper" style="margin-top: 20px;"></div>
   <div class="wrapper">
+    <!-- <img src="/assets/images/logo.jpg" width ="100" height ="100" style="float:left"/> -->
     <nav>
       {% if page.nav != 'home' %}
-        <a href=" /">Home</a>
-        <a href=" /blog ">STEM</a>
-        <a href=" /feed.xml "><i class="fa fa-rss" aria-hidden="true"></i></a>
+        <a href=" /" style="color: #FFF;margin-left:100px;" target="_blank">Home</a>
+        <a href=" /blog " style="color: #FFF;margin-left:30px;" target="_blank">Natural Science</a>
+        <a href=" https://social.blue-stone-w.top/" style="color: #FFF; margin-left:30px;" target= "_blank">Social Science</a>
+        <a href=" https://business.blue-stone-w.top/" style="color: #FFF;margin-left:30px;" target="_blank">Business</a>
+        <!-- <a href=" /feed.xml "><i class="fa fa-rss" aria-hidden="true"></i></a> -->
       {% else %}
-        <a href=" # ">Home</a>
-        <a href=" #about " style="border-width: 1px; border-style: solid;">About</a>
-        <a href=" #blog " style="border-width: 1px; border-style: solid;">STEM</a>
-        <a href=" #social_science" style="border-width: 1px; border-style: solid;">social science</a>
-        <a href=" #business" style="border-width: 1px; border-style: solid;">business</a>
+        <a href=" # " style="color: #FFF;margin-left:100px;">Home</a>
+        <a href=" #about " style="color: #FFF;margin-left:30px;"">About</a>
+        <a href=" #blog " style="color: #FFF;margin-left:30px;"">Natural Science</a>
+        <a href=" #social_science" style="color: #FFF;margin-left:30px;"">Social Science</a>
+        <a href=" #business" style="color: #FFF;margin-left:30px;"">Business</a>
       {% endif %}
     </nav>
   </div>

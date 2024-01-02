@@ -3,7 +3,7 @@
 #Site
 title: Blue Stone-纪青石
 
-description: This is Stone' home. This template is "stolen" from others, even some info isn't changed.
+description: This is Stone' home. This template is "stolen" from others, even some info haven't been changed.
 baseurl: "" # the subpath of your site, e.g. /blog
 url: blue-stone-w.github.io # the base hostname & protocol for your site, e.g. http://example.com
 rss_url: /feed.xml
@@ -42,18 +42,18 @@ comment:
 author:
   resume: /resume # 在about的resume按钮中使用，和根目录中的“resume”文件夹相呼应
   name: Blue Stone     #the name of Blog section
-  about_me: I'm Blue Stone. This is my online blog, where I share thoughts about STEM knowledge. Feel free to contact me by email if you have any question.
-stem:
-  about: Science, technology, engineering, mathematics. 
+  about_me: I'm Blue Stone. This is my online blog, where I share thoughts. Feel free to contact me by email if you have any questions.
+natural_science:
+  about: STEM include. (science, technology, engineering, mathematics) 
 social_science:
-  about: Here is about social sciences.
+  about: Here is about social sciences, computer games are included.
 business: 
-  about: Blue Stone - a cooperation that focuses on argiculture.
+  about: Blue Stone - a cooperation that focuses on argiculture, such as honey, pepper and so on. (It's invalid now)
 
 # Social Links
-email:      junpengwang8@gmail.com
+email:      qingshiji96@gmail.com
 # facebook:
-github:     blue-stone-w
+github:     blue-stone-j
 # google
 # instagram:
 # linkedin:
