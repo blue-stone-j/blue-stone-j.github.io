@@ -19,7 +19,7 @@ nvidia驱动的版本可以高一点，可以兼容低版本的cuda。
 
 # 安装cuda
 不同版本的库依赖的cuda版本是不一样的。我的选择理由有
-1. ubuntu20中默认的PCL库为1.10，cuda11.04是合适的版本之一版本
+1. ubuntu20中默认的PCL库为1.10，cuda11.04是合适的版本之一
 2. nvidia发布了cuPCL，其测试的环境为cuda11.04
 
 综上所述，我选择安装cuda11.04.
@@ -57,24 +57,26 @@ sudo make install
 ```
 
 # flann
-cmake编译flann的时候报错如下：
-```bash
-No SOURCES given to target: flann_cpp
-```
-解决方式可以参照这个链接：https://www.cnblogs.com/jiangyibo/p/16828214.html。其本质是因为必须编译生成库文件或可执行文件时，必须链接`cpp`文件。但是源码里面没有对应的`cpp`文件。这个解决方案中创建了空`cpp`文件并链接过去。
+1. 执行`ccmake .. -DCMAKE_BUILD_TYPE=Release`配置cmake。
 2. `NVCC_COMPILER_BINDIR`: 这个如果是空的，不用管
 3. `CUDA_TOOLKIT_ROOT_DIR`: `/usr/local/cuda`。如果没有自动找到，就这样配置路径。这个路径是安装cuda的默认路径。如果你使用了其它路径，自己作相应的改动。
 4. 我使用的cuda为11.04，编译`flann 1.9.1`失败，编译`1.9.2`成功。
+5. cmake编译flann的时候报错如下：
+```bash
+No SOURCES given to target: flann_cpp
+```
+解决方式可以参照这个链接：https://www.cnblogs.com/jiangyibo/p/16828214.html。其本质是因为编译生成库文件或可执行文件时，必须链接`cpp`文件。但是源码里面没有对应的`cpp`文件。这个解决方案中创建了空`cpp`文件并链接过去。
 
 # pcl
 ubuntu20 的默认安装是不包含gpu和cuda模块的。如果要使用这两个模块，必须通过源码编译安装，在编译时也要选择对应的模块。
 
 ### 1. 下载1.10.1
+注意不要使用1.10.0这个版本，这个版本的源码存在bug，无法正确完成编译安装。
 
 ### 2. 执行cmake
 执行`ccmake .. -DCMAKE_BUILD_TYPE=Release`配置cmake。
 
-1. 如果报和 ccmake 相关的错误，按照终端提示输入 `sudo apt-get install cmake-curses-gui` 安装后再运行
+1. 如果报和 `ccmake` 相关的错误，按照终端提示输入 `sudo apt-get install cmake-curses-gui` 安装后再运行
 2. `By not providing "Findrealsense2.cmake" in CMAKE_MODULE_PATH this project has asked CMake to find a package configuration file provided by "realsense2", but CMake did not find one.`: `sudo apt install ros-$ROS_DISTRO-realsense2*`
-3. `Unsupported gpu architecture 'compute_30'`: gpu的硬件架构不支持，把配置cmake的界面中的`CUDA_ARCH_BIN`对应的右侧里的"3.0"删除。这样就不会针对“3.0”这个架构生成库文件。
-4. `/home/hyc-pc/software/pcl/cuda/common/include/pcl/cuda/point_cloud.h(199): error: shared_ptr is not a template`: 下载1.10.1再安装。
+3. `Unsupported gpu architecture 'compute_30'`: gpu的硬件架构不支持'compute_30'，把配置cmake的界面中的`CUDA_ARCH_BIN`对应的右侧里的"3.0"删除，这样就不需要针对“3.0”这个架构生成库文件。
+4. `/home/hyc-pc/software/pcl/cuda/common/include/pcl/cuda/point_cloud.h(199): error: shared_ptr is not a template`: 这是1.10.0版本存在的bug，下载1.10.1再安装。

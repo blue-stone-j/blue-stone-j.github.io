@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "qt学习"
-date:   2022-11-20 08:30:00 +0800
+date:   2024-01-05 11:20:55 +0800
 categories: [Tech]
 excerpt: 整理了使用qt中常用的数据类型、函数、qa等
 tags:

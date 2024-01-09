@@ -15,7 +15,7 @@ layout: default
 				{% endunless %}
 				{% endfor %}
 			</ul>
-			<div class="line-highlight">{% if page.date %}{{ page.date | date: '%d %b %Y' }}{% else %}<i class="fa fa-paw" aria-hidden="true"></i>{% endif %}</div>
+			<div class="line-highlight">{% if page.date %}{{ page.date | date: '%Y-%m-%d' }}{% else %}<i class="fa fa-paw" aria-hidden="true"></i>{% endif %}</div>
 			</div>
 			<div class="post-content">
 				{{ content }}

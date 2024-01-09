@@ -11,7 +11,7 @@ layout: default
 		<div class="posts-tabs">
         <div class="divider">数学</div>
         <span class="posts-tab-item btn-round tab01 active" id="01" title="about tech">Tech</span>
-			  <span class="posts-tab-item btn-round tab02" id="02">Life</span>
+			  <span class="posts-tab-item btn-round tab02" id="02">Design</span>
 			  <span class="posts-tab-item btn-round tab03" id="03" title="数学知识">Math</span>
 
         <div class="divider">编程语言</div>
@@ -19,7 +19,7 @@ layout: default
 			  <span class="posts-tab-item btn-round tab05" id="05">算法</span>
 			  <span class="posts-tab-item btn-round tab06" id="06" title="Windows、Ubuntu、Linux、ros以及相关的软件和插件的使用">OS</span>
 			  <span class="posts-tab-item btn-round tab07" id="07" title="SLAM、rtk、UWB、二维码等定位方案、工程经验、算法解析、器件选型">定位建图</span>
-			  <span class="posts-tab-item btn-round tab08" id="08">AI</span>
+			  <span class="posts-tab-item btn-round tab08" id="08" title="cuda and AI">AI</span>
 
 			<!-- <span class="posts-tab-item btn tab-ten">备用</span> -->
 			{% for i in (1..10) %}
@@ -35,7 +35,7 @@ layout: default
 			  		<a href="{{ post.url }}" class="post-title">
 			  			<span>{{ post.title | markdownify | remove: "<p>" | remove: "</p>" }}</span>
 			  		</a>
-			  		<span class="date">{{ post.date | date: '%d %b %Y' }}</span>
+			  		<span class="date">{{ post.date | date: '%Y-%m-%d' }}</span>
 			  	</h2>
 			  	<p>{{ post.excerpt | strip_html }}</p>
 			  	<ul class="tags">
@@ -50,14 +50,14 @@ layout: default
 		</ul>
 		<ul class="posts-list tab02-list tab-hidden" id="pag-itemContainer-two">
 			{% assign counter-two = 0 %}
-			{% for post in site.categories.Life %}
+			{% for post in site.categories.Design %}
 			  {% assign counter-two = counter-two | plus: 1 %}
 			  <li>
 			  	<h2>
 			  		<a href="{{ post.url }}" class="post-title">
 			  			<span>{{ post.title | markdownify | remove: "<p>" | remove: "</p>" }}</span>
 			  		</a>
-			  		<span class="date">{{ post.date | date: '%d %b %Y' }}</span>
+			  		<span class="date">{{ post.date | date: '%Y-%m-%d' }}</span>
 			  	</h2>
 			  	<p>{{ post.excerpt | strip_html }}</p>
 			  	<ul class="tags">
@@ -79,7 +79,7 @@ layout: default
 					<a href="{{ post.url }}" class="post-title">
 						<span>{{ post.title | markdownify | remove: "<p>" | remove: "</p>" }}</span>
 					</a>
-					<span class="date">{{ post.date | date: '%d %b %Y' }}</span>
+					<span class="date">{{ post.date | date: '%Y-%m-%d' }}</span>
 				</h2>
 				<p>{{ post.excerpt | strip_html }}</p>
 				<ul class="tags">
@@ -101,7 +101,7 @@ layout: default
 					<a href="{{ post.url }}" class="post-title">
 						<span>{{ post.title | markdownify | remove: "<p>" | remove: "</p>" }}</span>
 					</a>
-					<span class="date">{{ post.date | date: '%d %b %Y' }}</span>
+					<span class="date">{{ post.date | date: '%Y-%m-%d' }}</span>
 				</h2>
 				<p>{{ post.excerpt | strip_html }}</p>
 				<ul class="tags">
@@ -123,7 +123,7 @@ layout: default
 					<a href="{{ post.url }}" class="post-title">
 						<span>{{ post.title | markdownify | remove: "<p>" | remove: "</p>" }}</span>
 					</a>
-					<span class="date">{{ post.date | date: '%d %b %Y' }}</span>
+					<span class="date">{{ post.date | date: '%Y-%m-%d' }}</span>
 				</h2>
 				<p>{{ post.excerpt | strip_html }}</p>
 				<ul class="tags">
@@ -145,7 +145,7 @@ layout: default
 					<a href="{{ post.url }}" class="post-title">
 						<span>{{ post.title | markdownify | remove: "<p>" | remove: "</p>" }}</span>
 					</a>
-					<span class="date">{{ post.date | date: '%d %b %Y' }}</span>
+					<span class="date">{{ post.date | date: '%Y-%m-%d' }}</span>
 				</h2>
 				<p>{{ post.excerpt | strip_html }}</p>
 				<ul class="tags">
@@ -167,7 +167,29 @@ layout: default
 			  		<a href="{{ post.url }}" class="post-title">
 			  			<span>{{ post.title | markdownify | remove: "<p>" | remove: "</p>" }}</span>
 			  		</a>
-			  		<span class="date">{{ post.date | date: '%d %b %Y' }}</span>
+			  		<span class="date">{{ post.date | date: '%Y-%m-%d' }}</span>
+			  	</h2>
+			  	<p>{{ post.excerpt | strip_html }}</p>
+			  	<ul class="tags">
+			  		{% for tag in post.tags %}
+			  		<li><a href="/tags#{{ tag }}">{{ tag }}</a></li>
+			  		{% unless forloop.last %}
+			  		{% endunless %}
+			  		{% endfor %}
+			  	</ul>
+			  </li>
+			{% endfor %}
+		</ul>
+    <ul class="posts-list tab08-list tab-hidden" id="pag-itemContainer-eight">
+			{% assign counter-eight = 0 %}
+			{% for post in site.categories.AI %}
+			  {% assign counter-eight = counter-eight | plus: 1 %}
+			  <li>
+			  	<h2>
+			  		<a href="{{ post.url }}" class="post-title">
+			  			<span>{{ post.title | markdownify | remove: "<p>" | remove: "</p>" }}</span>
+			  		</a>
+			  		<span class="date">{{ post.date | date: '%Y-%m-%d' }}</span>
 			  	</h2>
 			  	<p>{{ post.excerpt | strip_html }}</p>
 			  	<ul class="tags">

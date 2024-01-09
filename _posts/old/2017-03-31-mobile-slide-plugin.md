@@ -2,7 +2,7 @@
 layout: post
 title:  "基于 JS 的移动端滑动插件对比"
 date:   2017-03-31 11:00:30 +0800
-categories: [Tech]
+categories: [Design]
 excerpt: 对比分析了目前几个主流的 JS 移动端滑动插件。
 tags:
   - front-end
