@@ -39,6 +39,7 @@ $(document).ready(function () {
     $(".tab05").bind("click", showTab05);
     $(".tab06").bind("click", showTab06);
     $(".tab07").bind("click", showTab07);
+    $(".tab08").bind("click", showTab08);
   }
   function showtab(i) {
     hideAll();
@@ -93,6 +94,12 @@ $(document).ready(function () {
 	  $(".tab07-list").removeClass("tab-hidden");
 	  $(".page-holder-seven").removeClass("tab-hidden");
   }
+  function showTab08 () {     
+    hideAll();   
+    $(".tab08").addClass("active");
+	  $(".tab08-list").removeClass("tab-hidden");
+	  $(".page-holder-seven").removeClass("tab-hidden");
+  }
   function hideAll() {
     $(".tab01").removeClass("active");
 		$(".tab01-list").addClass("tab-hidden");
@@ -120,6 +127,10 @@ $(document).ready(function () {
     
     $(".tab07").removeClass("active");
 		$(".tab07-list").addClass("tab-hidden");
+    $(".page-holder-seven").addClass("tab-hidden");
+    
+    $(".tab08").removeClass("active");
+		$(".tab08-list").addClass("tab-hidden");
 		$(".page-holder-seven").addClass("tab-hidden");
   }
 })
