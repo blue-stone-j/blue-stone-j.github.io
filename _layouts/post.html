@@ -15,7 +15,22 @@ layout: default
 				{% endunless %}
 				{% endfor %}
 			</ul>
-			<div class="line-highlight">{% if page.date %}{{ page.date | date: '%Y-%m-%d' }}{% else %}<i class="fa fa-paw" aria-hidden="true"></i>{% endif %}</div>
+			<!-- <div class="line-highlight">
+        {% if page.date %}{{ page.date | date: '%Y-%m-%d' }}{% else %}
+        <i class="fa fa-paw" aria-hidden="false"></i>{% endif %}</div>
+			</div> -->
+      <div class="line-highlight">
+        {% if page.date %}
+          {{ page.date | date: '%Y-%m-%d' }}
+        {% else %}
+        {% endif %}
+			</div>
+      <div class="line-highlight">
+        <span>本文总共 {{ page.content | strip_html | strip_newlines | remove: " " | size }} 字 
+              <b>·</b> 阅读全文大约需要 {{ page.content | strip_html | strip_newlines | remove: " " | size | divided_by: 350 | plus: 1 }} 分钟
+        </span>
+        <!-- Chinese:{{ content | strip_html | strip_newlines | split: "" | size }};
+        Eiglish:{{ page.content | number_of_words }}  -->
 			</div>
 			<div class="post-content">
 				{{ content }}
