@@ -15,6 +15,13 @@ tags:
 
 # Operations and Maintenance
 
+### network card
+
+1. set IP for network card: `ifconfig eth1 192.168.1.100`
+2. query speed of network card: `iftop -i eth1`
+3. query status of network card: `ethstatus -i eth1`
+4. 
+
 ### ssh connection
 `SSH` is abbreviation of `Secure Shell`. This post is based on `Ubuntu 20`.
 #### install SSH 
@@ -204,7 +211,7 @@ Use cmd below to stop
 ```bash
 wg-quick down wg0
 ```
-If you edit `/etc/wireguard/wg0.conf` during WireGuard is running. When you stop it, all your changes will be lost. So better to edit `/etc/wireguard/wg0.conf` after stop WireGuard.
+If you edit `/etc/wireguard/wg0.conf` during WireGuard is running. When you stop it, all your changes will be discarded. So better to edit `/etc/wireguard/wg0.conf` after stop WireGuard.
 
 If you want to start WireGuard on boot
 ```bash

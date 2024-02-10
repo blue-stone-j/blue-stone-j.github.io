@@ -80,3 +80,12 @@ ubuntu20 的默认安装是不包含gpu和cuda模块的。如果要使用这两�
 2. `By not providing "Findrealsense2.cmake" in CMAKE_MODULE_PATH this project has asked CMake to find a package configuration file provided by "realsense2", but CMake did not find one.`: `sudo apt install ros-$ROS_DISTRO-realsense2*`
 3. `Unsupported gpu architecture 'compute_30'`: gpu的硬件架构不支持'compute_30'，把配置cmake的界面中的`CUDA_ARCH_BIN`对应的右侧里的"3.0"删除，这样就不需要针对“3.0”这个架构生成库文件。
 4. `/home/hyc-pc/software/pcl/cuda/common/include/pcl/cuda/point_cloud.h(199): error: shared_ptr is not a template`: 这是1.10.0版本存在的bug，下载1.10.1再安装。
+
+
+# sophus
+如果使用默认的安装位置，可以在文件`/usr/local/share/sophus/cmake/SophusConfigVersion.cmake`中查看版本信息。我安装的版本为`1.22.10`。该库不支持Debug模式，编译时如果使用debug模式，得到的可执行文件无法执行。 
+
+正常运行该版本的sophus需要安装`fmt-9.0.0`。为了不让使用FMT库的时候出现`undefined reference to 'fmt::v7::'` ，在所有使用了FMT库的前面使用宏定义：
+```C++
+#define FMT_HEADER_ONLY
+```
