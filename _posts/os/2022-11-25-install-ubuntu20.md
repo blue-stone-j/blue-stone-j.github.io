@@ -17,6 +17,30 @@ tags:
 # 安装nvidia驱动
 nvidia驱动的版本可以高一点，可以兼容低版本的cuda。
 
+开关机之后驱动就没有了。状况如下：
+1. 输入命令`nvidia-smi`显示`NVIDIA-SMI has failed because it couldn't communicate with the NVIDIA driver. Make sure that the latest NVIDIA driver is installed and running`。
+2. 输入命令`nvcc -V`没报错 说明cuda还是在的。
+3. 输入`whereis nvidia`显示`nvidia: /usr/lib/x86_64-linux-gnu/nvidia /usr/lib/nvidia /usr/share/nvidia /usr/src/nvidia-535.54.03/nvidia`。
+
+解决方案：
+```bash
+sudo apt-get install dkms #DKMS全称是Dynamic Kernel Module Support，它可以帮我们维护内核外的这些驱动程序，在内核版本变动之后可以自动重新生成新的模块。
+sudo dkms install -m nvidia -v 535.54.03 #410.78是安装驱动的版本
+```
+解决方案来自这个[链接](https://www.jianshu.com/p/3cedce05a481)。
+
+
+`lspci | grep -i nvidia`
+
+```bash
+01:00.0 VGA compatible controller: NVIDIA Corporation Device 25a2 (rev a1)
+01:00.1 Audio device: NVIDIA Corporation Device 2291 (rev a1)
+```
+
+在这个[网站](https://admin.pci-ids.ucw.cz/read/PC/10de)查询"25a2",可以查到显卡型号为“GA107M [GeForce RTX 3050 Mobile]”。
+
+
+
 # 安装cuda
 不同版本的库依赖的cuda版本是不一样的。我的选择理由有
 1. ubuntu20中默认的PCL库为1.10，cuda11.04是合适的版本之一
