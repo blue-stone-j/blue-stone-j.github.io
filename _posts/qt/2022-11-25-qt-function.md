@@ -51,6 +51,16 @@ select_refer->setObjectName(QStringLiteral("selectRefer"));
 错误原因：pcl和opencv中均包含flann库。而我在引用库时习惯性把整个库包含进来，导致出现两个名称相同的flann库，于是产生了这个错误。<br />
 解决方案：不要把整个大库包含进来，只包含需要的部分。此处我使用了pcl的flann库，然后包含opencv中需要的那部分。<br />
 
+#### 3
+现象使用CMake编译和运行qt的程序，运行时遇到了提示：
+```bash
+Unknown property font-color 
+```
+
+错误原因：Qt样式表中设置字体颜色应该使用`color`属性，而不是`font-color`。    
+
+解决方案：运行命令`grep -rnw './' -e 'font-color'`，查看当前目录及其子目录中搜索包含“font-color”的所有文件以及行号。结果在`*.ui`文件中。打开对应的`*.ui`文件，把`font-color`替换为`color`。
+
 
 ## 三、安装和卸载
 #### 1. 卸载
