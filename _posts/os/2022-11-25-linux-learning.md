@@ -22,11 +22,11 @@ class: sys
 ##### 1.如何退出Vim
 * **退出**
 
-```C++
+```bash
 ZZ  //保存并退出
 ```
 或者
-```C++
+```bash
 ZQ  //不保存并退出
 ```
 更多退出命令可以看终端里的提示，需要注意的是，终端的提示的意思是，首先需要输入一个冒号，然后再输入需要的命令。
@@ -37,31 +37,32 @@ ZQ  //不保存并退出
 ```
 
 ##### 2. rename
-```C++
-rename 's/slang_/sl_/' *.c  // replace all "slang_" with "sl_"; find all files end with "*c"; if we omit "sl_", all "slang_" will be deleted.
-rename 's/^parameter/value/' *.c  // ^ means all files start with "parameter"
-rename 's/(stri|stra)ng/bang/' *.c  // replace all "string" and "strang" with "sl_"
-rename 'y/a-z/A-Z/' *.prg  // upper all character
-rename 's/lifelog(\d{4})\.txt/$1.md/' *.txt   // replace all "*lifelog*.txt"; "(\d{4})" means four characters after "lifelog" and will be store in "$1".
+```bash
+rename 's/slang_/sl_/' *.c  # replace all "slang_" with "sl_"; find all files end with "*c"; if we omit "sl_", all "slang_" will be deleted.
+rename 's/^parameter/value/' *.c  # ^ means all files start with "parameter"
+rename 's/(stri|stra)ng/bang/' *.c  # replace all "string" and "strang" with "sl_"
+rename 'y/a-z/A-Z/' *.prg  # upper all character
+rename 's/lifelog(\d{4})\.txt/$1.md/' *.txt   # replace all "*lifelog*.txt"; "(\d{4})" means four characters after "lifelog" and will be store in "$1".
 ```
 
 ##### 3. 压缩和解压缩
 1. .zip
-```C++
-解压：unzip yaml-cpp-master.zip
+解压
+```bash
+unzip yaml-cpp-master.zip
 ```
-2. .tar.gz
-```C++
-解压：tar zxvf FileName.tar.gz
-压缩：tar zcvf FileName.tar.gz DirName
+1. .tar.gz
+```bash
+tar zxvf FileName.tar.gz # 解压
+tar zcvf FileName.tar.gz DirName # 压缩
 ```
-3. rar
+1. rar
 `x`: 在目标路径里创建一个名为“file”的文件夹，把解压后的文件放在该文件夹。<br>
 `e`: 把解压后的文件放在当前目录
 ```Bash
 unrar x file.rar ./
 ```
-4. tar
+1. tar
 **独立命令**
 独立命令是指，在解压和压缩时必须要用到且只能用到其中一个。
 * `-x`: 解压
@@ -80,7 +81,7 @@ unrar x file.rar ./
 tar -xvf file.tar
 ```
 
-5. 7z
+1. 7z
 一个解压缩的命令示例如下，会新建一个名为“file”的文件夹并把文件解压到这个文件夹。
 ```Bash
 7z x file.7z
@@ -149,14 +150,14 @@ rm -rf `find . -type d -name a`
 
 ##### 1. 
 为了添加到环境变量，以使每个终端都生效，常输入类似下面的命令。
-```C++
+```bash
 echo "source /home/nnnn/Documents/mws/devel/setup.bash " >> ~/.bashrc
 ```
 最好不要在root用户状态下输入。
 
 ##### 2. 如何退出root用户
 输入以下命令可以从root用户变为普通用户，或者从普通用户退出终端。
-```C++
+```bash
 exit
 ```
 
@@ -206,37 +207,48 @@ rviz
 ##### 1.移动硬盘
 首先确认已经安装了`udisks2`。如果没有可通过`sudo apt install udisks2`安装。首先确认需要移除的移动硬盘的标号，可通过`fdisk -l`查看连接的磁盘设备。然后使用以下命令移除硬盘
 ```Bash
-mkdir ~/data // 在 ~ 目录下创建一个 data 的目录
-sudo mount /dev/sda1 ~/data // 并将新分区挂载到这里; sda1 不是固定的，要看自己的硬盘盘符; 硬盘中的文件放在文件夹 data 中
-sudo udisksctl unmount -b /dev/sda1    // 取消挂载；sda1 是移动硬盘的一个分区的名称，第一个分区通常以`1`结尾，第二个及之后的以此类推；
-sudo udisksctl power-off -b /dev/sda   // 安全断电；sda 是移动硬盘这个设备的名称, the second one usually is sdb
+mkdir ~/data # 在 ~ 目录下创建一个 data 的目录
+sudo mount /dev/sda1 ~/data # 并将新分区挂载到这里; sda1 不是固定的，要看自己的硬盘盘符; 硬盘中的文件放在文件夹 data 中
+sudo udisksctl unmount -b /dev/sda1    # 取消挂载；sda1 是移动硬盘的一个分区的名称，第一个分区通常以`1`结尾，第二个及之后的以此类推；
+sudo udisksctl power-off -b /dev/sda   # 安全断电；sda 是移动硬盘这个设备的名称, the second one usually is sdb
 ```
 电脑开机时自动挂载硬盘。
 * 查看硬盘信息: `sudo blkid`
 * 编辑硬盘挂载文件 `sudo gedit /etc/fstab`
 你可以在这个文件里添加想要自动挂载的硬盘，也可以更改硬盘默认的挂载位置。
+
 ```Bash
 
 ```
 
 ##### 3. 查询磁盘剩余空间
 
-```C++
+```bash
 du -sh // 查看当前文件夹的大小
 ```
 du 命令用于查看当前目录的总大小：
--s：对每个Names参数只给出占用的数据块总数。
--a：递归地显示指定目录中各文件及子目录中各文件占用的数据块数。若既不指定-s，也不指定-a，则只显示Names中的每一个目录及其中的各子目录所占的磁盘块数。
--b：以字节为单位列出磁盘空间使用情况（系统默认以k字节为单位）。
--k：以1024字节为单位列出磁盘空间使用情况。
--c：最后再加上一个总计（系统默认设置）。
--l：计算所有的文件大小，对硬链接文件，则计算多次。
--x：跳过在不同文件系统上的目录不予统计。
--h：以K，M，G为单位，提高信息的可读性。
+* -s：对每个Names参数只给出占用的数据块总数。  
+* -a：递归地显示指定目录中各文件及子目录中各文件占用的数据块数。若既不指定-s，也不指定-a，则只显示Names中的每一个目录及其中的各子目录所占的磁盘块* 数。  
+* -b：以字节为单位列出磁盘空间使用情况（系统默认以k字节为单位）。  
+* -k：以1024字节为单位列出磁盘空间使用情况。  
+* -c：最后再加上一个总计（系统默认设置）。  
+* -l：计算所有的文件大小，对硬链接文件，则计算多次。  
+* -x：跳过在不同文件系统上的目录不予统计。  
+* -h：以K，M，G为单位，提高信息的可读性。
 
-```C++
-df -hl // 查看磁盘剩余空间
-df -h // 查看每个根路径的分区大小
+```bash
+df -hl # 查看磁盘剩余空间
+df -h  # 查看每个根路径的分区大小
+```
+
+##### 4. 查看固态盘总写入量等信息
+安装`smartctl`工具。
+```bash
+sudo apt install gsmartcontrol
+```
+使用以下命令查看磁盘信息。其中`/dev/nvme0`为硬盘的标号。
+```bash
+sudo smartctl -a /dev/nvme0
 ```
 
 ##### 5. 网络连接和设备
@@ -426,13 +438,13 @@ done
 
 错误提示如下
 
-```C++
+```bash
 E:The package xterm needs to be reinstalled, but I can't find an archive for it.
 ```
 
 输入以下命令解决
 
-```C++
+```bash
 sudo dpkg --remove --force-all xterm
 ```
 
@@ -440,7 +452,7 @@ sudo dpkg --remove --force-all xterm
 
 无法用robotstudio打开工作空间，可能是因为工作空间需要root权限。可以通过更改文件夹权限的方式解决。
 
-```C++
+```bash
 chmod -R 777 /home/nnnn/Documents/mws
 ```
 
@@ -450,19 +462,19 @@ chmod -R 777 /home/nnnn/Documents/mws
 
 运行以下命令
 
-```C++
+```bash
 nautilus /media/nnnn/software/
 ```
 
 错误提示如下
 
-```C++
+```bash
 Nautilus-Share-Message: Called “net usershare info” but it failed
 ```
 
 输入以下命令解决
 
-```C++
+```bash
 sudo apt install samba” and "$ sudo mkdir -p /var/lib/samba/usershares/"
 ```
 
@@ -474,13 +486,13 @@ sudo apt install samba” and "$ sudo mkdir -p /var/lib/samba/usershares/"
 
 运行以下命令
 
-```C++
+```bash
 sudo apt-get update; // 或更新源时
 ```
 
 错误提示如下
 
-```C++
+```bash
 problems: E:Failed to fetch https://download.docker.com/linux/ubuntu/dists/xenial/InRelease  Unable to find expected entry 'stable/source/Sources' in Release file (Wrong sources.list entry or malformed file), E:Some index files failed to download. They have been ignored, or old ones used instead.
 ```
 
@@ -490,13 +502,13 @@ problems: E:Failed to fetch https://download.docker.com/linux/ubuntu/dists/xenia
 
 运行以下命令
 
-```C++
+```bash
 sudo apt-get install libreadline7 libreadline-dev
 ```
 
 错误提示如下
 
-```C++
+```bash
 E: Unable to locate package libreadline7
 ```
 
@@ -506,7 +518,7 @@ E: Unable to locate package libreadline7
 
 错误提示如下  
 
-```C++
+```bash
 E: Unable to correct problems, you have held broken packages 
 ```
 
@@ -516,13 +528,13 @@ E: Unable to correct problems, you have held broken packages
 
 运行以下命令
 
-```C++
+```bash
 apt install progress
 ```
 
 错误提示如下
 
-```C++
+```bash
 E: Could not open lock file /var/lib/dpkg/lock-frontend - open (13: Permission denied)
 E: Unable to acquire the dpkg frontend lock (/var/lib/dpkg/lock-frontend), are you root?
 ```
@@ -533,7 +545,7 @@ E: Unable to acquire the dpkg frontend lock (/var/lib/dpkg/lock-frontend), are y
 
 这是因为有个包丢失了，重新安装即可。可使用如下命令
 
-```C++
+```bash
 sudo apt install gnome-control-center
 ```
 
@@ -564,10 +576,10 @@ sudo apt install libgsettings-qt1
 
 
 ##### 15 Ubuntu系统键盘鼠标失灵方案
-通常是因为xserver-xorg-input-all这个驱动包因为某种原因被删除了。
+通常是因为`xserver-xorg-input-all`这个驱动包因为某种原因被删除了。
 1. 建议插网线，准备重装某些东西。
-2. 进入recovery mode，选择network那一项，连接网络。确认网络已经连接后进入下一步。
-3. 选择 drop，进入命令行。使用命令`sudo apt install xserver-xorg-input-all`。安装完成后正常重启即可。
+2. 进入`recovery mode`，选择`network`那一项，连接网络。确认网络已经连接后进入下一步。
+3. 选择 `drop`，进入命令行。使用命令`sudo apt install xserver-xorg-input-all`。安装完成后正常重启即可。
 
 ##### 16 鼠标半失灵
 键盘可以正常使用。鼠标可以移动，左右按键只能用于切换软件界面，但在一个软件界面中什么都无法执行。同时按住`Ctrl+Alt+delete`，然后选择`取消`，问题就解决了。
@@ -606,7 +618,7 @@ invalid command name "scp"
 文件管理卡死，也不能用可视化的桌面关掉。使用命令`ps -A |grep nautilus`查看是哪个文件管理出现问题；使用命令`killall nautilus`关闭文件管理进程。
 
 ##### 25
-ubuntu桌面卡死。按“ctrl+alt+F1”进入tty终端，然后登录，之后执行命令`sudo pkill Xorg`或者`sudo restart lightdm`
+ubuntu桌面卡死。按“ctrl+alt+F1”进入tty终端，然后登录，之后执行命令`sudo pkill Xorg`或者`sudo restart lightdm`。这个命令会重启桌面的可视化程序。
 
 ##### 26 
 Windows10更新后覆盖了`grub`引导，重启后会直接进入Windows系统，没有选择系统的界面，无法进入其它系统。
