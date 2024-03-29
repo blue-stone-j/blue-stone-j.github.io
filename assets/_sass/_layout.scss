@@ -61,20 +61,23 @@ section {
   // background-color: $light-blue;
   height: auto;
   width: 24%;
-  margin: 0 0 0 0;
+  margin: 0 0 0 2%;
   float: left;
   .wrapper {
+    position: relative;
+    padding: 0;
     .content {
       .about  {
-        text-indent: 2em;
+        // text-indent: 2em;
         text-align:justify;
         color: $text-color;
-        margin: 20px 10%;
+        margin: 20px auto;
+        padding: 0 20px;
         // height: 100px;
         min-height: 80px;
       }
       position: relative;
-      margin: 10px auto;
+      // margin: 10px auto;
       width: 100%;
     }
   }
@@ -87,8 +90,9 @@ section {
     position: relative;
     background: url(../images/logo.jpg) center no-repeat;
     background-size: 100% 100%;
-    left: 50%;
-    margin-left: -75px;
+    // left: 50%;
+    // margin-left: -75px;
+    margin: 0 auto;
   }
 }
 
@@ -111,18 +115,18 @@ section {
   .wrapper {
     position: relative;
     padding: 0;
-    margin: 0px 0 0 -30px;
     .content {
       .about  {
-        text-indent: 2em;
+        // text-indent: 2em;
         text-align:justify;
         color: $text-color;
-        margin: 20px 10%;
+        margin: 20px auto;
+        padding: 0 20px;
         // height: 100px;
         min-height: 80px;
       }
       position: relative;
-      margin: 10px auto;
+      // margin: 10px auto;
       width: 100%;
     }
   }
@@ -130,8 +134,9 @@ section {
     position: relative;
     background: url(../images/gear.png) center no-repeat;
     background-size: 100% 100%;
-    left: 50%;
-    margin-left: -75px;
+    // left: 50%;
+    // margin-left: -75px;
+    margin: 0 auto;
   }
 }
 /**
@@ -146,18 +151,18 @@ section {
   .wrapper {
     position: relative;
     padding: 0;
-    margin: 0px 0 0 -30px;
     .content {
       .about  {
-        text-indent: 2em;
+        // text-indent: 2em;
         text-align:justify;
         color: $text-color;
-        margin: 20px 10%;
+        margin: 20px auto;
+        padding: 0 20px;
         // height: 100px;
         min-height: 80px;
       }
       position: relative;
-      margin: 10px auto;
+      // margin: 10px auto;
       width: 100%;
     }
   }
@@ -165,8 +170,9 @@ section {
     position: relative;
     background: url(../images/social.jpeg) center no-repeat;
     background-size: 100% 100%;
-    left: 50%;
-    margin-left: -75px;
+    // left: 50%;
+    // margin-left: -75px;
+    margin: 0 auto;
   }
 }
 
@@ -182,18 +188,18 @@ section {
   .wrapper {
     position: relative;
     padding: 0;
-    margin: 0px 0 0 -30px;
     .content {
       .about  {
-        text-indent: 2em;
+        // text-indent: 2em;
         text-align:justify;
         color: $text-color;
-        margin: 20px 10%;
+        margin: 20px auto;
+        padding: 0 20px;
         // height: 100px;
         min-height: 80px;
       }
       position: relative;
-      margin: 10px auto;
+      // margin: 10px auto;
       width: 100%;
     }
   }
@@ -201,8 +207,9 @@ section {
     position: relative;
     background: url(../images/dollar.jpeg) center no-repeat;
     background-size: 100% 100%;
-    left: 50%;
-    margin-left: -75px;
+    // left: 50%;
+    // margin-left: -75px;
+    margin: 0 auto;
   }
 }
 
