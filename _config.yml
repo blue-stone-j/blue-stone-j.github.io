@@ -42,7 +42,7 @@ comment:
 author:
   resume: /resume # 在about的resume按钮中使用，和根目录中的“resume”文件夹相呼应
   name: Blue Stone     #the name of Blog section
-  about_me: I'm Blue Stone. This is my online blog, where I share thoughts. Feel free to contact me by email if you have any questions.
+  about_me: I'm Blue Stone. This is my online blog, where I share thoughts. 
 natural_science:
   about: STEM include. (science, technology, engineering, mathematics) 
 social_science:
