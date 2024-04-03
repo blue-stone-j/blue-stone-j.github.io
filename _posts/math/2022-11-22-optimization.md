@@ -9,17 +9,7 @@ tags:
   - 优化
   - 
 ---
-<!-- 正如这本书的名字《高效C++》，这本书的目的在于提高C++编程能力，而不是入门C++。如果你刚接触C++，别的书更适合，例如《快速C++》(accelerated C++)。 -->
 
-
-
-# <center>一、习惯C++
-
-# <center>accustoming yourself to C++
-
-《Effective C++》的第一部分，理解C++。
-
-<br /> 
 #### 01.
 
 梯度(grad)
