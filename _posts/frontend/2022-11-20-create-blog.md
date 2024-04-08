@@ -12,23 +12,55 @@ tags:
 
 这篇文章总结了从零开始创建博客的过程，也介绍了一些相关的小知识点。考虑到某些步骤已经有了很好的教程，我就不再详述这些步骤，直接给出相关的链接。当然，我给出的是其中一种创建和使用的方法，你可以在学习的过程中接触更多的方法。
 
-## 一、创建托管
+# 一、创建托管
 
 创建托管的步骤基本就在[这里](https://pages.github.com/)。
 
-## 二、选择模板
+# 二、选择模板
 
-#### 1. 推荐一个模板并成功使用
-###### (1) 推荐 ice-bear
+### 1. 推荐一个模板并成功使用
+##### (1) 推荐 ice-bear
 我使用的模板为`ice-bear`，来自于
 
-###### (2) Jekyll的使用
+##### (2) Jekyll的使用
 
-2. 介绍该模板的文件结构，各文件的作用，Jekyll
+<!-- 2. 介绍该模板的文件结构，各文件的作用，Jekyll -->
 
 
-![pic1](/assets/images/posts/Windows-use/01-01.jpg)
+<!-- ![pic1](/assets/images/posts/Windows-use/01-01.jpg) -->
 
+##### (3) 添加latex支持
+在根目录中找到`_layouts`文件夹，在`defalult.html`中添加如下代码。把这段代码和`body`块保持同级即可。
+```html
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+      TeX: {
+        equationNumbers: {
+          autoNumber: "AMS"
+        }
+      },
+      extensions: ["tex2jax.js"],
+      jax: ["input/TeX", "output/HTML-CSS"],
+      tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+      processEscapes: true,
+      "HTML-CSS": { fonts: ["TeX"] }
+    }
+  });
+  MathJax.Hub.Register.MessageHook("Math Processing Error",function (message) {
+        alert("Math Processing Error: "+message[1]);
+      });
+  MathJax.Hub.Register.MessageHook("TeX Jax - parse error",function (message) {
+        alert("Math Processing Error: "+message[1]);
+      });
+</script>
+<script
+  type="text/javascript"
+  async
+  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML"
+></script>
+```
 
 ### Github Pages
 必须配置action，才能在每次提交后自动编译部署pages。`setting`->`Pages`->`Build and deployment`处添加编译需要的配置文件。直接使用默认的配置文件即可。然后把该文件添加到库并提交commit。
