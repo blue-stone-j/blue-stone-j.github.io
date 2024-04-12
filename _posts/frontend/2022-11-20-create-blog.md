@@ -16,21 +16,25 @@ tags:
 
 创建托管的步骤基本就在[这里](https://pages.github.com/)。
 
-# 二、选择模板
+# 二、Jekyll的使用
 
-### 1. 推荐一个模板并成功使用
-##### (1) 推荐 ice-bear
-我使用的模板为`ice-bear`，来自于
+### 1. 安装和简介
 
-##### (2) Jekyll的使用
-
+### 2. 文件结构
 <!-- 2. 介绍该模板的文件结构，各文件的作用，Jekyll -->
 
+### 3. 运行
+```bash
+# 生成html静态文件，保存在文件夹"_site"中
+jekyll build
+# 生成文件并启动相应的网络服务，如果本地文件有更改，自动重新生成。默认只监听本地的"127.0.0.1:4000"，只能在本机访问，不能从外部访问。
+jekyll serve
+# 监听来自指定IP地址的访问，可以从指定的IP地址访问。如果IP为"0.0.0.0"，则可从任意IP访问。
+jekyll serve --host 0.0.0.0
+```
 
-<!-- ![pic1](/assets/images/posts/Windows-use/01-01.jpg) -->
-
-##### (3) 添加latex支持
-在根目录中找到`_layouts`文件夹，在`defalult.html`中添加如下代码。把这段代码和`body`块保持同级即可。
+### 4. 添加latex支持
+markdown和jekyll都没有对数学公式的原生支持，上下标等通过html实现比较负责，而且影响编辑时的可读性。添加latex支持支持后，可以使用Latex语法的公式。此处以`mathjax`为例添加该支持。在根目录中找到`_layouts`文件夹，在`defalult.html`中添加如下代码。把这段代码和`body`块保持同级即可。
 ```html
 <script type="text/x-mathjax-config">
   MathJax.Hub.Config({
@@ -61,9 +65,10 @@ tags:
   src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML"
 ></script>
 ```
+# 三、配置
 
 ### Github Pages
-必须配置action，才能在每次提交后自动编译部署pages。`setting`->`Pages`->`Build and deployment`处添加编译需要的配置文件。直接使用默认的配置文件即可。然后把该文件添加到库并提交commit。
+必须配置action，才能在每次提交后自动编译部署pages。`setting`->`Pages`->`Build and deployment`处添加编译需要的配置文件。直接使用默认的配置文件即可。然后把该文件添加到库并提交commit。这个文件默认保存为`.github/workflows/jekyll-gh-pages.yml`。如果需要更改编译流程，更改这个文件即可。
 
 ### 域名配置
 这一步的是配置个性化的域名，即不再使用“username.github.io”这个域名(其中`username`为自己的github的用户名)，而是自定义一个域名。
