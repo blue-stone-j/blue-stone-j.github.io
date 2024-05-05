@@ -89,7 +89,14 @@ sudo make install
 ```bash
 No SOURCES given to target: flann_cpp
 ```
-解决方式可以参照这个链接：https://www.cnblogs.com/jiangyibo/p/16828214.html。其本质是因为编译生成库文件或可执行文件时，必须链接`cpp`文件。但是源码里面没有对应的`cpp`文件。这个解决方案中创建了空`cpp`文件并链接过去。
+解决方法如下
+```bash
+touch src/cpp/empty.cpp
+sed -e '/add_library(flann_cpp SHARED/ s/""/empty.cpp/' \
+-e '/add_library(flann SHARED/ s/""/empty.cpp/' \
+-i src/cpp/CMakeLists.txt
+```
+参考自这个链接：https://www.cnblogs.com/jiangyibo/p/16828214.html。其本质是因为编译生成库文件或可执行文件时，必须链接`cpp`文件。但是源码里面没有对应的`cpp`文件。这个解决方案中创建了空`cpp`文件并链接过去。
 
 # pcl
 ubuntu20 的默认安装是不包含gpu和cuda模块的。如果要使用这两个模块，必须通过源码编译安装，在编译时也要选择对应的模块。

@@ -10,9 +10,6 @@ tags:
   - 
 ---
 
-#
-
-
 # Operations and Maintenance
 
 ### network card

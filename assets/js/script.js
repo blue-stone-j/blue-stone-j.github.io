@@ -68,37 +68,37 @@ $(document).ready(function () {
     hideAll();     
     $(".tab03").addClass("active");
 	  $(".tab03-list").removeClass("tab-hidden");
-	  $(".page-holder-three").removeClass("tab-hidden");
+	  $(".page-holder03").removeClass("tab-hidden");
   }
   function showTab04 () {     
     hideAll();   
     $(".tab04").addClass("active");
 	  $(".tab04-list").removeClass("tab-hidden");
-	  $(".page-holder-four").removeClass("tab-hidden");
+	  $(".page-holder04").removeClass("tab-hidden");
   }
   function showTab05 () {     
     hideAll();   
     $(".tab05").addClass("active");
 	  $(".tab05-list").removeClass("tab-hidden");
-	  $(".page-holder-five").removeClass("tab-hidden");
+	  $(".page-holder05").removeClass("tab-hidden");
   }
   function showTab06 () {     
     hideAll();   
     $(".tab06").addClass("active");
 	  $(".tab06-list").removeClass("tab-hidden");
-	  $(".page-holder-six").removeClass("tab-hidden");
+	  $(".page-holder06").removeClass("tab-hidden");
   }
   function showTab07 () {     
     hideAll();   
     $(".tab07").addClass("active");
 	  $(".tab07-list").removeClass("tab-hidden");
-	  $(".page-holder-seven").removeClass("tab-hidden");
+	  $(".page-holder07").removeClass("tab-hidden");
   }
   function showTab08 () {     
     hideAll();   
     $(".tab08").addClass("active");
 	  $(".tab08-list").removeClass("tab-hidden");
-	  $(".page-holder-seven").removeClass("tab-hidden");
+	  $(".page-holder08").removeClass("tab-hidden");
   }
   function hideAll() {
     $(".tab01").removeClass("active");
@@ -111,27 +111,27 @@ $(document).ready(function () {
 
     $(".tab03").removeClass("active");
 		$(".tab03-list").addClass("tab-hidden");
-		$(".page-holder-three").addClass("tab-hidden");
+		$(".page-holder03").addClass("tab-hidden");
 
     $(".tab04").removeClass("active");
 		$(".tab04-list").addClass("tab-hidden");
-		$(".page-holder-four").addClass("tab-hidden");
+		$(".page-holder04").addClass("tab-hidden");
 
     $(".tab05").removeClass("active");
 		$(".tab05-list").addClass("tab-hidden");
-		$(".page-holder-five").addClass("tab-hidden");
+		$(".page-holder05").addClass("tab-hidden");
 
     $(".tab06").removeClass("active");
 		$(".tab06-list").addClass("tab-hidden");
-    $(".page-holder-six").addClass("tab-hidden");
+    $(".page-holder06").addClass("tab-hidden");
     
     $(".tab07").removeClass("active");
 		$(".tab07-list").addClass("tab-hidden");
-    $(".page-holder-seven").addClass("tab-hidden");
+    $(".page-holder07").addClass("tab-hidden");
     
     $(".tab08").removeClass("active");
 		$(".tab08-list").addClass("tab-hidden");
-		$(".page-holder-seven").addClass("tab-hidden");
+		$(".page-holder08").addClass("tab-hidden");
   }
 })
 
@@ -143,7 +143,7 @@ $(function(){
   // if not set, all posts in this container will be displayed
   // var pagehoder = document.getElementsByClassName("page-holder");
   // var length = $(".posts-tab-item").length;
-  // alert("id: " + pagehoder[1].id);
+  // alert("id: " + pagehoder.length);
   // for (var i = 0; i < length; i++) {
   //   $(pagehoder[i]).jPages({
   //     containerID  : pagehoder[i].id,
@@ -161,7 +161,7 @@ $(function(){
       containerID  : "pag-itemContainer-one",
       previous: "«",
       next: "»",
-      perPage      : 10,  /* num of items per page */
+      perPage      : 20,  /* num of items per page */
       startPage    : 1,
       startRange   : 1,
       midRange     : 4,
