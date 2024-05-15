@@ -2,7 +2,7 @@
 layout: post
 title:  "基于 JS 的移动端滑动插件对比"
 date:   2017-03-31 11:00:30 +0800
-categories: [Design]
+categories: []
 excerpt: 对比分析了目前几个主流的 JS 移动端滑动插件。
 tags:
   - front-end
@@ -10,6 +10,8 @@ tags:
   - Plugin
   - JavaScript
 ---
+
+categories: [Design]
 
 之前开发一个移动端的图片墙功能，需要实现图片的滑动、缩放功能，因此研究了一下目前比较流行的几个开源插件，这里总结一下。
 

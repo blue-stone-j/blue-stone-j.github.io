@@ -2,13 +2,15 @@
 layout: post
 title:  "React + Redux 实战：Selector App"
 date:   2017-03-01 18:00:30 +0800
-categories: [Design]
+categories: []
 excerpt: Selector 能够帮你化解生活中的选择困难问题，比如`吃什么`，`去哪玩`。
 tags:
   - front-end
   - React
   - Redux
 ---
+
+categories: [Design]
 
 开发中使用到的技术：React + Redux + Gulp + Browserify。利用`Browserify`，可以将`JSX`转化为`JS`代码，同时允许使用`require`实现项目的模块化。`Gulp`完成代码的打包。`Browserify`和`Gulp`的相关代码在`gulpFile.js`中，比较简单，不在此赘述。
 

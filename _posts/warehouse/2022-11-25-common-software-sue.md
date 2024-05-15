@@ -19,7 +19,7 @@ tags:
 点击[这里](https://juejin.cn/post/7032129567473188872)查看解决方案。这里面也提供了把转换中文编码方式的方法。
 
 ##### 2. 代码风格化
-把代码按照一定的规则风格化。可以在vscode中设置并同步，也可以使用一个文件来实现这个功能。我写了这个文件的模板，详细介绍了各项设置，可以在[这里](https://github.com/blue-stone-w/example/blob/main/.clang-format)获取。这个文件对其所在的目录内的文件和文件夹都生效。例如这个文件在`/Documents`文件夹下，则对`/Documents`文件夹内的所有`cpp`文件生效，包括子文件夹中的文件。
+把代码按照一定的规则风格化。可以在vscode中设置并同步，也可以使用一个文件来实现这个功能。我写了这个文件的模板，详细介绍了各项设置，可以在[这里](https://github.com/blue-stone-j/example/blob/main/.clang-format)获取。这个文件对其所在的目录内的文件和文件夹都生效。例如这个文件在`/Documents`文件夹下，则对`/Documents`文件夹内的所有`cpp`文件生效，包括子文件夹中的文件。
 
 ##### 4. plugins
 * 推荐添加的插件：`C/C++`(选择首个)；`Markdown all in one`；`CMake`；
@@ -64,7 +64,7 @@ ldd --version
 ldd (Ubuntu GLIBC 2.27-3ubuntu1.6) 2.27
 ```
 
-可以看到，我安装的版本是2.27。这个东西和系统底层有关，如果对系统内核不熟悉，建议不要升级至`GLIBC 2.28`，在我电脑上，升级后导致所有命令都无法输入。如果你已经升级了，很可能会遇到所有命令都提示`"Segmentation fault (core dumped)"`，点击[这里](http://blue-stone-w.top/blog/linux%E5%AD%A6%E4%B9%A0/)然后搜索`GLIBC`可能会找到解决方法。
+可以看到，我安装的版本是2.27。这个东西和系统底层有关，如果对系统内核不熟悉，建议不要升级至`GLIBC 2.28`，在我电脑上，升级后导致所有命令都无法输入。如果你已经升级了，很可能会遇到所有命令都提示`"Segmentation fault (core dumped)"`，点击[这里](http://blue-stone.top/blog/linux%E5%AD%A6%E4%B9%A0/)然后搜索`GLIBC`可能会找到解决方法。
 
 ### 5 bcompare
 ##### a.比较按钮无法选中
@@ -217,6 +217,7 @@ Net: $(speed(net.down))   $(speed(net.up))   CPU: $(percent(cpu.inuse))     Mem 
 ```
 net: {net} cpu: {cpu} mem: {mem}
 ```
+配置文件通常保存在`HOME`文件夹下，名称为`.indicator-sysmonitor.json`。
 
 ### 6. Chrome
 缩放zoom设置为`1.25~1.5`。

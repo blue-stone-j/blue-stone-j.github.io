@@ -37,7 +37,7 @@ ubuntu系统可以访问NTFS的磁盘，但win不能访问ext的磁盘。意味�
 
 * when choose option of intallation, I can see "multiple opteration systems". that means that I have installed two OS at least. choose the first option, alongsise with them.
 * 安装类型和空间分配  
-  如果选择第三项，自己分配空间。对于新手，我的建议是选择第一个，在安装过程中会自行分配各个空间和挂载点。如果安装第二个Ubuntu系统，你会遇到要求选择一个挂载点的界面，选择准备好的空间(在Windows下划分出的未分配的空间)后把`/`挂在上去。(对于`安装启动器的设备`，选择安装Windows所在的盘，具体可参考[十.10](http://blue-stone-w.top/blog/linux%E5%AD%A6%E4%B9%A0/)。 )<br /><br />
+  如果选择第三项，自己分配空间。对于新手，我的建议是选择第一个，在安装过程中会自行分配各个空间和挂载点。如果安装第二个Ubuntu系统，你会遇到要求选择一个挂载点的界面，选择准备好的空间(在Windows下划分出的未分配的空间)后把`/`挂在上去。(对于`安装启动器的设备`，选择安装Windows所在的盘，具体可参考[十.10](http://blue-stone.top/blog/linux%E5%AD%A6%E4%B9%A0/)。 )<br /><br />
 * 用户名和密码  
   从外界访问时，首先找到按照`计算机名`找到计算机，然后在该计算机内按照`用户名/username`找到用户。第一行的`姓名/name`是让人看的，之后系统会以这个名字称呼你。密码长度自己把握。因为在使用中经常需要输入密码，因此我倾向于使用短密码。在完成安装后也可以按照[这个方法](https://blog.csdn.net/garvie/article/details/55113691)更改为短密码。
   
