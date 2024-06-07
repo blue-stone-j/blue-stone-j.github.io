@@ -47,4 +47,5 @@ bind() failed: The specified address is not available from the local machine.(�
 
 如果使用其它网络调试工具，例如modbus，因为是一样。在无法创建服务端时，检查本地IP是否和要创建的服务端的IP一致。
 
-continue...
+#### 04
+Windows10 不能自动识别并挂在exfat文件系统的移动硬盘。可能是因为驱动器存在问题。可以通过扫描并修复驱动器。也可以在`磁盘管理`中手动挂载，`分配路径和驱动器号`。

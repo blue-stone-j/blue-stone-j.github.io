@@ -36,6 +36,12 @@ tags:
 ##### 7. 代码注释高亮
 better comments(https://www.cnblogs.com/suwanbin/p/13263732.html)
 
+##### 8. 删除缓存和配置
+保存的路径为`~/.vscode` `~/.config/Code` `~/Code` `~/.cache/Code` `~/.cache/vscode`
+
+##### 9. 阻止自动生成make文件
+`Cmake: Configure On Edit`和`Cmake: Configure On Open`
+
 ### 2. 录屏
 ##### (1) Ubuntu默认录屏
 系统自带的默认录屏工具，开始录屏/结束录屏：`Ctrl + Alt +Shift + r`
@@ -49,10 +55,11 @@ better comments(https://www.cnblogs.com/suwanbin/p/13263732.html)
 使用命令：`kazam`
 
 ### 3. 汉字
-* 需要安装fcitx，下载[搜狗输入法](https://shurufa.sogou.com/linux)`sogou`，具体安装方法可在[官网](https://shurufa.sogou.com/linux/guide)找到。其中20有个单独的安装介绍。
+* 需要安装fcitx，下载[搜狗输入法](https://shurufa.sogou.com/linux)`sogou`，具体安装方法可在[官网](https://shurufa.sogou.com/linux/guide)找到。其中ubuntu20有个单独的安装介绍。
 * 安装中有一个步骤是卸载系统自带的`ibus`，这个卸载不是必要的。
 * amd64选择x86_64这个版本。
 * 如果安装之后在“已安装的软件”中找不到，直接试试能不能用，如果能用就不要管能不能找到。
+* 对于ubuntu20和ubuntu22，安装过程中的依赖项安装不可省略
 
 ### 4 qt
 qt5.15及之后的版本是在线安装，之前的版本是离线安装。在线安装可点击[此处](https://www.qt.io/download-qt-installer?utm_referrer=https%3A%2F%2Fwww.qt.io%2Fdownload-open-source%3Futm_referrer%3Dhttps%253A%252F%252Fwww.qt.io%252Fdownload)下载`online-installer`。离线安装可点击[此处](https://download.qt.io/archive/qt/)下载安装包。建议直接使用在线安装器安装5.15及之后的版本。
@@ -111,7 +118,7 @@ enlarge tf: if axis of tf is too small, change `Marker Scale`. It can also chang
 start rviz with existing configuration.
 ```Bash
 rviz -d calib.rviz
-```~
+```
 ### 2. glog 
 ##### 1. install
 ```Bash

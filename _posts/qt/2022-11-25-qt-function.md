@@ -1,12 +1,11 @@
 ---
 layout: post
-title:  "qt学习"
+title:  "qt遇到的问题"
 date:   2024-01-05 11:20:55 +0800
 categories: [Tech]
-excerpt: 整理了使用qt中常用的数据类型、函数、qa等
+excerpt: 整理了使用qt中常用的数据类型、函数等
 tags:
   - qt 
-  - 
   - 
 ---
 
@@ -29,37 +28,6 @@ select_refer = new QPushButton();
 select_refer->setObjectName(QStringLiteral("selectRefer"));
 ```
 如果链接的cpp文件中声明和定义了函数`void on_select_refer_clicked()`，则编译时会自动把该函数关联为该控件的点击信号对应的槽函数。
-
-
-
-
-## 二、QA
-
-整理了使用qt中遇到的问题以及解决方案。这些方案并不总是能解决问题，只是提供一个排查问题的方向。
-
-#### 1 无法解析的外部符号
-
-原因分析：  
-1.类内使用了信号与槽，但未包含 Q_OBJECT 宏，因此需在类内加上Q_OBJECT  
-2.所需的库.lib文件未包含到项目；编译使用的64bit，但引用的库是32bit的；  
-3.项目未包含所需Qt模块；  
-4.类中定义了slot或函数，却没有实现。  
-
-#### 2
-
-使用QT同时编译pcl和opencv出现`error: field ‘pa ram_k_’ has incomplete type ‘flann::SearchParams’`。<br />
-错误原因：pcl和opencv中均包含flann库。而我在引用库时习惯性把整个库包含进来，导致出现两个名称相同的flann库，于是产生了这个错误。<br />
-解决方案：不要把整个大库包含进来，只包含需要的部分。此处我使用了pcl的flann库，然后包含opencv中需要的那部分。<br />
-
-#### 3
-现象使用CMake编译和运行qt的程序，运行时遇到了提示：
-```bash
-Unknown property font-color 
-```
-
-错误原因：Qt样式表中设置字体颜色应该使用`color`属性，而不是`font-color`。    
-
-解决方案：运行命令`grep -rnw './' -e 'font-color'`，查看当前目录及其子目录中搜索包含“font-color”的所有文件以及行号。结果在`*.ui`文件中。打开对应的`*.ui`文件，把`font-color`替换为`color`。
 
 
 ## 三、安装和卸载
