@@ -105,9 +105,9 @@ mat.setRandom(rows, cols);
 * vec(3) : 获取向量 vec 的第4个元素
 * vec[3] : 获取向量 vec 的第4个元素
 
-### san\ 数据操作及本身运算
+### 三、 数据操作及本身运算
 ##### 1. type conversion
-* Eigen::Affine3f和Eigen::Matrix4f的转换
+* `Eigen::Affine3f`和`Eigen::Matrix4f`的转换
 ```C++
 Eigen::Affine3f A;
 Eigen::Matrix4f M;
@@ -254,7 +254,7 @@ Eigen::MatrixXd eig_vector = eigen_solver.pseudoEigenvectors();
 ```
 
 ##### 3. 
-* 
+
 ```C++
 MatrixXf m(2,2);
 MatrixXf n(2,2);
@@ -265,6 +265,7 @@ result = m.cwiseProduct(n); // 对应项相乘
 
 ##### 6. rotation
 * 角轴 <--> 四元数
+
 ```C++
 Eigen::AngleAxisd rollAngle(Eigen::AngleAxisd(rpy[0],Eigen::Vector3d::UnitX()));
 Eigen::AngleAxisd pitchAngle(Eigen::AngleAxisd(rpy[1],Eigen::Vector3d::UnitY()));
@@ -278,7 +279,9 @@ AngleAxisf aa1;
 aa1 = q; // 赋值是可以的，不过必须要像这样分两行写，而不能写成一行 `AngleAxisf aa = q`。
 AngleAxisf aa2(q);
 ```
+
 * 旋转阵 --> 四元数
+
 ```C++
 Matrix3f rot = Matrix3f::Identity();
 Quaternion q3;
@@ -323,7 +326,7 @@ x = A.svd().solve(b));  // Stable, slowest. #include <Eigen/SVD>
 * 
 * 
 
-### five\ calculate
+### 六、 calculate
 ##### 1. 
 ----------------------------------------
 reshape()

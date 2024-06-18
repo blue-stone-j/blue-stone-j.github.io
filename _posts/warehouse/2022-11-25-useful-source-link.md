@@ -43,8 +43,11 @@ tags:
 
 
 
-
-
+# 四、其它
+##### 1. 临时邮箱
+[临时邮箱1](https://www.linshiyouxiang.net/)
+[临时邮箱2](https://temp-mail.org/zh/view/cfff4f1f3a215e146e60554023ffa8e7)
+[临时邮箱3](https://www.guerrillamail.com/zh/)
 
 
 

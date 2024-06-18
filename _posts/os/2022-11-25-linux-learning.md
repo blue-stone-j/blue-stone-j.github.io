@@ -304,3 +304,51 @@ Windows10更新后覆盖了`grub`引导，重启后会直接进入Windows系统�
 
 ##### 27
 Ubuntu18蓝牙关闭后打不开。首先使用命令完全阻止蓝牙： `rfkill block bluetooth`。然后使用命令解除阻止： `rfkill unblock bluetooth`。此时蓝牙应该已经正常打开。如果还是不行，试一下`sudo service bluetooth restart`
+
+##### 28 无法正确识别显示器的分辨率
+安装ubuntu后，无法正确识别显示器的分辨率，`1920x1080`的显示器被识别为`1080x768`的分辨率。使用`xrandr`得到如下输出
+```bash
+xrandr: failed to get size of gamma for output default
+Screen 0: minimum 1024x768+0+0 0mm x 0mm
+  1024x768     76.00*
+```
+以下是一种解决方案。
+open the file
+```bash
+sudo nano /etc/default/grub
+```
+find the line
+```bash
+#GRUB_GFXMODE=640x480
+```
+edit 640x480 to your resolution eg: 1920x1080, remove the #
+
+for example:
+```bash
+GRUB_GFXMODE=1920x1080 
+```
+Update by the command
+```bash
+sudo update-grub
+```
+Then reboot your computer.
+```bash
+sudo reboot
+```
+参考链接：[1](https://askubuntu.com/questions/441040/failed-to-get-size-of-gamma-for-output-default-when-trying-to-add-new-screen-res)和[2](https://blog.csdn.net/xj626852095/article/details/47703565)。
+
+##### 29 AppImage
+在新安装的ubuntu上运行AppImage文件时遇到如下错误。
+```bash
+dlopen(): error loading libfuse.so.2
+
+AppImages require FUSE to run. 
+You might still be able to extract the contents of this AppImage 
+if you run it with the --appimage-extract option. 
+See https://github.com/AppImage/AppImageKit/wiki/FUSE 
+for more information
+```
+这里的问题是 Ubuntu 缺少 FUSE（用户空间中的文件系统）库。FUSE 库为用户空间程序提供了一个接口，可以将虚拟文件系统导出到 Linux 内核。这就是 AppImage 在虚拟文件系统上的工作方式。由于缺少这个关键库，AppImage 无法按预期工作。在 Ubuntu 中打开终端并使用以下命令安装 FUSE 库支持：
+```bash
+sudo apt install libfuse2
+```

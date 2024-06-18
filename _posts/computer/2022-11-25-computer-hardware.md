@@ -9,6 +9,13 @@ tags:
   - hardware
 ---
 
+# CPU
+x86是指intel的开发的一种32位指令集。AMD制造出了兼容x86的CPU，AMD称之为AMD64。Intel选择了设计一种不兼容x86的全新64为指令集，后开始支持AMD64的指令集，叫x86_64，表示是x86指令集的64扩展。实际上，x86_64、x64、AMD64基本上是同一个东西，我们现在用的intel/amd的桌面级CPU基本上都是x86_64。
+
+ARM（Advanced RISC Machine or Acorn RISC Machine）也是一个架构，非常适用于移动通信这种低成本，高性能，低耗电的领域。
+
+AArch64是 ARMv8 内全新的构架，完全使用全新的 A64 指令集，不支持32位的系统。
+
 # 内存
 ECC是“Error Checking and Correcting”的简写。ECC内存为服务器内存，该类内存条多了一颗ECC错误校验储存芯片。由于服务器的内存应用对于其容量要求更高，因此ECC内存条容量通常比普通内存条容量通常高。由于ECC内存条的技术含量更高，内存容量也较普通内存大。因此ECC内存条比普通内存的价格要贵。
 

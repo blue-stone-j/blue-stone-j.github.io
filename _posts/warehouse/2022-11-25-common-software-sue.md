@@ -42,6 +42,9 @@ better comments(https://www.cnblogs.com/suwanbin/p/13263732.html)
 ##### 9. 阻止自动生成make文件
 `Cmake: Configure On Edit`和`Cmake: Configure On Open`
 
+##### 10. 环境变量
+在Windows环境下，如果环境变量发生改变，需要关闭vscode再打开，才能使环境变量生效。只关闭和打开新的终端不能应用最新的环境变量。
+
 ### 2. 录屏
 ##### (1) Ubuntu默认录屏
 系统自带的默认录屏工具，开始录屏/结束录屏：`Ctrl + Alt +Shift + r`
@@ -99,7 +102,7 @@ sudo snap install pycharm-educational --classic
 
 
 # <center>二、仿真和调试
-### 一、gazebo
+### 1. gazebo
 ##### 1. 注意版本对应
 `Ubuntu18`是`gazebo9`；
 
@@ -111,7 +114,7 @@ sudo snap install pycharm-educational --classic
 ```
 sudo gazebo my_world
 ```
-### 2 rviz
+### 2. rviz
 ##### 1.
 enlarge tf: if axis of tf is too small, change `Marker Scale`. It can also change the radius of links between frames. 
 ##### 2.
@@ -119,10 +122,16 @@ start rviz with existing configuration.
 ```Bash
 rviz -d calib.rviz
 ```
-### 2. glog 
+### 3. glog 
 ##### 1. install
 ```Bash
 sudo apt install libgoogle-glog-dev
+```
+
+### 4. cloudcompare
+默认安装的cloudcompare无法读取和显示pcd文件，需要安装edge版本。可使用以下命令安装。
+```bash
+sudo snap install cloudcompare --edge
 ```
 
 # <center>3  ROS and lib
