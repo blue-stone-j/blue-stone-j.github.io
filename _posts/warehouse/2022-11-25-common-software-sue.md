@@ -250,6 +250,12 @@ sudo apt install net-tools
 ### 9. 钉钉
 IOS系统的手机用相机拍摄视频后，在相册中直接上传到钉钉，从钉钉下载该视频会下载失败。在手机上把视频保存到文件，在文件app中把视频上传到钉钉后，可以从钉钉下载。
 
+### 10. securecrt
+1. display remote screen: session manager->sessions->right click->properties->remote/X11->X11 forwarding(second group)->enable "Forward X11 packets".
+2. disable confirm when disconnect: menu->options->global options->general(first item)->dialogs(first group)->disable "show confirm disconnect dialog"
+3. cursor: session manager->sessions->right click->properties->appearance->cursor->cursor style
+4. parallel transfer: menu->options->global options->file transfer-options->transfer options->"max number of parallel transfer"
+
 # <center> 5 other
 ### 1. expect
 这是在Linux系统中常用的一个交互命令工具。

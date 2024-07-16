@@ -59,25 +59,6 @@ exit
 `CTRL+S`表示停止向终端停止输出; `CTRL+Q`恢复向终端输出流。期间的输入会缓存在流中，恢复输出流后一次性输出至终端。<br />
 `CTRL+D`表示关闭当前所在的终端页面。
 
-##### 6. 代理
-查看当前代理
-```
-env|grep -i proxy
-```
-设置代理
-```
-export http_proxy=118.210.42.251:44367
-或：
-export https_proxy=118.210.42.251:44367
-```
-取消代理
-```
-unset http_proxy
-或：
-unset https_proxy
-```
-以上操作只对当前终端有效。
-
 ##### 7. 远程主机界面
 连接到远程主机，在远程主机启动程序，并把对应的图像传回本地。
 ```shell
@@ -315,7 +296,7 @@ Screen 0: minimum 1024x768+0+0 0mm x 0mm
 以下是一种解决方案。
 open the file
 ```bash
-sudo nano /etc/default/grub
+sudo gedit /etc/default/grub
 ```
 find the line
 ```bash
@@ -352,3 +333,13 @@ for more information
 ```bash
 sudo apt install libfuse2
 ```
+
+##### 30 
+It ocurred when I run cmd `sudo dpkg -r foxglove-studio.deb`.
+```bash
+dpkg: error: you must specify packages by their own names, not by quoting the names of the files they come in
+```
+Actually, I should run cmd `sudo dpkg -r foxglove-studio`.
+
+##### 31 
+
