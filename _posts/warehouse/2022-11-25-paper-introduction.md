@@ -263,6 +263,18 @@ b198 m498 f238 y250
 
 ---
 
+`点云`
+
+2018 Reflection Removal for Large-Scale 3D Point Clouds
+
+A method to remove virtual points generated from mirror reflection.
+
+Assume that points on mirror always can be found. Then estimate mirror plane model from these points. At last, use 3D feature descriptors to evaluate geometric similarity to judge whether a point is reflection.
+
+In this work, also assume that only a single dominant glass plane exists.
+
+---
+
 # <center>2017</center>
 
 `路径跟踪` `控制算法` `****`
@@ -400,6 +412,14 @@ PID控制; 主从追随; 阿克曼转向;
 
 ---
 2015 Line segment extraction for large scale unorganized point clouds
+
+---
+
+`点云`
+
+2015 MIRROR IDENTIFICATION AND CORRECTION OF 3D POINT CLOUDS
+
+This paper describes a complete solution to correct point clouds that contain a mirror of known size. In pratice, It's almost impossible to konw the size of mirror. So I just skip this paper.
 
 ---
 # <center>2014</center>

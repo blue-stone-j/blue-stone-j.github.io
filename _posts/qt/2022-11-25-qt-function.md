@@ -33,3 +33,10 @@ select_refer->setObjectName(QStringLiteral("selectRefer"));
 ## 三、安装和卸载
 #### 1. 卸载
 在`Qt`这个根路径下，运行`MaintainTool`这个文件。
+
+
+### other
+##### 1. convert ui to head file
+```bash
+uic -o ui_main_window.h main_window.ui
+```

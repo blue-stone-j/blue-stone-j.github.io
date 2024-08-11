@@ -100,6 +100,9 @@ sudo snap install pycharm-educational --classic
 * preference-->Editor-->tab stop
 * preference-->plugins-->
 
+### 10. gimp
+A powerful image viewer and editor that compatible with many image types. Run `sudo apt install gimp` to install it.
+
 
 # <center>二、仿真和调试
 ### 1. gazebo
@@ -255,6 +258,7 @@ IOS系统的手机用相机拍摄视频后，在相册中直接上传到钉钉�
 2. disable confirm when disconnect: menu->options->global options->general(first item)->dialogs(first group)->disable "show confirm disconnect dialog"
 3. cursor: session manager->sessions->right click->properties->appearance->cursor->cursor style
 4. parallel transfer: menu->options->global options->file transfer-options->transfer options->"max number of parallel transfer"
+5. file permissions: file transfer->Options->Advanced->file permissions
 
 # <center> 5 other
 ### 1. expect

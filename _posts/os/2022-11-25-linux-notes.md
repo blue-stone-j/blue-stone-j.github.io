@@ -336,7 +336,7 @@ df -h  # 查看每个根路径的分区大小
 
 `umount 设备名称`或者`umount 挂载点`卸载设备，因为设备名称和挂载点是一一对应的。
 
-磁盘自动挂载在文件“/etc/fstab”中。“dump”为1每天定时备份，为0则不备份。“pass”为文件系统检查的优先级。命令`fsck`会在开机后执行，用于检查磁盘，会先检查“pass”为1的磁盘，再检查“pass”为2的磁盘，“pass”为0表示不检查。开机启动挂载的设置也在这个文件。  
+磁盘自动挂载在文件`/etc/fstab`中。“dump”为1每天定时备份，为0则不备份。“pass”为文件系统检查的优先级。命令`fsck`会在开机后执行，用于检查磁盘，会先检查“pass”为1的磁盘，再检查“pass”为2的磁盘，“pass”为0表示不检查。开机启动挂载的设置也在这个文件。  
 
 以下为一个使用示例。
 
@@ -695,6 +695,7 @@ _chown_
 |---|---|
 |`chown 选项 最终用户 文件或目录`|“change owner”的缩写|
 |`-R`|递归操作|
+If you try to change owner of file or directory stored in ntfs system(Windows), it's possible to fail. 
 
 _chgrp_
 
@@ -1086,3 +1087,46 @@ inode: 保存了文件的元信息，文件类型、文件权限、文件的链�
 登录桌面时的用户；图形化桌面环境也是root用户。
 
 端口号：0-65535，默认使用，ssh用22，网页用80，mysql用3306
+
+### shortcut
+customized shortcut can be stored in folder `~/.local/share/applications`, such as `~/.local/share/applications/myapp.desktop`.
+
+### pack deb
+##### step
+1. set varibles for dpkg: add lines below to `.bashrc`
+```bash
+DEBEMAIL="email@moxa.com"
+DEBFULLNAME="name family"
+export DEBEMAIL DEBFULLNAME
+```
+2. compile and install files into folder `helloworld-1.0.0`.
+3. `tar -zcvf helloworld-1.0.0.tar.gz helloworld-1.0.0/`
+4. `cd helloworld-1.0.0`
+5. init dpkg
+```bash
+dh_make -f ../helloworld-1.0.0.tar.gz -n -s -y
+# -s：Automatically set the package class to Single binary, skipping the question.
+# -n：Create a native Debian packages
+# -y：Automatic yes to prompts and run non-interactively. The package class needs to be set for dh_make to run fully automatically.
+```
+6. 如果你的软件包需要那些标准的 `make install` 没有安装的文件, create file `install`. 
+7. create deb file: `dpkg-buildpackage -us -uc`
+
+##### NOTE
+1. If you run the step5, and then you copy or move a file named `install` from `ntfs` file system to folder `debian`, you may get error like below
+```bash
+debian/install: 1: assets/add.jpeg: Permission denied
+QStandardPaths: wrong ownership on runtime directory /run/user/1000, 1000 instead of 0
+```
+<!-- However, you can do like this: create the file `install`, and store the whole folder `debian`. The folder can be reused. -->
+
+
+### bash
+##### add cmake path
+```bash
+export PATH="$PATH:/path/to/your/folder"
+```
+##### add library path
+```bash
+export LD_LIBRARY_PATH="/path/to/your/libraries:$LD_LIBRARY_PATH"
+```
