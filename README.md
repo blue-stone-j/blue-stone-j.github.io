@@ -22,7 +22,7 @@ Jekyll will check format of file name and transform files that pass check. Here,
 ### .github
 This repository will be translated to static web pages by Jekyll. Environment and steps for this translation is defined here.
 
-### asserts
+### assets
 This folder isn't necessary for Jekyll. Style and special effects are defined here. For instance, you can find a bear at home page on this static website. Images for posts are also stored here.
 
 ### resume

@@ -34,9 +34,53 @@ select_refer->setObjectName(QStringLiteral("selectRefer"));
 #### 1. 卸载
 在`Qt`这个根路径下，运行`MaintainTool`这个文件。
 
+#### 
+If you try to source environment when you launch qt, you should add `bash -i -c` to [Desktop Entry] of qt. For example, `Exec=bash -i -c /home/ubuntu/Qt5.10.1/Tools/QtCreator/bin/qtcreator`
+
 
 ### other
 ##### 1. convert ui to head file
 ```bash
 uic -o ui_main_window.h main_window.ui
+```
+
+##### 2. translation
+```bash
+# create or update .ts file
+lupdate .  -ts translations/cn.ts
+```
+Compile the Translation File
+```bash
+lrelease translations/cn.ts -qm translations/cn.qm
+```
+code like this
+```c++
+#include <QApplication>
+#include <QTranslator>
+#include <QLocale>
+#include <QMainWindow>
+
+int main(int argc, char *argv[]) 
+{
+  QApplication app(argc, argv);
+
+  QTranslator translator;
+  QString locale = QLocale::system().name(); // Detect system locale
+  if (translator.load(":/translations/your_translation_file_" + locale + ".qm")) 
+  {
+    app.installTranslator(&translator);
+  } 
+  else 
+  {
+    // Optionally, load a default language if the system locale is not supported
+    translator.load(":/translations/your_translation_file_en.qm");
+    app.installTranslator(&translator);
+  }
+
+  QMainWindow mainWindow;
+  mainWindow.setWindowTitle(QApplication::translate("MainWindow", "MainWindow"));
+  mainWindow.show();
+
+  return app.exec();
+}
 ```

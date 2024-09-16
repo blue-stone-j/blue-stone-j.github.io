@@ -49,3 +49,8 @@ bind() failed: The specified address is not available from the local machine.(�
 
 #### 04
 Windows10 不能自动识别并挂在exfat文件系统的移动硬盘。可能是因为驱动器存在问题。可以通过扫描并修复驱动器。也可以在`磁盘管理`中手动挂载，`分配路径和驱动器号`。
+
+##### 05 two same icon on desktop
+把C盘Documents and Settings下的All Users.WINDOWS中的桌面文件夹覆盖到了当前用户名下的桌面文件夹中，然后我的桌面上出现了2个一样的图标,删一个另一个也没了。
+
+在升级系统或移动文件夹时把不同用户下的“桌面”文件夹重叠到一起了，解决办法：点 开始－运行－输regedit打开注册表，然后在 HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\User Shell Folders 右边窗口找到Desktop键，点右键删除，或者修改成D:\桌面（或者D:\desktop或者 E:\Love You 等等，选在哪个盘下叫什么，你自己根据情况自己定，只要不冲突就行）然后重启动就可以了！ 
