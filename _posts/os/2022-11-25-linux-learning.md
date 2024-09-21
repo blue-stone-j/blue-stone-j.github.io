@@ -342,4 +342,10 @@ dpkg: error: you must specify packages by their own names, not by quoting the na
 Actually, I should run cmd `sudo dpkg -r foxglove-studio`.
 
 ##### 31 
+It ocurred when I used `apt` to install package.
+```bash
+E: dpkg was interrupted, you must manually run 'sudo dpkg --configuration -a' tp correct the problem.
+```
+reason: The error indicates that a previous installation or update process was interrupted, and dpkg is left in an inconsistent state. 
 
+solution: run command `sudo dpkg --configuration -a`, and set password for secure boot.
