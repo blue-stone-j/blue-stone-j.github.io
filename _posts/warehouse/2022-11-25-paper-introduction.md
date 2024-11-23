@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "论文简介"
-date:   2024-01-05 11:20:55 +0800
+date:   2024-11-24 06:54:24 +0800
 categories: [Tech]
 excerpt: 这篇文章整理了SLAM和感知相关论文的简介。
 tags:
@@ -32,7 +32,7 @@ tags:
 
 `毫米波雷达` `视觉` `融合` `***`
 
-2022 MmWave Radar and Vision Fusion for Object Detection in Autonomous Driving: A Review
+2022(*) MmWave Radar and Vision Fusion for Object Detection in Autonomous Driving: A Review
 
 毫米波雷达和视觉的融合三种方式以及对应的经典算法
 
@@ -50,7 +50,7 @@ tags:
 
 `点云分割` `****`
 
-2021 Patchwork: Concentric Zone-based Region-wise Ground Segmentation with Ground Likelihood Estimation Using a 3D LiDAR Sensor
+2021(*) Patchwork: Concentric Zone-based Region-wise Ground Segmentation with Ground Likelihood Estimation Using a 3D LiDAR Sensor
 
 PCA计算单位空间的法向量, 基于垂直度高度平面度地面似然估计模型
 
@@ -60,7 +60,7 @@ PCA计算单位空间的法向量, 基于垂直度高度平面度地面似然估
 
 `激光SLAM` `*****`
 
-2020 RLINS A Lidar-Inertial State Estimator for Robust and Efficient Navigation
+2020(*) RLINS A Lidar-Inertial State Estimator for Robust and Efficient Navigation
 
 基于2018LeGO-LOAM框架, 在优化部分使用迭代卡尔曼滤波计算优化的步长
 
@@ -76,9 +76,9 @@ PCA计算单位空间的法向量, 基于垂直度高度平面度地面似然估
 
 `激光感知` `追踪` `****`
 
-2020 3D Multi-Object Tracking: A Baseline and New Evaluation Metrics
+2020(*) 3D Multi-Object Tracking: A Baseline and New Evaluation Metrics
 
-卡尔曼滤波预测 --> 用3D相交判定匹配 --> 卡尔曼滤波更新状态；新的多目标追踪评估工具
+卡尔曼滤波预测 --> 用3D相交判定匹配 --> 卡尔曼滤波更新状态; 新的多目标追踪评估工具
 
 ---
 
@@ -100,6 +100,34 @@ PCA计算单位空间的法向量, 基于垂直度高度平面度地面似然估
 点云配准验证：
 
 ---
+`lidar` `*****`
+
+2020 Performance Analysis of 10 Models of 3D LiDARs for Autonomous Driving
+
+Significant secondary reflections were observed in the VLP-32c and OS1-16. Usually this occurred for a small subset of points, at close distances, specifically on the high intensity target. Since this reflective material is similar to the one used for traffic signs and other road markers, this problem could lead to both false detections, positive and negative, in the real world and should be addressed.
+
+one previous study noted that reflective surfaces were difficult to detect at a large angle of incidence [27]. This suggest that white, highly reflective paint may not be a good choice for automated vehicles using LiDAR technology.
+
+This work is limited to three targets, one with very high reflectivity (diamond target) and one with very low reflectivity (velvet target). One weakness of our experiments is that these are extreme cases that are uncommon in the real world. However, these experiments serve to set some bounds on LiDAR performance and these particular cases have not been addressed in current literature. Furthermore, the white poster board target is expected to be easily
+identifiable with strong but not overwhelming reflectivity [41], and may be referred to for typical behavior.
+
+Many LiDARs performed worse on diamond-grade reflective sheet at close range, usually on the order of an additional 0.02 m RMSE.
+
+The results for range measurement highlight the need for better manufacturing and calibration of LiDARs. All LiDARs had standard deviations much smaller than what was found in the residual error analysis of Section IV-B.
+The Velodyne sensors all have single laser precision on the order of ±5 mm, nearly an order of magnitude less than the overall point cloud precision. This tells us the calibration of the sensor is the main source of error.
+
+
+The vehicle and pedestrian were also segmented manually by establishing the ground plane and creating a bounding box using the known size of the object.
+
+This raises concerns about custom non-reflective paints which may quickly be rendered invisible to LiDARs.
+
+Mechanical LiDARs without adaptive scanning capabilities are simply not well-suited for identifying thin objects at long distances due to limits in horizontal resolution; flash LiDARs may be better suited for this task.
+
+In extended targets where the size of target is larger than the laser footprint, the laser beam divergence has greater influence than for point.
+
+The influence of range and angle of incidence varies in ALS and TLS. Ranges are typically much greater and exhibit less percent variability in ALS than in TLS.
+
+---
 
 # <center>2019</center>
 `雷达相机标定` `*****`
@@ -112,7 +140,7 @@ PCA计算单位空间的法向量, 基于垂直度高度平面度地面似然估
 
 `激光SLAM` `*****`
 
-2019 Loam livox: A fast, robust, high-precision LiDAR odometry and mapping package for LiDARs of small FoV
+2019(*) Loam livox: A fast, robust, high-precision LiDAR odometry and mapping package for LiDARs of small FoV
 
 算法前端和后端, 基于LOAM的针对小视场角的固态激光雷达的改进方法
 
@@ -230,7 +258,7 @@ PCA计算单位空间的法向量, 基于垂直度高度平面度地面似然估
 
 ---
 
-2018 一种GNSS与SINS组合导航算法研究
+2018(x) 一种GNSS与SINS组合导航算法研究
 
 ---
 
@@ -308,7 +336,7 @@ a. pre-filtering: 体素滤波 --> 提取大平面(去除人和cluster;鲁棒匹
 
 `点云分割`
 
-2017 SegMatch: Segment Based Place Recognition in 3D Point Clouds
+2017(*) SegMatch: Segment Based Place Recognition in 3D Point Clouds
 
 1.分割：2011 On the Segmentation of 3D LIDAR Point Clouds
 
@@ -356,7 +384,7 @@ PID控制; 主从追随; 阿克曼转向;
 
 `点云分割` `****`
 
-2017 Fast Segmentation of 3D Point Clouds: A Paradigm on LiDAR Data for Autonomous Vehicle Applications
+2017(*) Fast Segmentation of 3D Point Clouds: A Paradigm on LiDAR Data for Autonomous Vehicle Applications
 
 高度选取地面种子点并用法向量扩展为地面; 改进的欧氏聚类: 二维图从上至下赋标签并从下至上更新标签;
 
@@ -411,6 +439,7 @@ PID控制; 主从追随; 阿克曼转向;
 运用卡尔曼滤波减少震动、车轮半径等误差
 
 ---
+
 2015 Line segment extraction for large scale unorganized point clouds
 
 ---
@@ -420,6 +449,11 @@ PID控制; 主从追随; 阿克曼转向;
 2015 MIRROR IDENTIFICATION AND CORRECTION OF 3D POINT CLOUDS
 
 This paper describes a complete solution to correct point clouds that contain a mirror of known size. In pratice, It's almost impossible to konw the size of mirror. So I just skip this paper.
+
+---
+
+`*****`
+2015 A Review of LIDAR Radiometric Processing From Ad Hoc Intensity Correction to Rigorous Radiometric Calibration
 
 ---
 # <center>2014</center>
@@ -442,7 +476,7 @@ This paper describes a complete solution to correct point clouds that contain a 
 
 `标定`
 
-2012 Automatic Camera and Range Sensor Calibration using a single Shot
+2012(*) Automatic Camera and Range Sensor Calibration using a single Shot
 
 根据棋盘格的角点特征，把棋盘格的角点分为4类。从图像中的识别所有角点，然后使用棋盘格生成的方法，按照棋盘格的边的方向，从某个角点出发生成该点所在的棋盘格。依次遍历所有角点，这样就一次从一张图片中识别出多个棋盘格。
 
@@ -495,7 +529,7 @@ This paper describes a complete solution to correct point clouds that contain a 
 
 `点云分割` `*****`
 
-2010 LSD: A Fast Line Segment Detector with a False Detection Control
+2010(*) LSD: A Fast Line Segment Detector with a False Detection Control
 
 利用灰度图的灰度梯度提取直线
 
@@ -517,7 +551,7 @@ Excellent work. You can't miss it if you are on computer version.
 
 `RTK`
 
-2007 网络RTK定位原理与算法研究
+2007(*) 网络RTK定位原理与算法研究
 
 ---
 
@@ -525,7 +559,7 @@ Excellent work. You can't miss it if you are on computer version.
 
 `组合导航`
 
-1997 车载 GPS DR 组合导航系统的研究及其滤波算法
+1997(*) 车载 GPS DR 组合导航系统的研究及其滤波算法
 
 GPS_DR利用测量值和观测方程求取状态转移矩阵
 
@@ -535,6 +569,6 @@ GPS_DR利用测量值和观测方程求取状态转移矩阵
 
 `力学` `**`
 
-1991 机器人机电一体化设计方法与应用研究 运动学及力学分析
+1991(*) 机器人机电一体化设计方法与应用研究 运动学及力学分析
 
 考虑了阻尼和弹性的运动学及力学分析

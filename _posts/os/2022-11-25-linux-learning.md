@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Linux以及相关qa"
-date:   2024-01-05 11:20:55 +0800
+date:   2024-11-24 06:54:24 +0800
 categories: [OS]
 excerpt: 总结了Linux常用命令、qa
 tags:
@@ -73,10 +73,42 @@ rviz
 
 ### 三.设备
 
+##### 1. ADB(Android Debug Bridge)
+1. Add a Udev Rule for the Device: To allow users in the plugdev group to access the device, create a Udev rule file.
 
-##### 5. 网络连接和设备
+Run this command to open a new Udev rules file:
+```bash
+sudo nano /etc/udev/rules.d/51-android.rules
+```
+Add the following line to the file, replacing YOUR_VID with your device's vendor ID (often `18d1` for Google devices, but you can find this with `lsusb`):
+```
+SUBSYSTEM=="usb", ATTR{idVendor}=="YOUR_VID", MODE="0666"
+```
+Save the file and close the editor.
+2. Reload Udev Rules:
+Apply the new rule by reloading the Udev rules and restarting the Udev service:
+```bash
+sudo udevadm control --reload-rules
+sudo service udev restart
+```
+3. Reconnect the Device:
+Disconnect and reconnect your Android device, then run:
+```bash
+adb kill-server
+adb start-server
+adb devices
+```
+4. You can run `adb devices` to list all avaliable devices or `adb shell` to connect device now.
+5. You can use `adb push <source> <destination>` to copy files from the computer to the device and use `adb pull <source> <destination>` copy files from the device to the computer.
+
+##### 2. 网络连接和设备
 iwconfig
 ethtool
+
+##### 3. infomation about cpu
+```bash
+lscpu
+```
 
 ### 4 customize
 ##### 1. Hide Mounted Drives on the Ubuntu Dock
@@ -349,3 +381,18 @@ E: dpkg was interrupted, you must manually run 'sudo dpkg --configuration -a' tp
 reason: The error indicates that a previous installation or update process was interrupted, and dpkg is left in an inconsistent state. 
 
 solution: run command `sudo dpkg --configuration -a`, and set password for secure boot.
+
+##### 32
+```bash
+rm: cannot remove No such file or directory
+```
+use `rm -f`.
+
+##### 33
+`Ceres` depends on glog. I did something:
+1. install glog 0.4.0
+2. install ceres 2.1.0
+3. uninstall glog 0.4.0
+4. install glog 0.6.0
+5. failed to compile a C++ package because glog cloudn't be found.
+solution: compile and install ceres again.

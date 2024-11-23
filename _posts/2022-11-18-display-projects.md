@@ -1,8 +1,8 @@
 ---
 layout: post
 title:  "display point cloud"
-date:   2024-01-05 11:20:55 +0800
-categories: [Lan]
+date:   2024-11-24 06:54:24 +0800
+categories: [Tech]
 excerpt: Comparison between different projects to display point cloud
 tags:
   - shader

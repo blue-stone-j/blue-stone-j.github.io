@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "优化"
-date:   2024-01-05 11:20:55 +0800
+date:   2024-11-24 06:54:24 +0800
 categories: [Math]
 excerpt: 优化算法
 tags:
@@ -62,5 +62,3 @@ h=-(JTJ+μI)^(-1)*(JTF(x)),μ>0
 根据近似情况选取步长
 终止条件：一阶导数足够小；步长足够小；达到最大迭代次数。
 
-查看ceres版本
-sudo cat /usr/local/include/ceres/version.h

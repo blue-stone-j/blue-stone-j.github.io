@@ -1,2 +1,4 @@
-*.md text=auto eol=lf
+# Markdown files are treated as text with consistent line endings (LF), making collaboration smoother across platforms 
+# by avoiding unnecessary line-ending differences in Git.
+*.md text=auto eol=lf 
 

@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "常用软件使用"
-date:   2022-11-20 08:30:00 +0800
+date:   2024-11-24 06:54:24 +0800
 categories: [Tech]
 excerpt: 记录了常用软件的使用方法、技巧以及在使用中遇到的问题和解决方案
 tags:
@@ -19,7 +19,7 @@ tags:
 点击[这里](https://juejin.cn/post/7032129567473188872)查看解决方案。这里面也提供了把转换中文编码方式的方法。
 
 ##### 2. 代码风格化
-把代码按照一定的规则风格化。可以在vscode中设置并同步，也可以使用一个文件来实现这个功能。我写了这个文件的模板，详细介绍了各项设置，可以在[这里](https://github.com/blue-stone-j/example/blob/main/.clang-format)获取。这个文件对其所在的目录内的文件和文件夹都生效。例如这个文件在`/Documents`文件夹下，则对`/Documents`文件夹内的所有`cpp`文件生效，包括子文件夹中的文件。
+把代码按照一定的规则风格化。可以在vscode中设置并同步，也可以使用一个文件来实现这个功能。我写了这个文件的模板，详细介绍了各项设置，可以在[这里](https://github.com/blue-stone-j/example/blob/main/.clang-format)获取。这个文件对其所在的目录内的文件和文件夹都生效。例如这个文件在`/Documents`文件夹下，则对`/Documents`文件夹内的所有`cpp`文件生效，包括子文件夹中的文件。Use `// clang-format off` and `// clang-format on` to depress format for a code snippet.
 
 ##### 4. plugins
 * 推荐添加的插件：`C/C++`(选择首个)；`Markdown all in one`；`CMake`；
@@ -44,6 +44,9 @@ better comments(https://www.cnblogs.com/suwanbin/p/13263732.html)
 
 ##### 10. 环境变量
 在Windows环境下，如果环境变量发生改变，需要关闭vscode再打开，才能使环境变量生效。只关闭和打开新的终端不能应用最新的环境变量。
+
+##### 11. 中文输入法无法使用
+通过ubuntu的应用商城安装的vscode不完整，卸载后下载安装包重新安装即可。
 
 ### 2. 录屏
 ##### (1) Ubuntu默认录屏
