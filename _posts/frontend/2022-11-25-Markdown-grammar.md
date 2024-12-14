@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Markdown语法"
-date:   2022-11-20 08:30:00 +0800
+date:   2024-12-14 18:50:59 +0800
 categories: [Design]
 excerpt: 总结了Markdown语法，可用作语法字典
 tags:
@@ -62,3 +62,69 @@ tags:
 
 5. 表格
 使用jekyll时，如果选择kramdown作为引擎，表示表格时，如果使用表头，则表格前两行的结尾需要两个空格作为换行
+
+### icon
+**Arrows**
+|Symbol|Decimal Entity|Hexadecimal Entity|     Name       |
+|------|--------------|------------------|----------------|
+|←     |`&#8592;`     |`&#x2190;`        |Left Arrow      |
+|↑     |`&#8593;`     |`&#x2191;`        |Up Arrow        |
+|→     |`&#8594;`     |`&#x2192;`        |Right Arrow     |
+|↓     |`&#8595;`     |`&#x2193;`        |Down Arrow      |
+|↔     |`&#8596;`     |`&#x2194;`        |Left-Right Arrow|
+|↕     |`&#8597;`     |`&#x2195;`        |Up-Down Arrow   |
+
+**Mathematical Symbols**
+|Symbol|Decimal  |Hexadecimal|  Name|
+|------|---------|-----------|------|
+|±     |`&#177;` |`&#xB1;`   |Plus-Minus|
+|×     |`&#215;` |`&#xD7;`  |Multiplication|
+|÷     |`&#247;` |`&#xF7;`  |Division|
+|∞     |`&#8734;`|`&#x221E;` |Infinity|
+|≈     |`&#8776;`|`&#x2248;` |Approximately Equal |
+|≠     |`&#8800;`|`&#x2260;` |Not Equal|
+
+**Currency Symbols**
+|Symbol| Name| Decimal Entity |Hexadecimal Entity|
+|------|---------|-----------|------|
+|$     |Dollar| `&#36;`   |`&#x24;`|
+|€     |Euro  | `&#8364;` |`&#x20AC;`|
+|£     |Pound | `&#163;`  |`&#xA3;`|
+|¥     |Yen   | `&#165;`  |`&#xA5;`|
+|₹     |Rupee | `&#8377;` |`&#x20B9;`|
+
+**Punctuation**
+|Symbol| Name        |Decimal | Hexadecimal |
+|------|---------|-----------|------|
+|©     | Copyright   |`&#169;` |`&#xA9;`|
+|®     | Registered  |`&#174;` |`&#xAE;`|
+|™     | Trademark   |`&#8482;`|`&#x2122;`|
+|§     | Section Sign|`&#167;` |`&#xA7;`|
+|¶     | Pilcrow     |`&#182;` |`&#xB6;`|
+
+**Stars and Shapes**
+|Symbol| Name               |Decimal `| Hexadecimal `|
+|------|---------|-----------|------|
+|★    |  Black Star        |`&#9733;`| `&#x2605;`|
+|☆    |  White Star        |`&#9734;`| `&#x2606;`|
+|■     | Black Square       |`&#9632;`| `&#x25A0;`|
+|□     | White Square       |`&#9633;`| `&#x25A1;`|
+|▲     | Black Triangle Up  |`&#9650;`| `&#x25B2;`|
+|▼     | Black Triangle Down|`&#9660;`| `&#x25BC;`|
+
+**Hearts and Smileys**
+|Symbol| Name             | Decimal |Hexadecimal|
+|------|---------|-----------|------|
+|♥     | Black Heart      | `&#9829;` |`&#x2665;`|
+|♡     | White Heart      | `&#9825;` |`&#x2661;`|
+|☺     | White Smiley Face| `&#9786;` |`&#x263A;`|
+|☹     | Black Sad Face   | `&#9785;` |`&#x2639;`|
+
+**Miscellaneous**
+|Symbol| Name     | Decimal |  Hexadecimal |
+|------|---------|-----------|------|
+|🔒    |Lock     |`&#128274;`|`&#x1F512;`|
+|🔖    |Bookmark |`&#128278;`|`&#x1F516;`|
+|🏷️    |Label Tag|`&#127991;`|`&#x1F3F7;`|
+|🚀    |Rocket   |`&#128640;`|`&#x1F680;`|
+|📦    |Package  |`&#128230;`|`&#x1F4E6;`|

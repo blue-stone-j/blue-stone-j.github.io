@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "常用软件使用"
-date:   2024-11-24 06:54:24 +0800
+date:   2024-12-14 18:50:59 +0800
 categories: [Tech]
 excerpt: 记录了常用软件的使用方法、技巧以及在使用中遇到的问题和解决方案
 tags:
@@ -47,6 +47,26 @@ better comments(https://www.cnblogs.com/suwanbin/p/13263732.html)
 
 ##### 11. 中文输入法无法使用
 通过ubuntu的应用商城安装的vscode不完整，卸载后下载安装包重新安装即可。
+
+##### 12. compare files
+* 方法一: 使用VS Code自带的比较功能
+  1. 打开两个文件: 在VS Code中，打开你想要比较的两个Python文件。
+
+  2. 右键菜单选择比较: 在资源管理器(Explorer)中，右键点击第一个文件，然后选择`Select for Compare`。然后，右键点击第二个文件，选择`Compare with Selected`。
+
+  3. 查看差异: VS Code将会在一个新的对比窗口中显示两个文件的差异。
+
+* 方法二: 使用VS Code的命令面板
+  1. 打开命令面板: 使用快捷键 `Ctrl+Shift+P`(Windows/Linux)或 `Cmd+Shift+P`(Mac)打开命令面板。
+  2. 输入比较命令: 输入Compare，然后选择`File: Compare Active File with...`。
+  3. 选择文件: 从文件选择器中选择你要比较的另一个文件。
+
+##### 13. export PDF
+I got error when I tried to export PDF from markdown.
+```
+"princexml" is required to be installed.
+```
+Download prince [here](https://www.princexml.com/download/15/) and install this package.
 
 ### 2. 录屏
 ##### (1) Ubuntu默认录屏

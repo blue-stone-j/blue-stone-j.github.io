@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "论文简介"
-date:   2024-11-24 06:54:24 +0800
+date:   2024-12-14 18:50:59 +0800
 categories: [Tech]
 excerpt: 这篇文章整理了SLAM和感知相关论文的简介。
 tags:
@@ -27,6 +27,14 @@ tags:
 `反步法`   == `反推法`  ;
 
 
+
+# <center>2024</center>
+
+`点云` `Dynamic Object` `*****`
+
+2024 A Review of Dynamic Object Filtering in SLAM Based on 3D LiDAR
+
+<!-- todo -->
 
 # <center>2022</center>
 
@@ -63,6 +71,16 @@ PCA计算单位空间的法向量, 基于垂直度高度平面度地面似然估
 2020(*) RLINS A Lidar-Inertial State Estimator for Robust and Efficient Navigation
 
 基于2018LeGO-LOAM框架, 在优化部分使用迭代卡尔曼滤波计算优化的步长
+
+---
+
+``
+
+`点云` `Dynamic Object` `点云分割` `*****`
+
+2020 Remove, then Revert Static Point cloud Map Construction using Multiresolution Range Images
+
+<!-- todo -->
 
 ---
 
@@ -291,7 +309,7 @@ b198 m498 f238 y250
 
 ---
 
-`点云`
+`点云` `mirror`
 
 2018 Reflection Removal for Large-Scale 3D Point Clouds
 
@@ -323,6 +341,14 @@ A*算法和启发函数改进; 极多项式曲线, 三次样条曲线平滑轨�
 2.AICP
 
 a. pre-filtering: 体素滤波 --> 提取大平面(去除人和cluster;鲁棒匹配) -->
+
+---
+
+`点云` `Dynamic Object` `点云分割` `*****`
+
+2017 The peopleremover – removing dynamic objects from 3D point cloud data by traversing a voxel occupancy grid
+
+<!-- todo -->
 
 ---
 

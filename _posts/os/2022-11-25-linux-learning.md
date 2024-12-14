@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Linux以及相关qa"
-date:   2024-11-24 06:54:24 +0800
+date:   2024-12-14 18:50:59 +0800
 categories: [OS]
 excerpt: 总结了Linux常用命令、qa
 tags:
@@ -396,3 +396,19 @@ use `rm -f`.
 4. install glog 0.6.0
 5. failed to compile a C++ package because glog cloudn't be found.
 solution: compile and install ceres again.
+
+##### 34 no grub of Ubuntu after motherboard replacement
+1. prepare a USB drive intalled `Ubuntu Live`
+2. power-off computer, insert drive, power-on computer
+3. select drive to boot, select `Try Ubuntu`
+4. connect to network
+5. open a terminal and input `sudo add-apt-repository ppa:yannubuntu/boot-repair`, `sudo apt-get update`, `sudo apt-get install -y boot-repair` in sequence. 
+6. run `boot-repair` to start this tool and select `Recommended repair`. 
+7. reboot when repairing is completed.
+
+##### 35 can't get into ubuntu when boot
+infomation displayed on screen like below
+```bash
+dev nvme0n1p11 clean
+```
+Because I deleted folder `/etc/systemd/system` accidently. Copy same folder from another computer to solve it.

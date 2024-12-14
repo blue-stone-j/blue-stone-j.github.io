@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "CSS语法"
-date:   2022-11-20 08:30:00 +0800
+date:   2024-12-14 18:50:59 +0800
 categories: [Design]
 excerpt: 部分CSS语法
 tags:
@@ -10,7 +10,7 @@ tags:
   - 
 ---
 
-这篇文章分类总结了Markdown的语法，可以用作Markdown的语法字典。
+
 
 
 ##### 1. text-shadow
