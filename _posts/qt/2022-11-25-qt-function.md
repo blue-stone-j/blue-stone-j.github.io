@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "qt遇到的问题"
-date:   2024-01-05 11:20:55 +0800
+date:   2025-01-01 19:00:46 +0800
 categories: [Tech]
 excerpt: 整理了使用qt中常用的数据类型、函数等
 tags:

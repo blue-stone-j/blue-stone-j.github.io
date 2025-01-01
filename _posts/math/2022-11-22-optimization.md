@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "优化"
-date:   2024-11-24 06:54:24 +0800
+date:   2025-01-01 19:00:46 +0800
 categories: [Math]
 excerpt: 优化算法
 tags:

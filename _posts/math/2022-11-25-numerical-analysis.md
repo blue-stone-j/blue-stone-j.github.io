@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "数值分析笔记"
-date:   2024-01-05 11:20:55 +0800
+date:   2025-01-01 19:00:46 +0800
 categories: [Math]
 excerpt: 学习数学分析过程中产生笔记
 tags:

@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "前沿方法"
-date:   2024-08-05 11:20:55 +0800
+date:   2025-01-01 19:00:46 +0800
 categories: [Tech]
 excerpt: 这篇文章整理了SLAM和感知相关的前沿方法。
 tags:

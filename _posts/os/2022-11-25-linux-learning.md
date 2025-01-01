@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Linux以及相关qa"
-date:   2024-12-14 18:50:59 +0800
+date:   2025-01-01 19:00:46 +0800
 categories: [OS]
 excerpt: 总结了Linux常用命令、qa
 tags:

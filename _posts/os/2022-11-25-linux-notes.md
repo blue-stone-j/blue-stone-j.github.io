@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  Linux笔记
-date:   2024-01-05 11:20:55 +0800
+date:   2025-01-01 19:00:46 +0800
 categories: [OS]
 excerpt: Linux系统的学习笔记
 tags:
