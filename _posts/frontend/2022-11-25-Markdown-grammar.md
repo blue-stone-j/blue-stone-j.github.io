@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Markdown语法"
-date:   2024-12-14 18:50:59 +0800
+date:   2025-01-11 22:47:47 +0800
 categories: [Design]
 excerpt: 总结了Markdown语法，可用作语法字典
 tags:
@@ -37,7 +37,21 @@ tags:
 **加粗**
 ````
 
-
+##### 5. math formular
+markdown expression
+```md
+Fractions: $\frac{a}{b}$
+Superscripts: $x^2$
+Subscripts: $x_i$
+Square root: $\sqrt{x}$
+Summation: $\sum_{i=1}^n i$
+```
+result below
+$\frac{a}{b}$
+$x^2$
+$x_i$
+$\sqrt{x}$
+$\sum_{i=1}^n i$
 
 ## 二、段落
 1. 无序列表
