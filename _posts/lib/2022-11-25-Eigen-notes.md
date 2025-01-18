@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Eigen学习"
-date:   2025-01-01 19:00:46 +0800
+date:   2025-01-18 11:08:33 +0800
 categories: [Tech]
 excerpt: 常用Eigen函数；Eigen的数据结构；等等。
 tags:
@@ -94,7 +94,7 @@ mat.setRandom(rows, cols);
 * mat.row(p) : 单独取出第p行
 * mat.col(p) : 单独取出第p列
 * mat.topLeftCorner(p,q) : 取出左上角p行q列的元素, [参考](https://eigen.tuxfamily.org/dox/group__TutorialBlockOperations.html)
-* mat(2,3) : 第3行第4列的元素
+* mat(2,3) : 第3行第4列的元素, the indices for accessing elements should be of type `int`
 **向量元素获取**
 * vec.segment(i,n) : 取向量第i到第i+n个元素，n is excluded
 * vec.segment<n>(i) : 动态向量
@@ -329,13 +329,16 @@ x = A.svd().solve(b));  // Stable, slowest. #include <Eigen/SVD>
 ### 六、 calculate
 ##### 1. 
 ----------------------------------------
+```C++
 reshape()
 resize()
+// conservativeResize(Eigen::NoChange, mat.cols() + 1); Resize the matrix to add one more column
 conservativeResize()
 cwiseProduct()
 cwiseAbs()
 cwiseSqrt()
 cwiseMin()
+```
 
 ## 一、基础知识
 
