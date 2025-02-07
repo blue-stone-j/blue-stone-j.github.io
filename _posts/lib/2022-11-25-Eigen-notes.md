@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Eigen学习"
-date:   2025-01-18 11:08:33 +0800
+date:   2025-02-07 23:15:06 +0800
 categories: [Tech]
 excerpt: 常用Eigen函数；Eigen的数据结构；等等。
 tags:
@@ -15,9 +15,11 @@ tags:
 ### 一、基础知识
 
 ##### 1. 参考资料
-* [1]http://zhaoxuhui.top/blog/2019/08/21/eigen-note-1.html
+
+* 1. http://zhaoxuhui.top/blog/2019/08/21/eigen-note-1.html
 
 ##### 3. 模块组成
+
 * Core：Matrix和Array类，基础的线性代数运算和数组操作；
 * Geometry：旋转，平移，缩放，2维和3维的各种变换；
 * LU：求逆，行列式，LU分解；
@@ -31,16 +33,20 @@ tags:
 * Eigen：包含了Dense和Sparse模块。
 
 ##### 2.安装及CMake声明与使用
+
 [reference-1,2](https://zhaoxuhui.top/blog/2019/08/21/eigen-note-1.html#1%E5%BA%93%E7%9A%84%E5%AE%89%E8%A3%85)
 
 ##### 3.使用
+
 ```C++
 #include <Eigen>
 Eigen::MatrixXd mat(line, row); // 矩阵
 ```
 
 ##### 4. 类型
+
 todo: 
+
 * Matrix
 * Vector
 * Affine
@@ -49,11 +55,15 @@ todo:
 * Quaternion
 
 ### 二、创建及元素获取
+
 本部分主要介绍Eigen中矩阵与向量的定义 index.
+
 ##### 1.
+
 ```C++
 Matrix<Scalar, RowsAtCompileTime, ColsAtCompileTime, Options>
 ```
+
 * Scalar：指定元素类型，比如，float, double, bool, int 等。
 * RowsAtCompileTime：指定行数或者设置成动态（Dynamic）；
 * ColsAtCompileTime：指定列数或者设置成动态（Dynamic）；
@@ -67,7 +77,9 @@ Eigen::VectorXd vector1(4);    // 列向量;元素类型是double
 Eigen::RowVectorXi vector1(4); // 行向量;元素类型是int
 Eigen::Affine3f affine1;       // 3D 
 ```
+
 ##### 2. 初始化
+
 ```C++
 mat << 1, 2, 3,
        4, 5, 6;
@@ -78,6 +90,7 @@ mat.setRandom(rows, cols);
 ```
 
 ##### 3. 特殊矩阵
+
 * MatrixXd::Random(m,n)：创建m×n维double类型的随机数矩阵
 * MatrixXd::Constant(m,n,p)：创建m×n维double类型元素全为p的矩阵
 * MatrixXd::Zero(m,n)：创建m×n维元素全为0的矩阵
@@ -86,6 +99,7 @@ mat.setRandom(rows, cols);
 * VectorXd::LinSpaced(size,low,high)：创建一个size长度的从low到high的向量或一维矩阵
 
 ##### 4. 元素获取
+
 **矩阵元素获取**
 * mat.rows() : 获取矩阵的行数
 * mat.cols() : 获取矩阵的列数
@@ -106,7 +120,9 @@ mat.setRandom(rows, cols);
 * vec[3] : 获取向量 vec 的第4个元素
 
 ### 三、 数据操作及本身运算
+
 ##### 1. type conversion
+
 * `Eigen::Affine3f`和`Eigen::Matrix4f`的转换
 ```C++
 Eigen::Affine3f A;
@@ -133,6 +149,7 @@ ext = std::vector<double>(&mat[0], mat.data()+mat.cols()*mat.rows());
 
 
 ##### 2. 自身赋值
+
 Eigen使用了lazy evaluation(懒惰评估),默认都是存在混淆混叠的，也就是在计算过程中会覆盖原来位置的值。
 * `eval()`  
 自己对自己进行赋值的时候，先把结果存到临时变量,避免Eigen中的混叠（aliasing）问题.
@@ -153,6 +170,7 @@ T.transposeInPlace();
 为了避免混淆，Eigen会在计算中创建一个临时变量来存储计算的中间值。使用这个函数则明确表示不存在混淆，使eigen在计算时不再创建临时变量，可以提高计算效率。
 
 ##### 3. 矩阵本身运算
+
 * transpose() : 
 * inverse() : 逆矩阵
 * conjugate() : 共轭矩阵,实数的共轭还是其本身。
@@ -184,6 +202,7 @@ T.transposeInPlace();
 * eeshape() : 不改变矩阵元素个数的情况下，改变矩阵中元素的大小,例如转置
 
 ##### 4. Array本身运算
+
 * abs() : 
 * sqrt() : 
 * pow() : 
@@ -192,11 +211,13 @@ T.transposeInPlace();
 * square() : 
 
 ##### 4. 向量本身运算
+
 ```C++
 vec.setRandom(); // 设置随机数
 ```
 
 ##### 5. Eigen::Map
+
 Eigen::Map 的作用是将一个已有的 C 数组映射为一个 Eigen 的向量或者矩阵。可以使用 Eigen 向量和矩阵的各种操作函数,依然使用已有数组的空间。
 ```C++
 Map<MatrixXd> md1(data, 2, 4);
@@ -204,6 +225,7 @@ Map<MatrixXd> md1(data, 2, 4);
 
 
 ##### 9. Eigen与OpenCV的数据类型转换
+
 ```C++
 Eigen::Matrix<float, 2, 3> matrix_23f;
 matrix_23f << 1, 2, 3, 
@@ -220,6 +242,7 @@ cv::cv2eigen(mat_23f, matrix_23f);
 ```
 
 ##### example
+
 * 把extRotV中的数据按行优先的方式放入3×3矩阵中;extRot为该矩阵的映射;extRot可以使用Eigen矩阵的各种操作函数
 ```C++
 extRot = Eigen::Map<const Eigen::Matrix<double, -1, -1, Eigen::RowMajor>>(extRotV.data(), 3, 3);
@@ -237,7 +260,9 @@ imuNoise.block<3, 3>(acc, acc) = Eigen::Vector3f(accSquare, accSquare, accSquare
 ```
 
 ### 四、 矩阵运算
+
 ##### 1. 向量的叉乘和点乘
+
 ```C++
 Eigen::Vector3d a,b;
 a.dot(b);
@@ -246,6 +271,7 @@ kroneckerProduct(mat1，mat2); //???
 ```
 
 ##### 2. 
+
 * 特征值,特征向量
 ```C++
 Eigen::EigenSolver<Eigen::Matrix2d> eigen_solver(mat);
@@ -264,6 +290,7 @@ result = m.cwiseProduct(n); // 对应项相乘
 ```
 
 ##### 6. rotation
+
 * 角轴 <--> 四元数
 
 ```C++
@@ -296,6 +323,7 @@ Vector3f angles = rot1.eulerAngles(0, 1, 2);
 ```
 
 ##### 7. Enclidean Transformation Matrix
+
 ```C++
 Eigen::Isometry3d T = Eigen::Isometry3d::Identity(); // 虽然称为 3d ，实质上是 4*4 的矩阵
 T.rotate ( rotationAxis ); // 按照 angle-axis 记录的旋转阵进行旋转
@@ -306,6 +334,7 @@ T.translate( Eigen::Vector3d ( 1,3,4 ) ); // 在变换阵的”右边“增加�
 * 
 
 ### 五、求解
+
 ```C++
 // Solve Ax = b. Result stored in x. Matlab: x = A \ b.
 x = A.ldlt().solve(b));  // A sym. p.s.d.    #include <Eigen/Cholesky>
@@ -327,7 +356,9 @@ x = A.svd().solve(b));  // Stable, slowest. #include <Eigen/SVD>
 * 
 
 ### 六、 calculate
+
 ##### 1. 
+
 ----------------------------------------
 ```C++
 reshape()

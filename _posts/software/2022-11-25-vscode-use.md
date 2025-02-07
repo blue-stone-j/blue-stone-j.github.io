@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "vscode使用"
-date:   2025-01-11 22:47:47 +0800
+date:   2025-02-07 23:15:06 +0800
 categories: [Tech]
 excerpt: 记录了vscode的使用方法、技巧以及在使用中遇到的问题和解决方案
 tags:
@@ -12,22 +12,121 @@ tags:
 
 记录了vscode的使用方法、技巧以及在使用中遇到的问题和解决方案。
 
+# notation
+
+# setting.json
+
+### levels of settings
+
+there are three levels of settings:
+
+1. User settings (settings.json in your global config, which applies to all projects you open).
+2. Workspace settings (settings.json in the .vscode folder of your project, which overrides user settings for that specific workspace).
+3. Folder settings (if you have a .vscode folder inside a subfolder, these can override both user and workspace settings, but this is less common).
+
+### 添加垂直标尺
+
+文件/File–>首选项/Preferences–>设置/Settings->搜索`editor.rulers` -->更改设置`editor.rulers: [80,120]`，或者其他期望的值，即可。
+
+# extension
+
+### markdownlint
+
+ignore a specific warning.
+
+```json
+"markdownlint.config": {
+  "MD001": true,    // Enable first heading rule
+  "MD013": false,  // Disable the line length rule
+  "MD041": false   // Disable first heading rule
+}
+```
+
+### Markdown All in One
+
+1. make ordered list indices automatically managed while editing Markdown files in Visual Studio Code
+2. Table Formatter: Delimiter Row No Padding: the delimiter row (the row with - under the headers) gets spaces to align columns neatly.
+3. Table Formatter: Normalize Indentation: it removes those extra spaces, keeping only the necessary spaces
+
+### Better Comments (Markdown Support)
+
+```cpp
+// * Important comment
+// ! Warning comment
+// ? Question comment
+// TODO: Task comment
+```
+
+You can extend the comment styles by modifying the `better-comments.tags` setting in `settings.json` like below.
+
+```json
+"better-comments.tags": [
+    {
+        "tag": "TODO",
+        "color": "#FFA500", // Orange
+        "strikethrough": false,
+        "underline": false,
+        "backgroundColor": "transparent",
+        "bold": true,
+        "italic": false
+    },
+    {
+        "tag": "FIXME",
+        "color": "#FF0000", // Red
+        "strikethrough": false,
+        "underline": true,
+        "backgroundColor": "transparent",
+        "bold": true,
+        "italic": true
+    },
+    {
+        "tag": "NOTE",
+        "color": "#00FFFF", // Cyan
+        "strikethrough": false,
+        "underline": false,
+        "backgroundColor": "transparent",
+        "bold": false,
+        "italic": true
+    },
+    {
+        "tag": "DEBUG",
+        "color": "#FFD700", // Gold
+        "strikethrough": false,
+        "underline": true,
+        "backgroundColor": "transparent",
+        "bold": true,
+        "italic": false
+    },
+    {
+        "tag": "OPTIMIZE",
+        "color": "#32CD32", // Lime Green
+        "strikethrough": false,
+        "underline": false,
+        "backgroundColor": "transparent",
+        "bold": true,
+        "italic": true
+    }
+]
+```
+
+### vscode-icons
+
+display icon for every file and folder
+
+# qa
+
 ##### 1. 中文乱码问题
 点击[这里](https://juejin.cn/post/7032129567473188872)查看解决方案。这里面也提供了把转换中文编码方式的方法。
 
 ##### 2. 代码风格化
 把代码按照一定的规则风格化。可以在vscode中设置并同步，也可以使用一个文件来实现这个功能。我写了这个文件的模板，详细介绍了各项设置，可以在[这里](https://github.com/blue-stone-j/example/blob/main/.clang-format)获取。这个文件对其所在的目录内的文件和文件夹都生效。例如这个文件在`/Documents`文件夹下，则对`/Documents`文件夹内的所有`cpp`文件生效，包括子文件夹中的文件。Use `// clang-format off` and `// clang-format on` to depress format for a code snippet.
 
-##### 3. 
-
 ##### 4. plugins
-* 推荐添加的插件：`C/C++`(选择首个)；`Markdown all in one`；`CMake`；
+
 * 如果安装的是`Ubuntu software`中自带的`vscode`，可能无法输入汉语。卸载并从官网重新下载安装即可。
-* 
-* vscode-icons: display icon for every file and folder
 
 ##### 6. set
-* 添加垂直标尺：文件–>首选项–>设置->搜索`editor.rulers` -->更改设置`editor.rulers: [80,120]`，或者其他期望的值，即可。
+
 * Editor: Detect Indentation: this will override ``Editor: Tab Size
 * Editor: Tab Size: indentation is tabs. This can adjust the number of spaces a tab is equal to.
 * `${workspaceFolder}` 表示当前workspace文件夹路径
@@ -74,3 +173,4 @@ sudo apt install clang-format
 ```
 2. Select Clang as the Default Formatter
 3. Ensure the `.clang-format` file is present in your project root directory.
+
