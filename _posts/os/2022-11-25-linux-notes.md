@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  Linux笔记
-date:   2025-01-01 19:00:46 +0800
+date:   2025-02-10 22:17:48 +0800
 categories: [OS]
 excerpt: Linux系统的学习笔记
 tags:
@@ -12,8 +12,8 @@ class: sys
 
 这篇文章总结了Linux笔记，以ubuntu20.04为例。
 
-
 # 一、文件和磁盘
+
 ### 1. 根目录
 
 |文件夹|作用|  
@@ -36,18 +36,19 @@ class: sys
 |srv|保存系统的服务|
 |sys|系统硬件信息的相关文件|
 |tmp|temporary的缩写，保存临时文件，可以删除|
-|var|varible的缩写，通常保存日志等经常修改的文件|
+|var|variable的缩写，通常保存日志等经常修改的文件|
 |/usr/local|针对用户的文件，其中也包含了"bin"、库等文件|
 
-### 2. 
-
 ### 3. 目录操作命令
+
 **pwd**  
 显示当前工作目录绝对路径  
+
 * `pwd -P`: 显示的是物理路径(例如软链接指向的路径)  
 
 **cd**  
 "change directory"的缩写  
+
 * `cd ..`: 到上层目录;
 * `cd .`: 从当前目录查找;
 * `cd /`: 从根目录查找;
@@ -66,6 +67,7 @@ class: sys
 |`-h`|显示文件大小的单位。结果的“total”只包含了本文件夹内的文件，不包含子文件夹和隐藏文件。|
 
 **创建和删除文件夹**
+
 * `mkdir a b`: 在当前文件夹创建文件夹“a”和“b”
 * `mkdir /a`: 在根目录创建文件夹
 * `mkdir a a/b b/c`: 创建嵌套文件夹
@@ -74,12 +76,15 @@ class: sys
 * `rm -r a`: 嵌套删除文件夹
 
 ### 4. 文件操作命令
+
 **创建文件**
+
 * `touch file_name`: 在当前文件夹中创建空文件
 * `touch path/file_name`: 在指定路径创建文件
 
 **复制文件或目录**  
 默认不会修改文件属性。
+
 * `cp 选项 source dest`: 默认带有`-i`参数，即覆盖时询问。
 * `\cp 选项 source dest`: 如果有同名文件直接覆盖，不再询问。其中的“\”表示使用linux中的原生命令。
 
@@ -89,25 +94,30 @@ class: sys
 |-i|覆盖时询问|
 
 这是一个复制文件的辅助功能，用来显示复制的进度。
+
 ```Bash
 rsync -ah --progress source destination
 ```
 
 **删除文件或文件夹**
+
 * `rm -r a`: 删除文件夹
 * `rm a`: 删除文件
 * `rm -f`: 强制删除，不再提示
 * `rm -v a`: 删除文件，显示具体执行过程
 
 **移动文件或文件夹**
+
 * `mv file path`: 把文件移动到指定目录
 * `mv file1 file2`: 移动并重命名。“file2”包含路径和文件名
 
 **cat**
+
 * `cat file`: catch的简写
 * `cat -n`: 显示所有行的行号  
 
 **more**
+
 * `more file`: 按页显示文件
 * `=`: 显示当前行号
 * `b`: 向上翻页
@@ -115,6 +125,7 @@ rsync -ah --progress source destination
 * `:f`: 显示文件及行号  
 
 **less**
+
 * `less file`: 根据显示需要加载内容，能更快打开大文件并显示
 * ` `: 空格为向下翻页
 * `enter`: 回车到下一行
@@ -123,11 +134,12 @@ rsync -ah --progress source destination
 * `=`: 显示详细信息
 * `G`: 到达文件末尾
 * `g`: 到达文件起始
-* `/keywork`: 跳转到关键字位置，按“n”向下查找，“N”向上查找
+* `/keyword`: 跳转到关键字位置，按“n”向下查找，“N”向上查找
 * `?keyword`: 跳转到关键字位置，按“n”向上查找，“N”向下查找
 * `q`: 退出  
 
 **head**
+
 * `head file`: 查看文件前10行
 * `head -n 5 file`: 查看文件前5行  
 
@@ -145,11 +157,11 @@ rsync -ah --progress source destination
 |命令|描述|
 |---|---|
 |`echo`|覆盖|
-|`"hellow    world"`|输出字符串|
+|`"hello    world"`|输出字符串|
 |`\t`|制表符|
 |`\n`|换行|
 |`-e`|支持反斜线控制的字符转换|
-|`echo $varible`|查询变量|
+|`echo $variable`|查询变量|
 |`echo '==$a=='`|把“$a”视为字符串|
 |`echo "==$a=="`|把“$a”视为变量|
 
@@ -167,7 +179,7 @@ rsync -ah --progress source destination
 |命令|描述|
 |---|---|
 |`rm -rf 软链接名`|删除软链接|
- 
+
 **history**
 
 |命令|描述|
@@ -177,6 +189,7 @@ rsync -ah --progress source destination
 |`history -c`|清空全部历史命令|
 
 **rename**  
+
 ```bash
 rename 's/slang_/sl_/' *.c  # replace all "slang_" with "sl_"; find all files end with "*c"; if we omit "sl_", all "slang_" will be deleted.
 rename 's/^parameter/value/' *.c  # ^ means all files start with "parameter"
@@ -186,6 +199,7 @@ rename 's/lifelog(\d{4})\.txt/$1.md/' *.txt   # replace all "*lifelog*.txt"; "(\
 ```
 
 ### 8. 压缩和解压
+
 **gzip/gunzip压缩**  
 基本语法：`gzip file`, 压缩为“*.gz”文件；`gunzip file.gz`, 解压缩  
 特点：只能压缩文件；不保留原文件；多个文件会产生多个压缩包
@@ -199,6 +213,7 @@ rename 's/lifelog(\d{4})\.txt/$1.md/' *.txt   # replace all "*lifelog*.txt"; "(\
 |`-d <目录>`|指定解压后文件的存放目录|
 
 解压的使用示例
+
 ```bash
 unzip yaml-cpp-master.zip
 ```
@@ -221,6 +236,7 @@ unzip yaml-cpp-master.zip
 |`-f`|必需参数|指定压缩后的文件名|
 
 使用示例如下
+
 ```bash
 tar zxvf FileName.tar.gz # 解压
 tar zcvf FileName.tar.gz DirName # 压缩
@@ -228,10 +244,13 @@ tar zcvf FileName.tar.gz DirName # 压缩
 
 **7z**  
 一个解压缩的命令示例如下，会新建一个名为“file”的文件夹并把文件解压到这个文件夹。
+
 ```Bash
 7z x file.7z
 ```
+
 如果解压带密码的压缩文件。命令示例如下。假设密码为“blue”。注意密码和 `-p` 参数之间无空格。
+
 ```Bash
 7z x file.7z -pblue
 ```
@@ -248,6 +267,7 @@ unrar x file.rar ./
 ```
 
 ### 9. 磁盘管理
+
 执行命令`sudo apt install tree`安装“tree”工具的命令，使用`tree 路径`显示当前文件夹及子文件。
 `udisks2`是一个经常使用的磁盘工具，通过命令`sudo apt install udisks2`安装
 
@@ -268,6 +288,7 @@ unrar x file.rar ./
 |`-x`|跳过在不同文件系统上的目录不予统计|
 
 一个使用示例
+
 ```Bash
 du -h --max-depth=0 # 查看所在文件夹的总大小
 du -sh # 查看当前文件夹的大小
@@ -291,6 +312,7 @@ du -sh # 查看当前文件夹的大小
 |vda|虚拟化模拟硬盘|
 
 一个使用示例
+
 ```bash
 df -hl # 查看磁盘剩余空间
 df -h  # 查看每个根路径的分区大小
@@ -348,27 +370,31 @@ sudo udisksctl power-off -b /dev/sda   # 安全断电；sda 是移动硬盘这�
 ```
 
 如果需要在电脑开机时自动挂载硬盘，可以按照以下步骤
+
 * 查看硬盘信息: `sudo blkid`
 * 编辑硬盘挂载文件 `sudo gedit /etc/fstab`
 你可以在这个文件里添加想要自动挂载的硬盘，也可以更改硬盘默认的挂载位置。
 
 **smart**  
+
 ```bash
 sudo apt-get install smartmontools # 安装工具
 sudo smartctl -a /dev/sda1 # 查看磁盘smart信息
 ```
 
 “gsmartcontrol”可以看做“smartmontools”的前端，提供了可视化的交互界面。
+
 ```bash
 sudo apt install gsmartcontrol # 安装`smartctl`工具
 sudo gsmartcontrol # 运行该工具
 ```
 
-
 # 二、vim
+
 vi来自于unix系统。vim则是vi的改进版。更多命令可以看终端里的提示，需要注意的是，终端的提示的意思是，首先需要输入一个冒号，然后再输入需要的命令。
 
 ### 基本步骤
+
 1. 使用`vim file_name`打开文件，此时进入普通模式。普通模式下，不能编辑文本，主要操作为删除、复制和粘贴。
 2. 按`insert`进入编辑模式，此时可以编辑文本。
 3. 按`Esc`退出编辑模式。
@@ -376,6 +402,7 @@ vi来自于unix系统。vim则是vi的改进版。更多命令可以看终端里
 5. 如果要退出vim，输入`:q`。
 
 ### 快捷键
+
 * `CTRL+S`: stop的缩写，停止向终端停止输出;
 * `CTRL+Q`: 恢复向终端输出流。期间的输入会缓存在流中，恢复输出流后一次性输出至终端。
 
@@ -411,7 +438,6 @@ vi来自于unix系统。vim则是vi的改进版。更多命令可以看终端里
 |---|---|
 |i||
 
-
 ### 命令模式
 
 |命令|作用|
@@ -437,6 +463,7 @@ WSL：Windows system for linux
 ifconfig： interface configuration
 
 ### 网络IP
+
 DHCP：动态分配IP
 
 1. 桥接：虚拟接直连外部物理网络，主机起到网桥作用。可直接访问外部网络，并且对外部网络可见。IP地址由路由分配  
@@ -446,6 +473,7 @@ DHCP：动态分配IP
 centos3: vim /etc/sysconfig/network-scripts/ifcfg.ens33
 ubuntu: vim /ect/netplan/01-network-manager-all.yaml
 静态IP分配：“dchp”改为“static”。然后在文档结尾添加如下文本。
+
 ```Bash
 # IP地址
 IPADDR=192.168.1.100
@@ -454,22 +482,28 @@ GATEWAY=192.168.1.2
 # 域名解析器
 DNS1=192.168.1.2
 ```
+
 需要执行`service network restart`重启网络服务才能使用更改后的配置。
 
 ### 主机名
+
 1. 执行`hostname`查看当前主机名  
 2. `vi /etc/hostname`修改当前主机名；`hostnamectl`查看当前主机配置。修改后需要重启后修改才能生效。  
 3. `hostnamectl set-hostname spark10`可以实时修改主机名  
 4. `vim /etc/hosts`添加IP和主机名的映射；
 
 ### 远程登录
+
 xshell工具
 
 ### ssh和scp端口
+
 有时网络连接不止需要IP地址，还需要特定端口。指定端口时，ssh可以用大写的“P”也可以用小写的“p”，但scp只能用大写的“P”。
 
 # 四、系统管理
+
 ### 服务管理
+
 `ls /usr/sbin/ | grep service`
 执行系统服务的进程通常称为守护进程, 名称以"d"结尾的服务通常为系统服务。
 
@@ -480,6 +514,7 @@ xshell工具
 5. 所有系统服务的守护进程都是由`init.d`进程启动的，`init.d`是linux内核初始化之后启动的第一个进程。
 
 ### 运行级别(run level)
+
 开机--->BIOS--->/boot(系统初始化)--->init进程--->判断运行级别--->根据运行级别启动对应的服务
 
 |运行级别|描述|
@@ -497,15 +532,17 @@ xshell工具
 进入对应级别: `init 3`(进入级别3)
 
 ### 配置开机服务
+
 执行命令`systemctl list-unit-files`查看该服务是否开机自启。“static”表示该服务可能依赖于其它服务，无法确定是否启动。
 
 ### 关机重启
+
 1. 命令
-* 执行shutdown之前会执行sync操作，把数据从内存同步到硬盘。为了性能，linux对硬盘预读和延迟写入，只有等缓冲区满了之后才会写到硬盘。  
-* halt: 停机;停止CPU，但不断电，内存仍然工作。  
-* power-off: 关机  
-* reboot: 重启，等同于`shutdown -r now`  
-* `shutdown 选项 时间`:
+   * 执行shutdown之前会执行sync操作，把数据从内存同步到硬盘。为了性能，linux对硬盘预读和延迟写入，只有等缓冲区满了之后才会写到硬盘。  
+   * halt: 停机;停止CPU，但不断电，内存仍然工作。  
+   * power-off: 关机  
+   * reboot: 重启，等同于`shutdown -r now`  
+   * `shutdown 选项 时间`:
 
 2. 选项
 
@@ -521,19 +558,27 @@ xshell工具
 
 |命令|作用|
 |---|---|
-|`shutdowm -c`|等待一定时间后关机,默认为1分钟|
-|`shutdowm 3`|等待3分钟后关机|
-|`shutdowm 15:28`|定时关机|
+|`shutdown -c`|等待一定时间后关机,默认为1分钟|
+|`shutdown 3`|等待3分钟后关机|
+|`shutdown 15:28`|定时关机|
 |`shutdown now`|立刻关机，但仍然会先执行sync操作|
 
+### environment variables
 
+|variables|meaning|
+|---|---|
+|`HISTSIZE`|Specifies the number of commands to keep in memory during a shell session.|
+|`HISTFILESIZE`|Specifies the maximum number of commands that can be saved in the history file.|
 
 # 五、常用命令
+
 “Bourne+shell+Again=bash”
 ubuntu默认使用“dash”，也可以改为“bash”。“dash”不支持数组，其余和“bash”基本相同。
 
 ### 1. 帮助命令
+
 ##### 1. man
+
 **主要描述**
 
 |信息|功能|
@@ -544,6 +589,7 @@ ubuntu默认使用“dash”，也可以改为“bash”。“dash”不支持�
 |EXAMPLES|例子|
 
 **使用**
+
 1. 格式为`man [OPTION...] [SECTION]`。
 1. 使用man查找一个命令，例如`man ls`，`man man`。  
 2. 内建命令(如cd,read,echo等都是shell内建命令), 都没有单独的man手册。可以通过命令`man bash-builtins`查看，会出现所有的内建命令，命令按照首字符排序。内建命令随bash的加载和shell启动后即常驻系统内存。而其它命令需要从外部调用，相当于普通程序，称为外部命令。  
@@ -551,9 +597,10 @@ ubuntu默认使用“dash”，也可以改为“bash”。“dash”不支持�
 4. `man --help cd`，这种方式既可以查内建命令，也可用于外部命令。
 
 ##### 2. 其它命令
+
 * help: `help cd`查看命令，但只能用于内建命令
 * info: `info ls`查看命令，只能用于外部命令。
-* `alias`: 
+* `alias`:
 
 ### 2. 快捷键
 
@@ -566,9 +613,8 @@ ubuntu默认使用“dash”，也可以改为“bash”。“dash”不支持�
 |tab键|自动补全|
 |||
 
-
-
 ### 5. 时间和日期
+
 **date**  
 用法：`date 选项 格式`
 
@@ -606,6 +652,7 @@ ubuntu默认使用“dash”，也可以改为“bash”。“dash”不支持�
 |`cal 2021`|显示2021年日历|
 
 ### 6. 用户权限
+
 **添加用户**  
 
 |命令|功能|
@@ -649,33 +696,33 @@ ubuntu默认使用“dash”，也可以改为“bash”。“dash”不支持�
 
 |字符|描述|
 |---|---|
-|_首字符: 文件类型_|
+|_首字符: 文件类型_||
 |c|字符设备文件，例如鼠标键盘|
 |b|block设备文件，例如硬盘|
 |-|普通文件|
 |d|文件夹|
 |l|链接文档|
-|_1-3: 属主权限(Users)_|
+|_1-3: 属主权限(Users)_||
 |r|read|
 |w|write|
 |x|execute|
-|_4-6: 属组权限(Group)_|
+|_4-6: 属组权限(Group)_||
 |r|read|
 |w|write|
 |x|execute|
-|_7-9: 其它用户权限_|
+|_7-9: 其它用户权限_||
 |r|read|
 |w|write|
 |x|execute|
-||
-|字符对文件和目录的含义|
-|w|
+|||
+|字符对文件和目录的含义||
+|w||
 |文件|可以修改文件，但不代表可以删除文件。有当前文件夹的写入权限才能删除文件。|
 |目录|在目录内可以创建、删除、重命名|
-|r|
+|r||
 |文件|读取查看文件|
 |目录|可读取和查看目录内容|
-|x|
+|x||
 |文件|可被系统执行|
 |目录|可进入该目录|
 
@@ -695,7 +742,8 @@ _chown_
 |---|---|
 |`chown 选项 最终用户 文件或目录`|“change owner”的缩写|
 |`-R`|递归操作|
-If you try to change owner of file or directory stored in ntfs system(Windows), it's possible to fail. 
+
+If you try to change owner of file or directory stored in ntfs system(Windows), it's possible to fail.
 
 _chgrp_
 
@@ -706,6 +754,7 @@ _chgrp_
 新创建的不同用户不能使用`tab`补全，且不显示当前所在路径。解决方案点击[此处](https://www.cnblogs.com/qqhfeng/p/12708970.html). 原因是新创建的用户使用的shell为`bin/sh`，需要改为`bin/bash`。
 
 ### 7. 搜索查找
+
 **find**  
 基本用法：`find 搜索范围 选项`
 
@@ -716,6 +765,7 @@ _chgrp_
 |`-size <文件大小>`|`find / -size +10M`|大于10M的文件|
 
 以下为一个使用示例，查看当前文件夹中名为“gtsam”的文件。
+
 ```Bash
 find . -name "gtsam"
 ```
@@ -732,12 +782,11 @@ find . -name "gtsam"
 |---|---|
 |`-n`|显示匹配行及行号|
 
-<br>
+</br>
 基本语法：`wc file`，“word count”的缩写，输出的结果依次为行数、单词数、字节数
 
-
-
 ### 10. 进程管理
+
 启动之后一直存在、常驻内存的进程，称为“服务”。
 
 **ps**  
@@ -746,16 +795,18 @@ find . -name "gtsam"
 |选项|描述|
 |---|---|
 |`ps`|显示的是当前用户和与当前终端相关联的进程|
-|`ps aux | grep xxx`|查看所有系统进程，可显示CPU和内存占用|
-|`ps -ef | grep xxx`|查看子父进程之间的关系|
+|`ps aux \| grep xxx`|查看所有系统进程，可显示CPU和内存占用|
+|`ps -ef \| grep xxx`|查看子父进程之间的关系|
 |`-a`|列出带有终端的所有用户进程|
 |`-x`|所有用户进程，包括没有终端的|
 |`-u`|面向用户友好的显示风格|
 |`-e`|列出所有进程|
 |`-f`|显示完整格式的进程列表，可以显示PPID|
 
-|`ps aux`结果分析|
-|---|
+`ps aux`结果分析
+
+|item|meaning|
+|---|---|
 |USER或UID|调用进程的用户|
 |VSZ|虚拟内存。 LRU(less recently use)算法把不常用的内存会直接放到虚拟内存|
 |RSS|实际占用的物理内存|
@@ -763,7 +814,7 @@ find . -name "gtsam"
 |STAT|status.S睡眠状态，T暂停状态，Z僵尸状态(进程即将结束,但还有资源未清楚)，s包含子进程，l多线程，+前台显示，<高优先级，N低优先级|
 |START|该进程的启动时间|
 |TIME|进程占用CPU的运算时间，不是系统时间|
-|COMMAND|“[kthreadd]”所有内核线程的调用和管理|
+|COMMAND|“[kthread]”所有内核线程的调用和管理|
 |PPID|父进程的ID|
 |STIME|启动时间|
 
@@ -840,6 +891,7 @@ find . -name "gtsam"
 |`Local Address`|套接字，`IP:port`|
 
 ### 11. 定时任务
+
 重启crond服务：`systemctl restart cron`  
 
 基本语法：`crontab`
@@ -849,7 +901,6 @@ find . -name "gtsam"
 |`-e`|编辑定时任务|
 |`-l`|列出所有定时任务|
 |`-r`|清楚当前用户的所有定时任务|
-
 
 时间的格式：共5个时间需要填，分别为`分时天月周`
 
@@ -874,6 +925,7 @@ find . -name "gtsam"
 只执行`bash`命令则是启动并进入了一个子shell，之后的命令会在这个子shell中进行。
 
 ### 2. 变量
+
 所有变量搜默认为字符串类型。  
 
 **系统预定义变量**  
@@ -910,12 +962,13 @@ find . -name "gtsam"
 |数值赋值|`a=$(expr 1 + 2)`或者"a=\`expr 1 + 2\`"(中间的小点是反引号，反引号内的字符串当作shell命令来执行，返回值是命令的执行的结果，起到的是一个命令的替换作用)|
 
 ### 4. 流程控制
+
 **条件判断**  
 基本语法：`test $a = hello `或者`[ $a = hello ]`(满足条件时返回值为0;注意命令中的空格)；  
 
 |常用判断条件|描述|
 |---|---|
-|整数|
+|整数||
 |`-eq`|equal缩写|
 |`-ne`||
 |`-lt`|less than缩写|
@@ -926,7 +979,7 @@ find . -name "gtsam"
 |`-r`||
 |`-w`||
 |`-x`||
-|文件类型|
+|文件类型||
 |`-e`|eistence缩写，文件是否存在|
 |`-f`|是否为常规文件|
 |`-d`|是否为目录|
@@ -941,19 +994,24 @@ find . -name "gtsam"
 
 **if分支**  
 单分支
+
 ```bash
 if condition;then
   pass 
 fi
 ```
+
 or
+
 ```bash
 if condition
 then
   pass 
 fi
 ```
+
 多分支
+
 ```bash
 if condition1
 then
@@ -966,6 +1024,7 @@ fi
 ```
 
 **case分支**
+
 ```bash
 case $var in
 "var1")
@@ -981,14 +1040,17 @@ esac
 ```
 
 **for循环**  
+
 ```bash
 for((初始值;判断;变量变化)) # 因为(()),因此内部可以直接使用数学上的运算式
 do
   pass
 done
 ```
+
 或者
-```
+
+```bash
 # for var in {1..100} # 遍历从1到100这个序列
 # for var in `ls` # 
 for var in var1 var2 var3
@@ -998,6 +1060,7 @@ done
 ```
 
 **while循环**  
+
 ```bash
 while condition
 do
@@ -1006,6 +1069,7 @@ done
 ```
 
 ### 读取控制台输入
+
 基本语法：`read option argument`(选项 赋值的变量)
 
 |选项|描述|
@@ -1014,7 +1078,9 @@ done
 |`-t`|等待的时间，默认一直等待|
 
 # 七、函数
+
 ### 系统函数
+
 **basename**  
 
 |命令|描述|
@@ -1029,7 +1095,9 @@ done
 |`dirname string`|字符串剪切，只保留字符串最后一个`/`前的字符，通常用于从完整文件路径中获取文件路径|
 
 ### user function
+
 声明和定义函数后，才能调用函数。函数返回值只能通过命令`$?`获取，返回值为函数中`return`语句的返回值，返回值只能为0-255。如果没有`return`,则返回函数中最后一个命令的执行结果。实际上return的是一个状态码，因此取值范围很小，如果数值太大，不会报错，会返回溢出后的值。
+
 ```bash
 function add()
 {
@@ -1042,6 +1110,7 @@ echo $sum
 ```
 
 # 八、正则表达式
+
 正则表达式使用一些特殊字符来匹配对应字符串。部分工具引入了扩展的正则规则，这些规则并不通用，其它工具可能无法正确识别这些正则规则。
 
 |特殊字符|描述|
@@ -1080,6 +1149,7 @@ echo $sum
 |`NR`|行号|
 
 # 其它
+
 inode: 保存了文件的元信息，文件类型、文件权限、文件的链接数(硬链接的数量)、创建时间、文件索引编号等等。
 
 硬链接指向的是文件的inode，因此只能针对文件，不能指向目录。当文件的硬链接数量为0时，说明该文件已经被删除。
@@ -1089,44 +1159,56 @@ inode: 保存了文件的元信息，文件类型、文件权限、文件的链�
 端口号：0-65535，默认使用，ssh用22，网页用80，mysql用3306
 
 ### shortcut
+
 customized shortcut can be stored in folder `~/.local/share/applications`, such as `~/.local/share/applications/myapp.desktop`.
 
 ### pack deb
+
 ##### step
+
 1. set varibles for dpkg: add lines below to `.bashrc`
+
 ```bash
 DEBEMAIL="email@moxa.com"
 DEBFULLNAME="name family"
 export DEBEMAIL DEBFULLNAME
 ```
+
 2. compile and install files into folder `helloworld-1.0.0`.
 3. `tar -zcvf helloworld-1.0.0.tar.gz helloworld-1.0.0/`
 4. `cd helloworld-1.0.0`
 5. init dpkg
+
 ```bash
 dh_make -f ../helloworld-1.0.0.tar.gz -n -s -y
 # -s：Automatically set the package class to Single binary, skipping the question.
 # -n：Create a native Debian packages
 # -y：Automatic yes to prompts and run non-interactively. The package class needs to be set for dh_make to run fully automatically.
 ```
+
 6. 如果你的软件包需要那些标准的 `make install` 没有安装的文件, create file `install`. 
 7. create deb file: `dpkg-buildpackage -us -uc`
 
 ##### NOTE
+
 1. If you run the step5, and then you copy or move a file named `install` from `ntfs` file system to folder `debian`, you may get error like below
+
 ```bash
 debian/install: 1: assets/add.jpeg: Permission denied
 QStandardPaths: wrong ownership on runtime directory /run/user/1000, 1000 instead of 0
 ```
 <!-- However, you can do like this: create the file `install`, and store the whole folder `debian`. The folder can be reused. -->
 
-
 ### bash
+
 ##### add cmake path
+
 ```bash
 export PATH="$PATH:/path/to/your/folder"
 ```
+
 ##### add library path
+
 ```bash
 export LD_LIBRARY_PATH="/path/to/your/libraries:$LD_LIBRARY_PATH"
 ```
