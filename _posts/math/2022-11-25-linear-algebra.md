@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "线性代数"
-date:   2025-02-07 23:15:06 +0800
+date:   2025-02-12 20:50:53 +0800
 categories: [Math]
 excerpt: 用普通的直觉代替枯燥的证明
 tags:
@@ -44,11 +44,19 @@ PCA降维使用的变换矩阵恰好是SVD分解的右奇异矩阵。实际上�
 
 ### 5. singular value and eigen value
 
-Eigen value indicates special situation for a matrix, that vector input and output are in same direction. <br>
-Singular value indicate general situation for matrix, vector input will be decomposed into zhengjiao vectors, and then these will be stretched in different scales. Singular values are these scales. At last, all these vectors will be composed to construct the vector output.
+Eigen value indicates special situation for a matrix, that vector input and output are in same direction. </br>
+Singular value indicate general situation for matrix, vector input will be decomposed into orthogonal vectors, and then these will be stretched in different scales. Singular values are these scales. At last, all these vectors will be composed to construct the vector output.
 
 奇异值分解中, M = UΣV*
 V的行（columns）組成一套對 M 的正交"輸入"或"分析"的基向量。這些向量是 M*M 的特徵向量。
 U的行（columns）組成一套對 M 的正交"輸出"的基向量。這些向量是 MM* 的特徵向量。
 
- Singular Matrix will reduce demisions of vector
+Singular Matrix will reduce dimensions of vector
+
+### 范数
+
+向量 x 在经过矩阵 A 变换前后模长比值的最大值，定义为 A 的范数。
+
+### 条件数
+
+条件数同时描述了矩阵对向量的拉伸能力和压缩能力.

@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "vscode使用"
-date:   2025-02-10 22:17:48 +0800
+date:   2025-02-12 20:50:53 +0800
 categories: [Tech]
 excerpt: 记录了vscode的使用方法、技巧以及在使用中遇到的问题和解决方案
 tags:
@@ -15,6 +15,8 @@ tags:
 # notation
 
 # setting.json
+
+path is `.config/Code/User/setting.json`.
 
 ### levels of settings
 
@@ -152,6 +154,10 @@ display icon for every file and folder
 ##### 1. 中文乱码问题
 
 点击[这里](https://juejin.cn/post/7032129567473188872)查看解决方案。这里面也提供了把转换中文编码方式的方法。
+
+##### 2. can't find header file
+
+header file can't be found even if library has been installed correctly and code is compiled successfully. To solve it, you can try close all vscode windows and reopen vscode.
 
 ##### 4. plugins
 
