@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "vscode使用"
-date:   2025-02-12 20:50:53 +0800
+date:   2025-03-07 21:19:39 +0800
 categories: [Tech]
 excerpt: 记录了vscode的使用方法、技巧以及在使用中遇到的问题和解决方案
 tags:
@@ -190,3 +190,11 @@ header file can't be found even if library has been installed correctly and code
   1. 打开命令面板: 使用快捷键 `Ctrl+Shift+P`(Windows/Linux)或 `Cmd+Shift+P`(Mac)打开命令面板。
   2. 输入比较命令: 输入Compare，然后选择`File: Compare Active File with...`。
   3. 选择文件: 从文件选择器中选择你要比较的另一个文件。
+
+##### 11. clang-format
+
+```plain
+The 'clang-format' command is not available. Please check your clang-format.executable user setting and ensure it is installed.
+```
+
+run command `sudo apt-get install clang-format` to install `clang-format`.

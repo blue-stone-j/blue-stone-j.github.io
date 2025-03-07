@@ -1,0 +1,17 @@
+<svg width="200" height="200" xmlns="http://www.w3.org/2000/svg" viewBox="-100 -100 200 200">
+  <!-- First circle with center (0, 0) and radius 90, filled with light blue -->
+  <circle cx="0" cy="0" r="90" stroke="black" stroke-width="2" fill="lightblue" />
+  
+  <!-- Second circle with center (-45, 0) and radius 30, filled with light green -->
+  <circle cx="-45" cy="0" r="30" stroke="black" stroke-width="2" fill="lightgreen" />
+  
+  <!-- Third circle with center (45, 0) and radius 30, filled with light coral -->
+  <circle cx="45" cy="0" r="30" stroke="black" stroke-width="2" fill="lightcoral" />
+  
+  <!-- Point at the center of the second circle, filled with dark green -->
+  <circle cx="-45" cy="0" r="3" fill="darkgreen" />
+  
+  <!-- Point at the center of the third circle, filled with dark red -->
+  <circle cx="45" cy="0" r="3" fill="darkred" />
+</svg>
+

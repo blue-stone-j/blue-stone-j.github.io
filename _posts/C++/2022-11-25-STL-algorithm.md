@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "STL algorithm"
-date:   2025-01-11 22:47:47 +0800
+date:   2025-03-07 21:19:39 +0800
 categories: [Lan]
 excerpt: 
 tags:
@@ -52,6 +52,39 @@ int main() {
 
     for (double num : vec) {
         std::cout << num << " ";
+    }
+
+    return 0;
+}
+```
+
+### std::max_element
+
+```C++
+#include <iostream>
+#include <vector>
+#include <algorithm> // for std::max_element
+
+// Custom compare function (finds max by absolute value)
+bool compareAbs(int a, int b) {
+    return std::abs(a) < std::abs(b);
+}
+
+int main() {
+    std::vector<int> values = {-10, 3, -7, 9, -2, 8};
+   {
+        // Find the element with the largest absolute value
+        auto max_it = std::max_element(values.begin(), values.end(), compareAbs);
+    
+        if (max_it != values.end()) {
+            std::cout << "Maximum value by absolute magnitude: " << *max_it << std::endl;
+        } else {
+            std::cout << "Vector is empty" << std::endl;
+        }
+    }
+    {   // Find the element with the largest absolute value
+        auto max_it = std::max_element(values.begin(), values.end(), 
+        [](int a, int b) { return std::abs(a) < std::abs(b); });
     }
 
     return 0;
