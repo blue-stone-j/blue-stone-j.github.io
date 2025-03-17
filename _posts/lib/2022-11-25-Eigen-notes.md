@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Eigen学习"
-date:   2025-02-07 23:15:06 +0800
+date:   2025-03-17 20:49:49 +0800
 categories: [Tech]
 excerpt: 常用Eigen函数；Eigen的数据结构；等等。
 tags:
@@ -210,19 +210,31 @@ T.transposeInPlace();
 * arr1.max(arr2) : 将两个Array中相应位置的最大值组成一个新Array
 * square() : 
 
-##### 4. 向量本身运算
+##### 5. 向量本身运算
 
 ```C++
 vec.setRandom(); // 设置随机数
 ```
 
-##### 5. Eigen::Map
+##### 6. Eigen::Map
 
 Eigen::Map 的作用是将一个已有的 C 数组映射为一个 Eigen 的向量或者矩阵。可以使用 Eigen 向量和矩阵的各种操作函数,依然使用已有数组的空间。
 ```C++
 Map<MatrixXd> md1(data, 2, 4);
 ```
 
+##### 7. Eigen::Affine
+
+```C++
+// Define an Affine3f transformation
+Eigen::Affine3f transform = Eigen::Affine3f::Identity();
+
+// Set a translation component
+transform.translation() << 1.0f, 2.0f, 3.0f;
+
+// Extract the translation vector
+Eigen::Vector3f translation = transform.translation();
+```
 
 ##### 9. Eigen与OpenCV的数据类型转换
 

@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Markdown语法"
-date:   2025-03-07 21:19:39 +0800
+date:   2025-03-17 20:49:49 +0800
 categories: [Design]
 excerpt: 总结了Markdown语法，可用作语法字典
 tags:
@@ -82,8 +82,8 @@ $\sum_{i=1}^n i$
 
 4. 换行
 
-```Bash
-<br />
+```md
+</br>
 ```
 
 1. 表格

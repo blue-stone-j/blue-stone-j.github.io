@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Windows 使用"
-date:   2025-02-07 23:15:06 +0800
+date:   2025-03-17 20:49:49 +0800
 categories: [OS]
 excerpt: 使用 Windows 系统时遇到的小问题以及解决方案
 tags:
@@ -9,6 +9,8 @@ tags:
   - 
   - 
 ---
+
+Default path of `%temp%` is `C:\Users\admin\AppData\Local\Temp`
 
 使用 Windows 系统时遇到的小问题以及解决方案。
 
