@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  Linux笔记
-date:   2025-02-10 22:17:48 +0800
+date:   2025-03-27 00:56:29 +0800
 categories: [OS]
 excerpt: Linux系统的学习笔记
 tags:
@@ -90,10 +90,12 @@ class: sys
 
 |选项|描述|
 |---|---|
-|-r|recursive的简写,递归地复制文件夹|
-|-i|覆盖时询问|
+|`-r`|recursive的简写,递归地复制文件夹|
+|`-i`|覆盖时询问|
+|`-u` or `--update`|Copy only when the source file is newer than the destination file or when the destination file is missing.|
 
 这是一个复制文件的辅助功能，用来显示复制的进度。
+`rsync` compares file size and modification time and will skip copying if nothing has changed.
 
 ```Bash
 rsync -ah --progress source destination

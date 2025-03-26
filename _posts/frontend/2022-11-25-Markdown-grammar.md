@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Markdown语法"
-date:   2025-03-17 20:49:49 +0800
+date:   2025-03-27 00:56:29 +0800
 categories: [Design]
 excerpt: 总结了Markdown语法，可用作语法字典
 tags:
@@ -164,3 +164,10 @@ $\sum_{i=1}^n i$
 | 📦      | Package   | `&#128230;` | `&#x1F4E6;` |
 | ✅      | Correct      | `&#9989;` | `` |
 | ❌      | Wrong  | `&#10060;` | `` |
+
+### Unicode emoji character
+
+| Symbol | Name      | code     | Hexadecimal |
+|---|---|---|---|
+|📝||||
+|📌|pushpin emoji|`:pushpin:`|U+1F4CC|

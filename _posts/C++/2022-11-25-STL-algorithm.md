@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "STL algorithm"
-date:   2025-03-07 21:19:39 +0800
+date:   2025-03-27 00:56:29 +0800
 categories: [Lan]
 excerpt: 
 tags:
@@ -16,11 +16,12 @@ tags:
 #include <algorithm>
 ```
 
-
 # Empirical Observation
 
 #
+
 ### std::unique
+
 ```C++
 template <class ForwardIterator>
 ForwardIterator unique(ForwardIterator first, ForwardIterator last);
@@ -28,11 +29,13 @@ ForwardIterator unique(ForwardIterator first, ForwardIterator last);
 template <class ForwardIterator, class BinaryPredicate>
 ForwardIterator unique(ForwardIterator first, ForwardIterator last, BinaryPredicate pred);
 ```
+
 1. In-Place Operation: `std::unique` does not resize the container or physically remove elements. It simply shifts the unique elements to the front.
 2. Range Assumption: The range should be sorted if you want to remove all duplicates. Otherwise, only consecutive duplicates are removed.
 3. Reclaim Space: If used on a container like `std::vector`, you need to call erase to remove the redundant elements physically.
 
 an example
+
 ```C++
 #include <iostream>
 #include <vector>

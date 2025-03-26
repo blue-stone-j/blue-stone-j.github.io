@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Linux以及相关qa"
-date:   2025-01-18 11:08:33 +0800
+date:   2025-03-27 00:56:29 +0800
 categories: [OS]
 excerpt: 总结了Linux常用命令、qa
 tags:
@@ -62,10 +62,14 @@ exit
 ##### 7. 远程主机界面
 连接到远程主机，在远程主机启动程序，并把对应的图像传回本地。
 ```shell
+# install necessary library to local
 sudo apt install xvfb
+
+# local setting
 Xvfb :1 -screen 0 1024x768x24 &
 export DISPLAY=:1
 
+# log in remote
 ssh -Y user@remote_ubuntu_host
 rviz
 ```
@@ -96,7 +100,7 @@ Disconnect and reconnect your Android device, then run:
 ```bash
 adb kill-server
 adb start-server
-adb devices
+adb devices 
 ```
 4. You can run `adb devices` to list all avaliable devices or `adb shell` to connect device now.
 5. You can use `adb push <source> <destination>` to copy files from the computer to the device and use `adb pull <source> <destination>` copy files from the device to the computer.
