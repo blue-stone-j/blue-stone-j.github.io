@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  Linux笔记
-date:   2025-03-27 00:56:29 +0800
+date:   2025-04-02 22:16:37 +0800
 categories: [OS]
 excerpt: Linux系统的学习笔记
 tags:
@@ -1168,7 +1168,7 @@ customized shortcut can be stored in folder `~/.local/share/applications`, such 
 
 ##### step
 
-1. set varibles for dpkg: add lines below to `.bashrc`
+1. set variables for dpkg: add lines below to `.bashrc`
 
 ```bash
 DEBEMAIL="email@moxa.com"
