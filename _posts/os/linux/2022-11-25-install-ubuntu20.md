@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "ubuntu20 安装及配置"
-date:   2025-01-01 19:00:46 +0800
+date:   2025-04-06 20:48:21 +0800
 categories: [OS]
 excerpt: 安装Ubuntu 20系统，然后安装常用库。
 tags:

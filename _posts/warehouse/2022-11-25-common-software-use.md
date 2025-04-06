@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "常用软件使用"
-date:   2025-01-11 22:47:47 +0800
+date:   2025-04-06 20:48:21 +0800
 categories: [Tech]
 excerpt: 记录了常用软件的使用方法、技巧以及在使用中遇到的问题和解决方案
 tags:
@@ -168,6 +168,7 @@ version id 3.2.92, may be old for ceres.
 [ubuntu16.04 安装 OpenCV](https://zhuanlan.zhihu.com/p/157195781)
 
 ### 14. Docker
+
 18.04[设置存储库及安装检验](https://www.jianshu.com/p/83483c35bfcd)
 其中安装步骤的5-6-7使用[此处](https://zhuanlan.zhihu.com/p/57413820)的方法；
 安装检验使用[此处](https://www.myfreax.com/how-to-install-and-use-docker-on-ubuntu-18-04)的方法；
@@ -177,18 +178,21 @@ version id 3.2.92, may be old for ceres.
 ceres报错：Eigen3版本和ceres版本存在冲突，解决方法在[此处](https://zhuanlan.zhihu.com/p/149775218)。
  (in fact it's about "ceres报错：Eigen3版本和ceres版本冲突问题", it shouldn't be here.)
 
-
 # <center>四、 net, browse, cloud
+
 设备间连接和传递文件；连接网络
 
 ### 1.easyconnect
+
 如果单位对版本有要求，尽量使用单位要求的版本。在`Ubuntu 20.04`中安装`easyconnect`，在安装完成后无法打开。这是正常的，因为有版本依赖问题。
 参考[这里](https://blog.csdn.net/h106140873/article/details/114263954)解决。对应的文件可以在[这里](https://pan.baidu.com/s/1MparKP20EnAXMmabokhJ7w?pwd=1234)下载。
 
 ### 2. samba
+
 这是一种用于在`iPhone`和`Ubuntu`之间传递文件的方法。具体方法在[这里](https://blog.csdn.net/qq_43419705/article/details/108690683)。If you want to add or delete user, [this](https://www.thegeekdiary.com/how-to-add-or-delete-a-samba-user-under-linux/) can help you. 
 
 ### 3. firefox
+
 * 显示书签
 * 缩放zoom设为`1.2~1.5`。
 * 可从`html`文件中导入书签。
@@ -197,32 +201,39 @@ ceres报错：Eigen3版本和ceres版本存在冲突，解决方法在[此处](h
 * `Highlight or Hide Search Engine Results`一个可以用来在搜索结果中屏蔽特定网站的插件
 
 ### 4. 显示网速
+
 按照[这个方法](https://www.yisu.com/ask/6880.html)安装和使用sysmonitior工具。也可以添加显示cpu温度的选项，温度过高时及时降功率，延长器件寿命。可以使用如下代码输出网速等信息。
+
 ```
 Net: $(speed(net.down))   $(speed(net.up))   CPU: $(percent(cpu.inuse))     Mem $(percent(size(mem.user)/size(mem.total)))
 ```
+
 对于Ubuntu20, use
+
 ```
 net: {net} cpu: {cpu} mem: {mem}
 ```
+
 配置文件通常保存在`HOME`文件夹下，名称为`.indicator-sysmonitor.json`。
 
 ### 6. Chrome
+
 缩放zoom设置为`1.25~1.5`。
 
-### 7. github
-This software is to manage git. Click [here](https://desktop.github.com/) to download it.
+### 8
 
-### 8.
 some net tools such as `ifconfig`
-```
+
+```bash
 sudo apt install net-tools
 ```
 
 ### 9. 钉钉
+
 IOS系统的手机用相机拍摄视频后，在相册中直接上传到钉钉，从钉钉下载该视频会下载失败。在手机上把视频保存到文件，在文件app中把视频上传到钉钉后，可以从钉钉下载。
 
 ### 10. securecrt
+
 1. display remote screen: session manager->sessions->right click->properties->remote/X11->X11 forwarding(second group)->enable "Forward X11 packets".
 2. disable confirm when disconnect: menu->options->global options->general(first item)->dialogs(first group)->disable "show confirm disconnect dialog"
 3. cursor: session manager->sessions->right click->properties->appearance->cursor->cursor style
@@ -230,11 +241,15 @@ IOS系统的手机用相机拍摄视频后，在相册中直接上传到钉钉�
 5. file permissions: file transfer->Options->Advanced->file permissions
 
 # <center> 5 other
+
 ### 1. expect
+
 这是在Linux系统中常用的一个交互命令工具。
+
 ```Bash
 sudo apt install expect -y
 ```
 
 ### 2. browse
+
 如果需要科学上网，往往通过代理实现。firefox可以在设置中单独设置代理。Chrome、edge、星愿浏览器都只能使用系统代理。

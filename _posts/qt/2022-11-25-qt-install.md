@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "install qt"
-date:   2025-02-07 23:15:06 +0800
+date:   2025-04-06 20:48:21 +0800
 categories: [Tech]
 excerpt: how to install qt
 tags:
