@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Linux以及相关qa"
-date:   2025-04-06 20:48:21 +0800
+date:   2025-04-06 23:05:41 +0800
 categories: [OS]
 excerpt: 总结了Linux常用命令、qa
 tags:
@@ -60,7 +60,9 @@ exit
 `CTRL+D`表示关闭当前所在的终端页面。
 
 ##### 7. 远程主机界面
+
 连接到远程主机，在远程主机启动程序，并把对应的图像传回本地。
+
 ```shell
 # install necessary library to local
 sudo apt install xvfb
@@ -74,38 +76,47 @@ ssh -Y user@remote_ubuntu_host
 rviz
 ```
 
-
 ### 三.设备
 
 ##### 1. ADB(Android Debug Bridge)
+
 1. Add a Udev Rule for the Device: To allow users in the plugdev group to access the device, create a Udev rule file.
 
 Run this command to open a new Udev rules file:
+
 ```bash
 sudo nano /etc/udev/rules.d/51-android.rules
 ```
+
 Add the following line to the file, replacing YOUR_VID with your device's vendor ID (often `18d1` for Google devices, but you can find this with `lsusb`):
+
 ```
 SUBSYSTEM=="usb", ATTR{idVendor}=="YOUR_VID", MODE="0666"
 ```
+
 Save the file and close the editor.
 2. Reload Udev Rules:
 Apply the new rule by reloading the Udev rules and restarting the Udev service:
+
 ```bash
 sudo udevadm control --reload-rules
 sudo service udev restart
 ```
+
 3. Reconnect the Device:
 Disconnect and reconnect your Android device, then run:
+
 ```bash
 adb kill-server
 adb start-server
 adb devices 
 ```
+
 4. You can run `adb devices` to list all avaliable devices or `adb shell` to connect device now.
 5. You can use `adb push <source> <destination>` to copy files from the computer to the device and use `adb pull <source> <destination>` copy files from the device to the computer.
 
 ##### 2. 网络连接和设备
+
 iwconfig
 ethtool
 
