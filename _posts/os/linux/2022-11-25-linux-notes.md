@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  Linux笔记
-date:   2025-04-06 23:05:41 +0800
+date:   2025-04-08 00:15:12 +0800
 categories: [OS]
 excerpt: Linux系统的学习笔记
 tags:
@@ -671,6 +671,7 @@ ubuntu默认使用“dash”，也可以改为“bash”。“dash”不支持�
 |`who am i`|查看创建会话的用户的信息|
 |`whoami`|查看当前用户名称|
 |`sudo usermod -aG sudo username`|add user to sudo group so that user can use `sudo`|
+|`sudo usermod -d /new/home/path -m username`||
 
 **root**
 

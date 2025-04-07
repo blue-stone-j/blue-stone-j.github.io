@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Eigen学习"
-date:   2025-03-17 20:49:49 +0800
+date:   2025-04-08 00:15:12 +0800
 categories: [Tech]
 excerpt: 常用Eigen函数；Eigen的数据结构；等等。
 tags:
@@ -16,14 +16,14 @@ tags:
 
 ##### 1. 参考资料
 
-* 1. http://zhaoxuhui.top/blog/2019/08/21/eigen-note-1.html
+* 1. <http://zhaoxuhui.top/blog/2019/08/21/eigen-note-1.html>
 
 ##### 3. 模块组成
 
 * Core：Matrix和Array类，基础的线性代数运算和数组操作；
 * Geometry：旋转，平移，缩放，2维和3维的各种变换；
 * LU：求逆，行列式，LU分解；
-* Cholesky：LLT和LDLT Cholesky分解；
+* Cholesky：`LLT`和`LDLT Cholesky`分解；
 * Householder：Householder变换；
 * SVD：SVD分解；
 * QR：QR分解。
@@ -101,6 +101,7 @@ mat.setRandom(rows, cols);
 ##### 4. 元素获取
 
 **矩阵元素获取**
+
 * mat.rows() : 获取矩阵的行数
 * mat.cols() : 获取矩阵的列数
 * mat.size() : 获取矩阵的元素个数
@@ -124,21 +125,25 @@ mat.setRandom(rows, cols);
 ##### 1. type conversion
 
 * `Eigen::Affine3f`和`Eigen::Matrix4f`的转换
+
 ```C++
 Eigen::Affine3f A;
 Eigen::Matrix4f M;
 M = A.matrix();
 A = M;
 ```
+
 * 矩阵|数组 <-->  普通数组 C++数组
+
 ```C++
-Eige::Array arr;
+Eigen::Array arr;
 float *a; a = mat.data(); // share memory
 mat = arr.matrix(); // share memory
 arr = mat.array();
 ```
 
 * std::vector和Eigen::Matrix的转换
+
 ```C++
 std::vector<double> ext;
 Eigen::Matrix3d mat;
@@ -147,17 +152,18 @@ Eigen::VectorXd pf = Eigen::Map<Eigen::VectorXd, Eigen::Unaligned>(ext.data(), e
 ext = std::vector<double>(&mat[0], mat.data()+mat.cols()*mat.rows());
 ```
 
-
 ##### 2. 自身赋值
 
 Eigen使用了lazy evaluation(懒惰评估),默认都是存在混淆混叠的，也就是在计算过程中会覆盖原来位置的值。
-* `eval()`  
-自己对自己进行赋值的时候，先把结果存到临时变量,避免Eigen中的混叠（aliasing）问题.
+
+* `eval()`: 自己对自己进行赋值的时候，先把结果存到临时变量,避免Eigen中的混叠（aliasing）问题.
+
 ```C++
 mat = 0.5 * (mat + mat.transpose()).eval(); 
 ```
-* `InPlace()`  
-强调改变矩阵自身
+
+* `InPlace()`: 强调改变矩阵自身
+
 ```C++
 Matrix3d T;
 T.col(0) = e1;
@@ -166,12 +172,11 @@ T.col(2) = e3;
 T.transposeInPlace();
 ```
 
-* `noalias()`  
-为了避免混淆，Eigen会在计算中创建一个临时变量来存储计算的中间值。使用这个函数则明确表示不存在混淆，使eigen在计算时不再创建临时变量，可以提高计算效率。
+* `noalias()`: 为了避免混淆，Eigen会在计算中创建一个临时变量来存储计算的中间值。使用这个函数则明确表示不存在混淆，使eigen在计算时不再创建临时变量，可以提高计算效率。
 
 ##### 3. 矩阵本身运算
 
-* transpose() : 
+* transpose() :
 * inverse() : 逆矩阵
 * conjugate() : 共轭矩阵,实数的共轭还是其本身。
 * adjoint() : 伴随矩阵
@@ -199,16 +204,20 @@ T.transposeInPlace();
 * rowwise() : 返回矩阵每行的值
 * fill() : 将所有元素均赋值为 n
 * mat1.transpose().colwise().reverse() : Rot90
-* eeshape() : 不改变矩阵元素个数的情况下，改变矩阵中元素的大小,例如转置
+* reshape() : 不改变矩阵元素个数的情况下，改变矩阵中元素的大小,例如转置
+* conservativeResize(Eigen::NoChange, mat.cols() + 1): Resize the matrix to add one more column
+* cwiseAbs()
+* cwiseSqrt()
+* cwiseMin()
 
 ##### 4. Array本身运算
 
-* abs() : 
-* sqrt() : 
-* pow() : 
+* abs() :
+* sqrt() :
+* pow() :
 * arr1.min(arr2) : 将两个Array中相应位置的最小值组成一个新Array
 * arr1.max(arr2) : 将两个Array中相应位置的最大值组成一个新Array
-* square() : 
+* square() :
 
 ##### 5. 向量本身运算
 
@@ -219,6 +228,7 @@ vec.setRandom(); // 设置随机数
 ##### 6. Eigen::Map
 
 Eigen::Map 的作用是将一个已有的 C 数组映射为一个 Eigen 的向量或者矩阵。可以使用 Eigen 向量和矩阵的各种操作函数,依然使用已有数组的空间。
+
 ```C++
 Map<MatrixXd> md1(data, 2, 4);
 ```
@@ -241,14 +251,14 @@ Eigen::Vector3f translation = transform.translation();
 ```C++
 Eigen::Matrix<float, 2, 3> matrix_23f;
 matrix_23f << 1, 2, 3, 
-			  4, 5, 6;
+              4, 5, 6;
 cv::Mat mat_23f;
 cv::eigen2cv(matrix_23f, mat_23f);
 
 cv::Mat mat_23f(2, 3, CV_32F); // 也可以不加括号后面的，直接定义 cv::Mat mat_23f;
 mat_23f = (cv::Mat_<float>(2, 3) << 
-	1, 2, 3, 
-	4, 5, 6);
+    1, 2, 3, 
+    4, 5, 6);
 Eigen::Matrix<float, 2, 3> matrix_23f;
 cv::cv2eigen(mat_23f, matrix_23f);
 ```
@@ -256,19 +266,21 @@ cv::cv2eigen(mat_23f, matrix_23f);
 ##### example
 
 * 把extRotV中的数据按行优先的方式放入3×3矩阵中;extRot为该矩阵的映射;extRot可以使用Eigen矩阵的各种操作函数
+
 ```C++
 extRot = Eigen::Map<const Eigen::Matrix<double, -1, -1, Eigen::RowMajor>>(extRotV.data(), 3, 3);
 ```
 
-* 从矩阵isamNoise(0,0)处起，向右向下得到3×3的矩阵;取该矩阵的对角元构建对角矩阵;把对角矩阵的主元放入数组;把数组元素强制转换为float
+* 从矩阵`noise(0,0)`处起，向右向下得到3×3的矩阵;取该矩阵的对角元构建对角矩阵;把对角矩阵的主元放入数组;把数组元素强制转换为 `float`
+
 ```C++
-Eigen::Vector3f rpyN = isamNoise.block<3, 3>(0, 0).diagonal().array().cast<float>();
+Eigen::Vector3f rpyN = noise.block<3, 3>(0, 0).diagonal().array().cast<float>();
 ```
 
 * <矩阵块的大小>(矩阵块的起始位置，必须是静态变量) = (数值初始化向量).转换为对角矩阵
 
 ```C++
-imuNoise.block<3, 3>(acc, acc) = Eigen::Vector3f(accSquare, accSquare, accSquare).asDiagonal();
+noise.block<3, 3>(acc, acc) = Eigen::Vector3f(accSquare, accSquare, accSquare).asDiagonal();
 ```
 
 ### 四、 矩阵运算
@@ -282,16 +294,17 @@ a.cross(b);
 kroneckerProduct(mat1，mat2); //???
 ```
 
-##### 2. 
+##### 2
 
 * 特征值,特征向量
+
 ```C++
 Eigen::EigenSolver<Eigen::Matrix2d> eigen_solver(mat);
 Eigen::MatrixXd eig_value = eigen_solver.pseudoEigenvalueMatrix();
 Eigen::MatrixXd eig_vector = eigen_solver.pseudoEigenvectors();
 ```
 
-##### 3. 
+##### 3
 
 ```C++
 MatrixXf m(2,2);
@@ -311,12 +324,12 @@ Eigen::AngleAxisd pitchAngle(Eigen::AngleAxisd(rpy[1],Eigen::Vector3d::UnitY()))
 Eigen::AngleAxisd yawAngle(Eigen::AngleAxisd(rpy[2],Eigen::Vector3d::UnitZ()));
 Eigen::Quaterniond q3 = yawAngle*pitchAngle*rollAngle;
 
-Quaternionf q1;
-q1 = AngleAxisf(roll, Vector3f::UnitX()) * AngleAxisf(pitch, Vector3f::UnitY()) * AngleAxisf(yaw, Vector3f::UnitZ());
+Eigen::Quaternionf q1;
+q1 = Eigen::AngleAxisf(roll, Vector3f::UnitX()) * Eigen::AngleAxisf(pitch, Vector3f::UnitY()) * Eigen::AngleAxisf(yaw, Vector3f::UnitZ());
 
-AngleAxisf aa1;
+Eigen::AngleAxisf aa1;
 aa1 = q; // 赋值是可以的，不过必须要像这样分两行写，而不能写成一行 `AngleAxisf aa = q`。
-AngleAxisf aa2(q);
+Eigen::AngleAxisf aa2(q);
 ```
 
 * 旋转阵 --> 四元数
@@ -329,12 +342,14 @@ Quaternion q4(rot);
 
 Matrix3f rot1 = q.toRotationMatrix();
 ```
+
 * 旋转阵 --> 欧拉角
+
 ```C++
 Vector3f angles = rot1.eulerAngles(0, 1, 2); 
 ```
 
-##### 7. Enclidean Transformation Matrix
+##### 7. Euclidean Transformation Matrix
 
 ```C++
 Eigen::Isometry3d T = Eigen::Isometry3d::Identity(); // 虽然称为 3d ，实质上是 4*4 的矩阵
@@ -342,73 +357,36 @@ T.rotate ( rotationAxis ); // 按照 angle-axis 记录的旋转阵进行旋转
 T.pretranslate ( Eigen::Vector3d ( 1,3,4 ) ); // 在变换阵的”左边“添加一个平移
 T.translate( Eigen::Vector3d ( 1,3,4 ) ); // 在变换阵的”右边“增加一个平移???
 ```
-* 
-* 
 
 ### 五、求解
 
 ```C++
 // Solve Ax = b. Result stored in x. Matlab: x = A \ b.
-x = A.ldlt().solve(b));  // A sym. p.s.d.    #include <Eigen/Cholesky>
-x = A.llt().solve(b));  // A sym. p.d.      #include <Eigen/Cholesky>
-x = A.lu().solve(b));  // Stable and fast. #include <Eigen/LU>
-x = A.qr().solve(b));  // No pivoting.     #include <Eigen/QR>
-x = A.svd().solve(b));  // Stable, slowest. #include <Eigen/SVD>
+x = A.ldlt().solve(b);  // A sym. p.s.d.    #include <Eigen/Cholesky>
+x = A.llt().solve(b);  // A sym. p.d.      #include <Eigen/Cholesky>
+x = A.lu().solve(b);  // Stable and fast. #include <Eigen/LU>
+x = A.qr().solve(b);  // No pivoting.     #include <Eigen/QR>
+x = A.svd().solve(b);  // Stable, slowest. #include <Eigen/SVD>
 // .ldlt() -> .matrixL() and .matrixD()
 // .llt()  -> .matrixL()
 // .lu()   -> .matrixL() and .matrixU()
 // .qr()   -> .matrixQ() and .matrixR()
 // .svd()  -> .matrixU(), .singularValues(), and .matrixV()
 ```
-* 
-* 
-* 
-* 
-* 
-* 
 
 ### 六、 calculate
 
-##### 1. 
+##### 1
 
 ----------------------------------------
+
 ```C++
-reshape()
-resize()
-// conservativeResize(Eigen::NoChange, mat.cols() + 1); Resize the matrix to add one more column
-conservativeResize()
 cwiseProduct()
-cwiseAbs()
-cwiseSqrt()
-cwiseMin()
 ```
 
-## 一、基础知识
-
-#### 2
+##### 2 Isometry
 
 欧氏变换矩阵使用 Eigen::Isometry
 
 ```C++
 ```
-
-
-
-
-### 2. 运算
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
