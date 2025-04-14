@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "前沿方法"
-date:   2025-01-01 19:00:46 +0800
+date:   2025-04-15 00:33:15 +0800
 categories: [Tech]
 excerpt: 这篇文章整理了SLAM和感知相关的前沿方法。
 tags:
@@ -13,7 +13,6 @@ tags:
 
 这篇文章整理了SLAM和感知相关的前沿方法。这些信息来自公开的知识分享。
 
-
 ### 基于多lidar城市自动驾驶定位与建图构建方案
 
 文章《Multi-LiDAR Kocalization and Mapping Pipelinefor Urban Autonomous Driving》
@@ -21,20 +20,23 @@ tags:
 摘要：离线地图构建，在线定位，基于KISS-ICP。生成语义地图。已集成到autoware中。
 
 相关工作：
+
 1. M-LOAM添加了多LiDAR支持，还可在线校准。
 
 车辆配置：
+
 1. Innovusion Falcon Kinetic * 2, Ouster OS1-128 * 2
 
 流程
+
 1. 传感器融合: 每个LiDAR配准后，再合并点云，再和地图匹配，从而避免单个扫描之间的时间差异并补偿校准误差。
 2. 地图构建
    1. 点云地图：使用分离帧扫描配准的KISS-ICP创建地图，地图经过交互式(interactive)SLAM后处理。也可以执行回环和图优化。
    2. 语义地图：使用`Vector Map Builder2`，通过标记车道边界等手动标注点云地图。点云强度过滤已提取车道线。点云投影到图像中以添加上语义标签。
 3. 在线定位：使用KISS-ICP，基于EKF融合LiDAR、GNSS、IMU、轮速和车辆动力学模型。
 
-
 ### cloudcompare和PCL-ICP对比
+
 点云的有序性、系数成都、噪声大小。
 
 CC

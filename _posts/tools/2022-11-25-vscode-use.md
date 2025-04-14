@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "vscode使用"
-date:   2025-04-08 00:15:12 +0800
+date:   2025-04-15 00:33:15 +0800
 categories: [Tech]
 excerpt: 记录了vscode的使用方法、技巧以及在使用中遇到的问题和解决方案
 tags:
@@ -148,6 +148,34 @@ ignore a specific warning.
 ### vscode-icons
 
 display icon for every file and folder
+
+### format files
+
+Take `json` as example.
+
+1. install extension `Prettier - Code formatter`
+2. add code below to `settings.json`
+
+```json
+"editor.formatOnSave": true,
+"[json]":{
+  "editor.defaultFormatter": "esbenp.prettier-vscode"
+},
+```
+
+If `md` file
+
+```json
+"[markdown]": {
+ "editor.defaultFormatter": "yzhang.markdown-all-in-one"
+},
+```
+
+Even you can add customized format rule like
+
+```json
+"markdown.extension.tableFormatter.normalizeIndentation": true,
+```
 
 # qa
 
