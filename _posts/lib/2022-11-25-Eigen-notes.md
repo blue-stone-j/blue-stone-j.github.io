@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Eigen学习"
-date:   2025-04-08 00:15:12 +0800
+date:   2025-04-22 23:59:18 +0800
 categories: [Tech]
 excerpt: 常用Eigen函数；Eigen的数据结构；等等。
 tags:
@@ -223,6 +223,7 @@ T.transposeInPlace();
 
 ```C++
 vec.setRandom(); // 设置随机数
+vec.unitOrthogonal();
 ```
 
 ##### 6. Eigen::Map

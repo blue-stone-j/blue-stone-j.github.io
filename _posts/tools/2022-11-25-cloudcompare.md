@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "cloudcompare"
-date:   2025-04-08 00:15:12 +0800
+date:   2025-04-22 23:59:18 +0800
 categories: [Tech]
 excerpt: 记录了cloudcompare的使用方法、技巧以及在使用中遇到的问题和解决方案
 tags:
@@ -10,7 +10,7 @@ tags:
   - 
 ---
 
-记录了cloudcompare的使用方法、技巧以及在使用中遇到的问题和解决方案。
+记录了`CloudCompare`的使用方法、技巧以及在使用中遇到的问题和解决方案。
 
 # compile and install
 
