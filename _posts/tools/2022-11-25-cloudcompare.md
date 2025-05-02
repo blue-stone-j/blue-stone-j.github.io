@@ -1,9 +1,9 @@
 ---
 layout: post
-title:  "cloudcompare"
-date:   2025-04-22 23:59:18 +0800
+title:  "CloudCompare"
+date:   2025-05-02 22:32:01 +0800
 categories: [Tech]
-excerpt: 记录了cloudcompare的使用方法、技巧以及在使用中遇到的问题和解决方案
+excerpt: 记录了CloudCompare的使用方法、技巧以及在使用中遇到的问题和解决方案
 tags:
   -  
   - 
@@ -13,6 +13,8 @@ tags:
 记录了`CloudCompare`的使用方法、技巧以及在使用中遇到的问题和解决方案。
 
 # compile and install
+
+Qt 5.15.2 compiled with MSVC 2019, it is advisable to use Visual Studio 2019 to maintain consistency.​ Qt 5.12 to 5.15 is the supported range.
 
 ### qa
 ##### FBX

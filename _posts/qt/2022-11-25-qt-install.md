@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "install qt"
-date:   2025-04-15 00:33:15 +0800
+date:   2025-05-02 22:32:01 +0800
 categories: [Tech]
 excerpt: how to install qt
 tags:
@@ -28,3 +28,20 @@ sudo apt install libqt5charts5-dev
 ```bash
 sudo apt install qtbase5-dev qtchooser qttools5-dev-tools qttools5-dev
 ```
+
+### ubuntu 24
+
+```bash
+sudo apt install qtbase5-dev qt5-qmake qttools5-dev-tools
+```
+
+### qt 5.15.2
+
+📌 Why is Qt 5.15.2 considered the best?
+Last free and open-source LTS version before the LGPL license was restricted.
+
+Widely adopted by large open-source projects like CloudCompare, ROS, KDE, etc.
+
+Supported by nearly all Linux distributions (Ubuntu, Debian, Fedora).
+
+Compatible with modern C++ compilers (GCC 9+, Clang 10+, MSVC 2017/2019).

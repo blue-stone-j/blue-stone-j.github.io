@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "vscode使用"
-date:   2025-04-15 00:33:15 +0800
+date:   2025-05-02 22:32:01 +0800
 categories: [Tech]
 excerpt: 记录了vscode的使用方法、技巧以及在使用中遇到的问题和解决方案
 tags:
@@ -36,7 +36,9 @@ there are three levels of settings:
 
 # dependency packages
 
-### clang-format
+### format
+
+##### clang-format
 
 1. install `clang-format`
 
@@ -48,6 +50,10 @@ sudo apt install clang-format
 
 * Ensure the `.clang-format` file is present in your project root directory.
 * Use `// clang-format off` and `// clang-format on` to depress format for a code snippet.
+
+##### format on save
+
+Search `Editor: Format On Save Mode` in setting
 
 ##### export PDF
 

@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Markdown语法"
-date:   2025-04-06 20:48:21 +0800
+date:   2025-05-02 22:32:01 +0800
 categories: [Design]
 excerpt: 总结了Markdown语法，可用作语法字典
 tags:
@@ -162,12 +162,12 @@ $\sum_{i=1}^n i$
 | 🏷️      | Label Tag | `&#127991;` | `&#x1F3F7;` |||
 | 🚀      | Rocket    | `&#128640;` | `&#x1F680;` |||
 | 📦      | Package   | `&#128230;` | `&#x1F4E6;` |||
-| ✅      | *Correct* or *Check Mark*     | `&#9989;` | `` ||`:white_check_mark:`|
-| ❌      | Wrong  | `&#10060;` | `` |||
+| ✅      | *Correct* or *Check Mark*     | `&#9989;` | `` |u2705|`:white_check_mark:`|
+| ❌      | Wrong  | `&#10060;` | `` ||u274C|
 
 ### Unicode emoji character
 
 | Symbol | Name     |MD Decimal | MD Hexadecimal |Unicode character | GitHub Emoji Code|
 |---|---|---|---|-----------|-----------|
-|📝|*Memo* or *Writing Hand* |||U+1F4DD|`:memo:`|
-|📌|pushpin emoji|||U+1F4CC|`:pushpin:`|
+|📝|*Memo* or *Writing Hand* |||U+1F4DD |`:memo:`|
+|📌|pushpin emoji|||U+1F4CC |`:pushpin:`|

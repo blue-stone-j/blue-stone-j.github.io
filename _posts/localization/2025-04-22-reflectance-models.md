@@ -1,15 +1,30 @@
 ---
 layout: post
-title:  reflectance models for lidar
-date:   2025-04-22 23:59:18 +0800
+title:  reflectance for lidar beam
+date:   2025-05-02 22:32:01 +0800
 categories: [Tech]
-excerpt: reflectance models for lidar
+excerpt: reflectance for lidar beam
 tags:
   - reflection
   - lidar
 ---
 
 Surface can reflect beam from lidar.
+
+# factors that influence reflectivity
+
+### Surface Properties
+
+1. Material Reflectivity (Albedo)
+2. Color
+3. Surface Roughness (Texture)
+4. Surface Orientation (Incident Angle)
+
+### LiDAR Sensor Characteristics
+
+1. Wavelength: The reflectivity of surfaces varies with wavelength.
+
+# reflectance models
 
 |Reflectance Type |example| Effect When direction of light and viewpoint are the same|
 |---|---|---|
@@ -18,7 +33,9 @@ Surface can reflect beam from lidar.
 |Blinn-Phong | |Specular term maximized (via halfway vector)|
 |Cook-Torrance |brushed metal, skin, or real-world materials under realistic lighting |Strong specular peak (especially at oblique angles)|
 
-Here is a picture for reflectance models. ![Reflectance Models](/assets/images/posts/reflectance-models/Reflectance%20Models.png). A python script to generate this image is provided below.
+![Reflectance Models](/assets/images/posts/reflectance-models/reflectance_models_angle.png).
+
+Here is a picture for reflectance models. A python script to generate this image is provided below.
 
 ```python
 import numpy as np
@@ -58,3 +75,60 @@ plt.grid(True)
 plt.tight_layout()
 plt.show()
 ```
+
+Here is a picture to describe curve between cosine and reflectivity for reflectance models and python script is provide, too.
+
+![Reflectance Models](/assets/images/posts/reflectance-models/reflectance_models_cos.png).
+
+```python
+import numpy as np
+import matplotlib.pyplot as plt
+
+# Define angles from 0 to 90 degrees (converted to radians)
+theta_deg = np.linspace(0, 90, 500)
+theta_rad = np.radians(theta_deg)
+
+# Compute cos(theta) for x-axis
+cos_theta = np.cos(theta_rad)
+
+# Lambertian: Intensity ~ cos(theta)
+lambertian = cos_theta
+
+# Phong: Specular ~ cos(theta)^n, assume n = 20 for shiny surface
+n_phong = 20
+phong_specular = cos_theta ** n_phong
+
+# Blinn-Phong: similar form, using same exponent
+blinn_phong_specular = cos_theta ** n_phong
+
+# Cook-Torrance (simplified): peak at grazing angles (theta = 0 -> cos(theta) = 1)
+cook_torrance = np.exp(-((theta_rad - 0) / 0.2)**2)  # Gaussian centered at 0 rad
+
+# Plot all
+plt.figure(figsize=(10, 6))
+plt.plot(cos_theta, lambertian, label='Lambertian (Diffuse)', linewidth=2)
+plt.plot(cos_theta, phong_specular, label='Phong (n=20)', linestyle='--', linewidth=2)
+plt.plot(cos_theta, blinn_phong_specular, label='Blinn-Phong (n=20)', linestyle='-.', linewidth=2)
+plt.plot(cos_theta, cook_torrance, label='Cook-Torrance (simplified)', linestyle=':', linewidth=2)
+
+plt.xlabel(r'$\cos(\theta)$')
+plt.ylabel('Relative Reflected Intensity')
+plt.title('Reflectance Models: Lambertian vs. Non-Lambertian')
+plt.legend()
+plt.grid(True)
+plt.tight_layout()
+plt.show()
+```
+
+While intensity values can match, they do not mean the surfaces are the same. This is why raw LiDAR intensity is not reliable alone for material or surface classification.
+
+|Surface Type|	0° (Normal)	|~45°	|~80°	|Characteristic Pattern|
+|---|---|---|---|---|
+|Lambertian	|High|	Medium	|Low	Cosine| decay|
+|Specular	|Low	|Low	|High only if sensor = specular	Sharp peak at specular angle|
+|Diffuse + Specular Mix	|High	|Medium|	Bump|	Cosine + spike|
+|Retroreflective	|High	|High	|High|	Flat or inverted V|
+|Subsurface Scatter	|High	|Medium	|Medium|	Gentle decline|
+
+Some materials may look similar to the human eye (in visible light) but have very different reflectivity in the infrared, vice versa.
+
