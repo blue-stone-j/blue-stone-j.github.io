@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Linux以及相关qa"
-date:   2025-04-06 23:05:41 +0800
+date:   2025-05-09 18:39:58 +0800
 categories: [OS]
 excerpt: 总结了Linux常用命令、qa
 tags:
@@ -401,7 +401,9 @@ sudo reboot
 参考链接：[1](https://askubuntu.com/questions/441040/failed-to-get-size-of-gamma-for-output-default-when-trying-to-add-new-screen-res)和[2](https://blog.csdn.net/xj626852095/article/details/47703565)。
 
 ##### 29 AppImage
+
 在新安装的ubuntu上运行AppImage文件时遇到如下错误。
+
 ```bash
 dlopen(): error loading libfuse.so.2
 
@@ -411,7 +413,9 @@ if you run it with the --appimage-extract option.
 See https://github.com/AppImage/AppImageKit/wiki/FUSE 
 for more information
 ```
+
 这里的问题是 Ubuntu 缺少 FUSE（用户空间中的文件系统）库。FUSE 库为用户空间程序提供了一个接口，可以将虚拟文件系统导出到 Linux 内核。这就是 AppImage 在虚拟文件系统上的工作方式。由于缺少这个关键库，AppImage 无法按预期工作。在 Ubuntu 中打开终端并使用以下命令安装 FUSE 库支持：
+
 ```bash
 sudo apt install libfuse2
 ```

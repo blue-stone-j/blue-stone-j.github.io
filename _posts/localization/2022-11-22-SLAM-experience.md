@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "SLAM经验"
-date:   2024-01-05 11:20:55 +0800
+date:   2025-05-09 18:39:58 +0800
 categories: [Localization]
 excerpt: 从群组获取的讨论和个人的经验
 tags:
@@ -14,13 +14,16 @@ tags:
 对于某种场景应该选择那些传感器、使用那种算法框架、传感器的安装方式，有人根据自己的经验给出了一些建议。
 
 ### 0. 其它
+
 * d3vo：用深度学习估计位姿的不确定性
 * 单线的可能不适合fast lio2。
-* Apriltag对机器人定位，把相机放在天花板上，离地面大概3m，标签大小大概7*7cm，放在机器人上，机器人移动时，相机能看到就能定位
+* `Apriltag`对机器人定位，把相机放在天花板上，离地面大概3m，标签大小大概7*7cm，放在机器人上，机器人移动时，相机能看到就能定位
 * gps融合lidar有必要做紧融合吗？没必要，gps很容易掉，即使在室外
 
 ### 1. 获取轨迹真值
+
 现有一个大疆云台，可以避免摄像头抖动。需要走一个矩形来测试SLAM的精度。真值至少要比你自己的位姿高1个数量级以上.
+
 * 造价低的导轨
 * 起点运动到终点的闭环运动，计算闭合差
 * 用RTK组合导航测试精度
@@ -28,12 +31,15 @@ tags:
 * 便宜的方案是天花板贴二维码，用pnp二维码的作为真值
 
 ### 2. 经典框架
+
 * 视觉+IMU+轮速计的slam算法: https://github.com/TouchDeeper/VIW-Fusion  
 * vins紧耦合gps或者2Dlidar: https://bittly.sigechen.com/  
 * VIO: https://zhuanlan.zhihu.com/p/497942945
-* ：
+
 ##### 1. 2d激光雷达的多传感器融合
+
 * rf2o，cartographer
+
 ##### 2. IMU+轮式
 * https://mp.weixin.qq.com/s/GlxOfxjicOzt3KRx-QQiKg  
 

@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  reflectance for lidar beam
-date:   2025-05-02 22:32:01 +0800
+date:   2025-05-09 18:39:58 +0800
 categories: [Tech]
 excerpt: reflectance for lidar beam
 tags:
@@ -122,13 +122,13 @@ plt.show()
 
 While intensity values can match, they do not mean the surfaces are the same. This is why raw LiDAR intensity is not reliable alone for material or surface classification.
 
-|Surface Type|	0° (Normal)	|~45°	|~80°	|Characteristic Pattern|
+|Surface Type| 0° (Normal) |~45° |~80° |Characteristic Pattern|
 |---|---|---|---|---|
-|Lambertian	|High|	Medium	|Low	Cosine| decay|
-|Specular	|Low	|Low	|High only if sensor = specular	Sharp peak at specular angle|
-|Diffuse + Specular Mix	|High	|Medium|	Bump|	Cosine + spike|
-|Retroreflective	|High	|High	|High|	Flat or inverted V|
-|Subsurface Scatter	|High	|Medium	|Medium|	Gentle decline|
+|Lambertian |High| Medium |Low Cosine| decay|
+|Specular |Low |Low |High only if sensor = specular | Sharp peak at specular angle|
+|Diffuse + Specular Mix |High |Medium| Bump| Cosine + spike|
+|Retroreflective |High |High |High| Flat or inverted V|
+|Subsurface Scatter |High |Medium |Medium| Gentle decline|
 
 Some materials may look similar to the human eye (in visible light) but have very different reflectivity in the infrared, vice versa.
 

@@ -1,12 +1,19 @@
 ---
 layout: post
 title:  "python"
-date:   2025-03-27 00:56:29 +0800
+date:   2025-05-09 18:39:58 +0800
 categories: [Lan]
-excerpt: install python modules
+excerpt: python modules
 tags:
   - python
 ---
+
+##### numpy
+
+```bash
+# version
+python -c "import numpy; print(numpy.__version__)"
+```
 
 ```bash
 pip3 install matplotlib
