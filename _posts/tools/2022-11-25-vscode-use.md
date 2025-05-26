@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "vscode使用"
-date:   2025-05-02 22:32:01 +0800
+date:   2025-05-26 20:11:05 +0800
 categories: [Tech]
 excerpt: 记录了vscode的使用方法、技巧以及在使用中遇到的问题和解决方案
 tags:
@@ -169,18 +169,28 @@ Take `json` as example.
 },
 ```
 
-If `md` file
+for specific languages, such as markdown and cpp
 
 ```json
 "[markdown]": {
  "editor.defaultFormatter": "yzhang.markdown-all-in-one"
 },
+"[cpp]": {
+  "editor.formatOnSave": false,
+  "editor.formatOnType": false
+}
 ```
 
 Even you can add customized format rule like
 
 ```json
 "markdown.extension.tableFormatter.normalizeIndentation": true,
+```
+
+add statement below to `.clang-format` to disable automatic sorting of `#include` statements.
+
+```bash
+SortIncludes: Never
 ```
 
 # qa
@@ -232,3 +242,7 @@ The 'clang-format' command is not available. Please check your clang-format.exec
 ```
 
 run command `sudo apt-get install clang-format` to install `clang-format`.
+
+##### 12. no intelliSense and completion for C++
+
+There is a warning about conflicts between `C/C++ extension(Microsoft)` and other extension. Use `C/C++ extension(Microsoft)` and close the warning.

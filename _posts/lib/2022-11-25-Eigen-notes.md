@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Eigen学习"
-date:   2025-04-22 23:59:18 +0800
+date:   2025-05-26 20:11:05 +0800
 categories: [Tech]
 excerpt: 常用Eigen函数；Eigen的数据结构；等等。
 tags:
@@ -119,6 +119,7 @@ mat.setRandom(rows, cols);
 * vec.w() : 获取向量 vec 的第4个元素
 * vec(3) : 获取向量 vec 的第4个元素
 * vec[3] : 获取向量 vec 的第4个元素
+* `Eigen::VectorXd::head(n).array().log().sum()`: the sum of natural logarithms of the first `n` elements of vector
 
 ### 三、 数据操作及本身运算
 

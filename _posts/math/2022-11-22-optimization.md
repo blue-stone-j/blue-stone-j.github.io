@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "优化"
-date:   2025-01-01 19:00:46 +0800
+date:   2025-05-26 20:11:05 +0800
 categories: [Math]
 excerpt: 优化算法
 tags:
@@ -10,13 +10,12 @@ tags:
   - 
 ---
 
-#### 01.
+#### 01
 
 梯度(grad)
 海森矩阵(Hessian)
 
 极值:strong local minimum, weak local minimum, strong global minimum
-
 
 海森矩阵半正定为局部极小值存在的必要条件
 
@@ -35,11 +34,11 @@ $αx+(1-α)y ∈ F$
 >3.更新变量<br>
 >4.到达迭代次数或增量足够小，终止
 
-
 方向h和步长α
 
 * 梯度下降
 * 最速梯度下降法
+
 1. 末端会有很多锯齿，收敛速度慢
 2. 初始值会影响迭代次数和结果。选择的初始值不仅仅是越靠近最优结果越好
 确定α：
@@ -62,3 +61,6 @@ h=-(JTJ+μI)^(-1)*(JTF(x)),μ>0
 根据近似情况选取步长
 终止条件：一阶导数足够小；步长足够小；达到最大迭代次数。
 
+`Marginalization` is the process of integrating out or eliminating variables from a probabilistic distribution (or its optimization counterpart) to obtain a reduced problem over a smaller subset of variables. For example, in sliding window visual-inertial odometry, old poses and features can be marginalized out to keep only recent states. After marginalization, a prior residual is added to the cost function to account for the removed variables' influence.
+
+The resulting system after marginalization becomes less sparse, which can degrade solver efficiency.

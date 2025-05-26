@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "线性代数"
-date:   2025-02-12 20:50:53 +0800
+date:   2025-05-26 20:11:05 +0800
 categories: [Math]
 excerpt: 用普通的直觉代替枯燥的证明
 tags:
@@ -60,3 +60,33 @@ Singular Matrix will reduce dimensions of vector
 ### 条件数
 
 条件数同时描述了矩阵对向量的拉伸能力和压缩能力.
+
+### Meaning of Singular Values of jacobian in a Good Optimization Scenario
+
+1. Sensitivity of Residuals to Parameters
+
+Each singular value quantifies how sensitive the residuals are to movement along the i-th direction in parameter space.
+
+* Large singular value: Changing parameters in this direction significantly changes residuals; Strong constraint, observability, well-constrained parameter direction
+* Small singular value: Changing parameters in this direction barely affects residuals; Weak constraint / potentially under-constrained or degenerate
+
+2. Observability and Rank
+
+* The number of non-zero singular values = effective rank of the Jacobian. 
+* This tells you how many independent pieces of information you have in your data to constrain the parameters.
+* A "good" optimization problem will have full rank or close to it.
+
+3. condition number
+
+The ratio $𝜎_{max}$/$𝜎_{min}$ is the condition number.
+
+A large ratio → problem is ill-conditioned → small errors in data or residuals can cause large jumps in the solution.
+
+singular values can diagnose:
+
+1. Rank deficiencies
+2. Numerical conditioning
+3. Informative vs. uninformative directions
+4. Confidence in parameter estimates
+
+If the Jacobian stabilizes, then its singular values also tend to: converge to fixed values, or reveal clearer rank structure as noisy or degenerate modes are reduced.
