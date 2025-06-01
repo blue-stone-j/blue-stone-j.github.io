@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "vscode使用"
-date:   2025-05-26 20:11:05 +0800
+date:   2025-06-02 01:11:23 +0800
 categories: [Tech]
 excerpt: 记录了vscode的使用方法、技巧以及在使用中遇到的问题和解决方案
 tags:
@@ -150,6 +150,14 @@ ignore a specific warning.
 1. make ordered list indices automatically managed while editing Markdown files in Visual Studio Code
 2. Table Formatter: Delimiter Row No Padding: the delimiter row (the row with - under the headers) gets spaces to align columns neatly.
 3. Table Formatter: Normalize Indentation: it removes those extra spaces, keeping only the necessary spaces
+
+### remote
+
+When you install an extension on the remote server through VSCode Remote - SSH, here’s what happens:
+
+* The extension is stored and executed in the context of the VSCode server, launched by your local VSCode client.
+* It does not run as a persistent service.
+* If you log into the server via terminal (e.g., SSH directly from a terminal, or open a local editor on the server), the extensions do not activate or function — because there is no VSCode runtime environment active to manage them.
 
 ### vscode-icons
 

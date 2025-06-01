@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Linux configuration"
-date:   2025-04-06 20:48:21 +0800
+date:   2025-06-02 01:11:23 +0800
 categories: [OS]
 excerpt: how to configure Linux
 tags:
