@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "CloudCompare"
-date:   2025-06-02 01:11:23 +0800
+date:   2025-06-10 22:33:30 +0800
 categories: [Tech]
 excerpt: 记录了CloudCompare的使用方法、技巧以及在使用中遇到的问题和解决方案
 tags:
@@ -64,7 +64,7 @@ CMake Error at plugins/core/IO/qRDBIO/CMakeLists.txt:51 (find_package):
 
 ##### OpenCASCADE
 
-1. Install Dependencies: 
+1. Install Dependencies:
 
 ```bash
 sudo apt install cmake g++ make libx11-dev libfreetype6-dev libgl1-mesa-dev libglu1-mesa-dev

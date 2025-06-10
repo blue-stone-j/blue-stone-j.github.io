@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "vscode使用"
-date:   2025-06-02 01:11:23 +0800
+date:   2025-06-10 22:33:30 +0800
 categories: [Tech]
 excerpt: 记录了vscode的使用方法、技巧以及在使用中遇到的问题和解决方案
 tags:
@@ -34,6 +34,17 @@ there are three levels of settings:
 
 `Cmake: Configure On Edit`和`Cmake: Configure On Open`
 
+### Test Editor
+
+##### Files
+
+`\n` is LF and `\r\n` is CRLF.
+
+```json
+"files.eol": "\n",
+"files.autoGuessEncoding": true
+```
+
 # dependency packages
 
 ### format
@@ -63,7 +74,7 @@ I got error when I tried to export PDF from markdown.
 "princexml" is required to be installed.
 ```
 
-Download prince [here](https://www.princexml.com/download/15/) and install this package.
+Download [`prince`](https://www.princexml.com/download/15/) and install this package.
 
 # extension
 
@@ -199,6 +210,12 @@ add statement below to `.clang-format` to disable automatic sorting of `#include
 
 ```bash
 SortIncludes: Never
+```
+
+set variable below as `true`to align tables.
+
+```json
+"markdown.extension.tableFormatter.enabled": true,
 ```
 
 # qa

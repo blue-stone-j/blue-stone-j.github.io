@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  Linux笔记
-date:   2025-06-02 01:11:23 +0800
+date:   2025-06-10 22:33:30 +0800
 categories: [OS]
 excerpt: Linux系统的学习笔记
 tags:
@@ -1162,6 +1162,8 @@ inode: 保存了文件的元信息，文件类型、文件权限、文件的链�
 端口号：0-65535，默认使用，ssh用22，网页用80，mysql用3306
 
 使用`sudo ntpdate ntp.aliyun.com`手动同步时间
+
+run `grep "#define BOOST_VERSION" /usr/include/boost/version.hpp` to check out version of boost.
 
 ### shortcut
 
