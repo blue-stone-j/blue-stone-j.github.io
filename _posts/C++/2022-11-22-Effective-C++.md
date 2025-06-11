@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Effective C++总结"
-date:   2025-01-01 19:00:46 +0800
+date:   2025-06-11 22:13:12 +0800
 categories: [Lan]
 excerpt: 非C++入门；总结自《Effective C++》第3版中文版
 tags:
@@ -11,15 +11,13 @@ tags:
 ---
 <!-- 正如这本书的名字《高效C++》，这本书的目的在于提高C++编程能力，而不是入门C++。如果你刚接触C++，别的书更适合，例如《快速C++》(accelerated C++)。 -->
 
-
-
 # <center>一、习惯C++
 
 # <center>accustoming yourself to C++
 
 《Effective C++》的第一部分，理解C++。
 
-<br /> 
+<br />
 #### 01.视C++为一个语言联邦
 #### view C++ as a federation of languages
 C++是一个夹杂很多种特性的语言。如果把C++视为一个由4种编程语言组成的联邦，针对每个次语言(sublanguage)，它的各种特性就很清晰易懂了。
@@ -38,20 +36,23 @@ STL(standard template library)
 
 对于同一次语言，所遵守的规则和实现高效的方式大致相同，对于不同次语言，所遵守的规则和实现高效的方式各不相同。因此，在编程时，应时刻注意到自己在使用C++的哪一个次语言，然后充分利用这一次语言的特性来实现准确和高效。
 
-<br /> 
+<br />
 #### 02.尽量用consts,enums 和 inlines替换#defines
 #### prefer consts,enums and inlines to #defines
 
 <font color="green">对于单纯常量，最好用const对象或enums替换#define</font>
-```
+
+```C++
 #define PI 3.14
 ```
+
 PI 可能在预处理器 <font color="#dd0000">???</font><br /> 
 
 一旦用`#defines`定义了宏，就在编译中一直有效(除非被#undef)。这意味着没有提供封装性。
 
 在class编译期需要使用一个常量值时，#define可以定义该常量。另一种做法是把这个常量用枚举表示，即`the enum hack`，其原理是“一个属于枚举类型(enumerated type)的数值可当作`int`使用”。例如如下代码
-```
+
+```C++
 class Game
 {
 private:
@@ -59,6 +60,7 @@ private:
   int score[Num];
 };
 ```
+
 事实上，enum hack是 template metaprogramming 的基础技术。
 
 ---
