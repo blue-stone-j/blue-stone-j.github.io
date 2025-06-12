@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "ubuntu20 安装及配置"
-date:   2025-04-22 23:59:18 +0800
+date:   2025-06-12 22:38:17 +0800
 categories: [OS]
 excerpt: 安装Ubuntu 20系统，然后安装常用库。
 tags:
@@ -138,6 +138,16 @@ ubuntu20 的默认安装是不包含gpu和cuda模块的。如果要使用这两�
 
 ```C++
 #define FMT_HEADER_ONLY
+```
+
+# other common libraries
+
+```bash
+sudo apt install wget
+sudo apt install git
+
+# SuiteSparse is a collection of sparse matrix algorithms.
+sudo apt install libsuitesparse-dev
 ```
 
 # configuration

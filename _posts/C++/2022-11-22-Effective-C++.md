@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Effective C++总结"
-date:   2025-06-11 22:13:12 +0800
+date:   2025-06-12 22:38:17 +0800
 categories: [Lan]
 excerpt: 非C++入门；总结自《Effective C++》第3版中文版
 tags:
@@ -65,36 +65,41 @@ private:
 
 ---
 <font color="green">使用 "template inline函数" 代替 "用#define实现宏(macros)"</font>
-```
+
+```C++
 #define MAX(a,b) f((a) > (b) ? (a) : (b))
 int a = 5, b = 10;
 MAX(++a, b);    // a在判断和选择值的过程中各累加一次
 MAX(++a, b+10); // a在判断过程中累加一次
 ```
+
 以上用法的结果是不可预料的。而使用template inline函数可获得宏带来的效率以及可预料的行为和类型安全性(type safety)
-```
+
+```C++
 template<typename T>
 inline void Max(const T& a, const T& b)
 {
   f(a > b ? a : b);
 }
 ```
+
 <br /> 
 #### 03.尽量用const
 #### use const whenever possible
 
-```
+```C++
 char greeting[] = "hello";
 char* p = greeting;             // 指针和数据都不是常量
 const char* p = greeting;       // 数据是常量
 char* const p = greeting;       // 指针是常量
 const char* const p = greeting; // 指针和数据都是常量
 ```
+
 const 在 * 左侧，数据是常量；const 在 * 右侧，指针是常量。和类型名称的位置无关。<br /> 
 
----
 STL的迭代器也有类似用法
-```
+
+```C++
 const std::vector<int>::iterator iter = vec.begin(); // iter不能变，所指向的数据可以变
 const_iterator std::vector<int>::iterator iter = vec.begin(); // iter指向的数据不能变
 ```
@@ -119,13 +124,16 @@ bitwise(physical) constness和logical constness。<br />
 
 有两种编写成员初始化的方法：
 使用成员初值列完成初始化的代码示例如下：
-```
+
+```C++
 Entry::Entry(int a)
 : am(a), bm(0) // am,bm 是int型的成员变量
 {}
 ```
+
 另外一种是在声明时初始化，代码示例如下：
-```
+
+```C++
 class Entry
 {
  public:
@@ -142,7 +150,8 @@ class Entry
 编译单元(translation unit) 是指产出单一目标文件(single object file)的那些源码。基本上它是单一源码文件加上其所含入的头文件(#include files)。
 
 如果某编译单元内的某个non-local static 对象的初始化使用了另一编译单元内的某个 non-local static 对象，它用到的这个对象可能未初始化，因为C++对“定义于不同编译单元内的 non-local static 对象”的初始化顺序无明确定义。但可以使用某些方式确定不同编译单元的的依赖关系和编译顺序，例如使用CMake。<br />
-```
+
+```C++
 class Base
 {
  public:
@@ -152,6 +161,7 @@ class Base
   }
 }
 ```
+
 在以上代码中，在成员函数`contruct`内声明一个`Base`的 static 对象，并返回一个指向该对象的引用(reference)，然后用户调用这个成员函数，而不直接操作该对象。这是单例(Singleton)模式的一个常见实现手法。
 
 这种方式在多线程系统种带有不确定性，其中一个解决办法是，在程序的单线程启动阶段(single-threaded startup portion)手动调用 reference-returning 函数。
@@ -201,7 +211,7 @@ class Base
 #### 08.为多态基类声明虚析构函数
 #### prevent exception from leaving destructors
 
-```
+```C++
 ~Entry()
 {
   ... // (1)
@@ -212,12 +222,14 @@ class Base
   ... // (2)
 }
 ```
+
 观察以上析构函数，如果抛出异常，意味着 (2) 的程序将不会再执行。如果(2)中执行的是一些成员的析构，那就意味着本该再(2)中析构的成员没有析构，从而产生了内存泄露。
 
 有两个办法避免这一问题。<br /> 
 
 1.在析构中出现异常强制结束程序
-```
+
+```C++
 ~Entry()
 {
   ... // (1)
@@ -228,8 +240,10 @@ class Base
   ... // (2)
 }
 ```
+
 2.吞下异常
-```
+
+```C++
 ~Entry()
 {
   ... // (1)
@@ -247,7 +261,7 @@ class Base
 <br /> 
 #### 09.不要再构造和析构过程中调用虚函数
 #### never call virtual functions during construction or destruction
-```
+```C++
 class Base
 {
   public:
@@ -276,7 +290,8 @@ class Derived: public Base
 在这个例子中，基类的虚函数是读取默认传感器参数的，派生类重写的函数是读取激光雷达的参数。构造派生类对象时，先调用基类的构造函数，然后再调用派生类的构造函数。基类构造函数中使用了虚函数，调用的是基类自己的虚函数，而不是派生类中重写后的函数。而我本想使用的是重写后的函数，因此这种写法是有问题的。对于析构函数也是如此。
 
 这种情景的特点是，基类成分在初始化的过程中需要用到派生类的属性。那么一种解决办法就是把该属性作为参数传入基类的构造函数。看以下代码，利用辅助函数把派生类对应的传感器类型传入基类的构造函数。我在此处省去了在基类中如何修改的代码。
-```
+
+```C++
 class Derived: public Base
 {
   public:
@@ -291,6 +306,7 @@ class Derived: public Base
   }
 }
 ```
+
 <br /> 
 
 #### 10.令 operator= 返回一个指向 *this 的引用
@@ -303,11 +319,13 @@ class Derived: public Base
 #### 11.在 operator= 中处理“自我赋值”
 #### handle assignment to self in operator=
 
-```
+```C++
 *px = *py; // 潜在的自我赋值
 ```
+
 别名(aliasing): 有一个以上的方法指向某个对象。当代码中操作 pointers 或 reference 时，就有可能出现不同变量名指向同一个对象。防止这种情况的传统做法是在 operator= 的函数中先进行“证同测试”(identity test)。
-```
+
+```C++
 Widget& Widget::operator=(const Widget& rhs)
 {
   if(this == &rhs) // 证同测试
@@ -317,6 +335,7 @@ Widget& Widget::operator=(const Widget& rhs)
   ... // 其它程序
 }
 ```
+
 <br /> 
 
 #### 12.复制对象时要复制每一个成分
@@ -358,7 +377,8 @@ shared_ptr 是一种“引用计数型智能指针”(reference-counting smart p
 #### care about copying behavior in resource-managing calsses
 
 为保证不会忘记把一个锁住的 Mutex 解锁，可以建立一个 class 用来管理锁。
-```
+
+```C++
 class Lock
 {
 public:
@@ -377,11 +397,13 @@ private:
 ```
 
 当运行如下复制代码时，可能会导致未知的风险。
-```
+
+```C++
 Mutex m;
 Lock m1(&m); // 锁定 m 
 Lock m2(m1); // 
 ```
+
 此时有两种选择。<br />
 
 **禁止复制**：例如把复制操作声明为 private。<br />
@@ -389,7 +411,8 @@ Lock m2(m1); //
 **引用计数法(reference-count)**：通常使用 share_ptr 来实现这一特性。<br />
 当用于 mutex 时，在引用次数为 0 时，我们希望的动作是解除锁定，而 share_ptr 的默认动作是删除 mutex. 
 此时，可以为 share_ptr 的对象指定删除器(deleter)，当该对象的引用次数为 0 时调用该删除器。示例代码如下：
-```
+
+```C++
 class Lock
 {
 public:
@@ -402,6 +425,7 @@ private:
   std::share_ptr<Mutex>  mutexPtr;
 };
 ```
+
 **复制底部资源**：复制资源时，不论指针还是指针所指的内容都会被制作出一个复件，即 `深拷贝`(deep copying).<br />
 
 **转移底部资源的所有权**：如果要求 指向该内容的 永远只有一个对象，可以用 auto_ptrs 实现。
@@ -412,7 +436,8 @@ private:
 #### provide access to raw resource in resource-managing classes
 APIs往往要求访问原始资源(raw resources)
 考虑以下这个用于字体的 RAII class
-```
+
+```C++
 FontHandle getFont(); 
 void releaseFont(FontHandle fh);
 class Font // RAII 类
@@ -441,6 +466,7 @@ std::string* str2 = new std::string[100];
 delete str1; // 删除一个对象
 delete [] str2; // 删除一个由对象组成的数组
 ```
+
 new时使用了`[]`，delete也应使用`[]`。反之亦然。
 
 
@@ -451,6 +477,7 @@ new时使用了`[]`，delete也应使用`[]`。反之亦然。
 int priority();
 void process(std::tr1::shared_ptr<Widget> pw, int priority);
 ```
+
 在调用`process`之前，编译器必须完成“调用priority”(1)、执行“new Widget”(2)、“调用tr1::shared_ptr构造函数”(3)，执行顺序不是固定的。按照213的顺序，如果1产生异常，会导致`new Widget`返回的指针丢失，从而引起资源泄漏的风险。
 
 对于跨越语句的的操作，编译器不能重排执行顺序；在同一个语句内，则可能为多项操作重新排序。应改成以下形式以防止可能的指针丢失。
@@ -559,6 +586,7 @@ namespace std
 ```
 
 因为C++不能偏特化(partially specialize)模板函数，只能偏特化模板类。因此当Widget本身是一个模板类时，上述的方法就失效了，可以采用以下方案。
+
 ```C++
 namespace std
 {
@@ -647,6 +675,7 @@ public继承主张，所有对基类的操作都可以对派生类使用。对�
 
 #### 33 avoid hiding inherited names
 当编译器在局部作用域内查找到带着该变量名的变量，就不会再在其它作用域中查找变量，虚函数和非虚函数也遵从此规则。派生类的作用域嵌套在基类的作用域中。如果派生类中的某个成员函数和基类中的某个成员函数重名，但不想重载基类中的函数，则可以用`using Base::mf1`来避免重载。然而这种方法会使得基类中所有名为`mf1`的函数为可见，即使使用了private继承。在派生类中使用如下的转交函数代替`using`，可避免这一问题。
+
 ```C++
 virtual void mf1() // forwarding function
 {Base::mf1();} // 可能会在编译时被优化为inline，从而避免调用开销
