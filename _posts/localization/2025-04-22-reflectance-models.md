@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  reflectance for lidar beam
-date:   2025-05-09 18:39:58 +0800
+date:   2025-06-12 23:08:25 +0800
 categories: [Tech]
 excerpt: reflectance for lidar beam
 tags:
@@ -19,6 +19,22 @@ Surface can reflect beam from lidar.
 2. Color
 3. Surface Roughness (Texture)
 4. Surface Orientation (Incident Angle)
+
+|Factor| Effect on Intensity|
+|---|---|
+|Surface color |Dark → Low; Bright → High|
+|Material reflectivity |High albedo → High intensity|
+|Texture / roughness| Smooth → High; Rough → Low|
+|Angle of incidence |Perpendicular → High|
+|Distance to target| Farther → Lower intensity|
+|Atmospheric interference |Fog/dust → Lower intensity|
+|LiDAR wavelength| Depends on material response|
+|Sensor power & sensitivity |Higher → Stronger returns|
+
+note:
+
+1. Color ≠ reflectivity in all cases. Two objects of different visible colors might still have similar infrared reflectivity, depending on their pigment chemistry.
+2. Empirical testing or manufacturer data is often required to know exact reflectivity values at specific wavelengths.
 
 ### LiDAR Sensor Characteristics
 
@@ -122,6 +138,8 @@ plt.show()
 
 While intensity values can match, they do not mean the surfaces are the same. This is why raw LiDAR intensity is not reliable alone for material or surface classification.
 
+### intensity and angle
+
 |Surface Type| 0° (Normal) |~45° |~80° |Characteristic Pattern|
 |---|---|---|---|---|
 |Lambertian |High| Medium |Low Cosine| decay|
@@ -130,5 +148,10 @@ While intensity values can match, they do not mean the surfaces are the same. Th
 |Retroreflective |High |High |High| Flat or inverted V|
 |Subsurface Scatter |High |Medium |Medium| Gentle decline|
 
-Some materials may look similar to the human eye (in visible light) but have very different reflectivity in the infrared, vice versa.
+for alphat
 
+1. The fall-off may be less smooth.
+2. There may be small fluctuations in return intensity even for fixed angle and distance.
+3. The surface acts like a low-brightness diffuse scatterer.
+
+Some materials may look similar to the human eye (in visible light) but have very different reflectivity in the infrared, vice versa.

@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "ubuntu20 安装及配置"
-date:   2025-06-12 22:38:17 +0800
+date:   2025-06-12 23:08:25 +0800
 categories: [OS]
 excerpt: 安装Ubuntu 20系统，然后安装常用库。
 tags:
@@ -132,7 +132,7 @@ ubuntu20 的默认安装是不包含gpu和cuda模块的。如果要使用这两�
 
 # sophus
 
-如果使用默认的安装位置，可以在文件`/usr/local/share/sophus/cmake/SophusConfigVersion.cmake`中查看版本信息。我安装的版本为`1.22.10`。该库不支持Debug模式，编译时如果使用debug模式，得到的可执行文件无法执行。 
+如果使用默认的安装位置，可以在文件`/usr/local/share/sophus/cmake/SophusConfigVersion.cmake`中查看版本信息。我安装的版本为`1.22.10`。该库不支持Debug模式，编译时如果使用debug模式，得到的可执行文件无法执行。
 
 正常运行该版本的sophus需要安装`fmt-9.0.0`。为了不让使用FMT库的时候出现`undefined reference to 'fmt::v7::'` ，在所有使用了FMT库的前面使用宏定义：
 
