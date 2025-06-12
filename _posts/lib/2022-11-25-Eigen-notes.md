@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Eigen学习"
-date:   2025-05-26 20:11:05 +0800
+date:   2025-06-12 23:43:08 +0800
 categories: [Tech]
 excerpt: 常用Eigen函数；Eigen的数据结构；等等。
 tags:
@@ -45,7 +45,7 @@ Eigen::MatrixXd mat(line, row); // 矩阵
 
 ##### 4. 类型
 
-todo: 
+todo:
 
 * Matrix
 * Vector
@@ -58,7 +58,7 @@ todo:
 
 本部分主要介绍Eigen中矩阵与向量的定义 index.
 
-##### 1.
+##### 1
 
 ```C++
 Matrix<Scalar, RowsAtCompileTime, ColsAtCompileTime, Options>
@@ -68,7 +68,6 @@ Matrix<Scalar, RowsAtCompileTime, ColsAtCompileTime, Options>
 * RowsAtCompileTime：指定行数或者设置成动态（Dynamic）；
 * ColsAtCompileTime：指定列数或者设置成动态（Dynamic）；
 * Options：标志位，可以是ColMajor或RowMajor，默认是ColMajor；
-
 
 ```C++
 Matrix<double, 3, Dynamic> m;
