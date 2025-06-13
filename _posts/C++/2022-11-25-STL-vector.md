@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "STL vector"
-date:   2025-04-22 23:59:18 +0800
+date:   2025-06-13 20:03:28 +0800
 categories: [Lan]
 excerpt: 
 tags:
@@ -17,7 +17,7 @@ tags:
 ### 1. make_move_iterator and push_back
 
 `std::vector::insert` with `std::make_move_iterator` is generally faster than `push_back` in a loop theoretically. But it's not. </br>
-I need to copy varible A(`std::vector<pcl::Point>`) to another varible B. I find that `make_move_iterator` is a little slower than `push_back`. Length of A is about 20000.
+I need to copy variable A(`std::vector<pcl::Point>`) to another variable B. I find that `make_move_iterator` is a little slower than `push_back`. Length of A is about 20000.
 
 In general, `emplace_back` is preferred if the type stored in the container is expensive to move or copy
 
@@ -45,17 +45,17 @@ erase(first,last);// 删除从first到last之间的字符（first和last都是�
 
 ```C++
 #include <iterator>
-// genarate a iterator for container c and this iterator will add element to c. c must support push_back
+// generate a iterator for container c and this iterator will add element to c. c must support push_back
 back_inserter(c);
 
-// genarate a iterator for container c and this iterator will add element to c. c must support push_front
+// generate a iterator for container c and this iterator will add element to c. c must support push_front
 front_inserter(c);
 
-// genarate a iterator for container c and add elemnet before it
+// generate a iterator for container c and add elemnet before it
 inserter(c,it);
 ```
 
-### 3 initailize vector
+### 3 initialize vector
 
 [here](https://www.geeksforgeeks.org/initialize-a-vector-in-cpp-different-ways/).
 
