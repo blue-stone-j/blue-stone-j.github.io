@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Eigen学习"
-date:   2025-06-12 23:43:08 +0800
+date:   2025-06-13 22:55:21 +0800
 categories: [Tech]
 excerpt: 常用Eigen函数；Eigen的数据结构；等等。
 tags:
@@ -377,7 +377,7 @@ x = A.svd().solve(b);  // Stable, slowest. #include <Eigen/SVD>
 
 ### 六、 calculate
 
-##### 1
+##### 1 wise
 
 ----------------------------------------
 

@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "数值分析笔记"
-date:   2025-01-01 19:00:46 +0800
+date:   2025-06-13 22:55:21 +0800
 categories: [Math]
 excerpt: 学习数学分析过程中产生笔记
 tags:
@@ -27,6 +27,7 @@ tags:
 舍入误差 roundoff error: 1/3计算时按照0.333，这个误差为舍入误差
 
 ### 2. 传播与积累 spread & accumulation
+
 初始扰动会造成误差迅速积累，是不稳定算法(unstable algorithm)
 
 |病态问题|ill-posed problem|
@@ -44,6 +45,7 @@ tags:
 有效数字的位数和相对误差限是等价的。
 
 ### 函数的误差估计(error estimation for functions)
+
 |放大因子|amplification factor|
 |绝对条件数|absolute condition number|
 |相对误差条件数||
@@ -51,6 +53,7 @@ tags:
 函数f在该点是`well-conditioned`或者`ill-condition`
 
 ### 注意事项
+
 1. 避免相近二数相减
 ![pic1](/assets/images/posts/numrical-analysis/01.jpg)
 
@@ -72,6 +75,7 @@ tags:
 插值条件,插值节点
 
 插值方法研究的问题
+
 1. 满足插值条件的插值函数是否唯一
 对于待求的多项式的系数，x的多项式组成的Vandermond行列式是否为零.
 2. 如何构造
@@ -79,8 +83,5 @@ tags:
 
 拉格朗日多项式(Lagrange Polynomial)
 3. 误差估计
-
-
-
 
 # 第三章、函数微积分

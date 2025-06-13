@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "线性代数"
-date:   2025-05-26 20:11:05 +0800
+date:   2025-06-13 22:55:21 +0800
 categories: [Math]
 excerpt: 用普通的直觉代替枯燥的证明
 tags:
@@ -72,7 +72,7 @@ Each singular value quantifies how sensitive the residuals are to movement along
 
 2. Observability and Rank
 
-* The number of non-zero singular values = effective rank of the Jacobian. 
+* The number of non-zero singular values = effective rank of the Jacobian.
 * This tells you how many independent pieces of information you have in your data to constrain the parameters.
 * A "good" optimization problem will have full rank or close to it.
 

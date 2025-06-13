@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "computer network"
-date:   2025-06-12 23:43:08 +0800
+date:   2025-06-13 22:55:21 +0800
 categories: [Tech]
 excerpt: computer network
 tags:
@@ -237,7 +237,7 @@ If you are fresh, better not to change num "24" or "32" in above configuration f
 
 Modify your server's sysctl settings to allow IP forwarding. This is usually done in `/etc/sysctl.conf` or a similar configuration file. You can add code below to this config file to enable IP forwarding.
 
-```
+```bash
 net.ipv4.ip_forward=1
 net.ipv4.conf.all.proxy_arp=1
 ```
