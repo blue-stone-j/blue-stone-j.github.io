@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "论文简介"
-date:   2024-12-14 18:50:59 +0800
+date:   2025-06-16 00:25:10 +0800
 categories: [Tech]
 excerpt: 这篇文章整理了SLAM和感知相关论文的简介。
 tags:
@@ -15,18 +15,16 @@ tags:
 这篇文章整理了SLAM和感知相关论文的简介。对于每篇论文，我给出了自己的分类标签、是否推荐、论文的主要内容和主要贡献。对于有开源代码的论文，我看会添加对应的开源代码的链接。当然，这个链接在论文里也应该能够找到。我对部分开源代码作了详细的注释，我会给出这些带有详细注释的代码的链接。
 所有论文按照发表年份从新到旧排列。
 
-#### 示例：
+#### 示例
 
 [] *****: 该论文的标签,即所属的领域; 推荐星数(必看->值得一看->可供参考->写了点东西->随便看看) <br/>
 发表时间 论文名称<br/>
 主要特点<br/>
 
-
 #### 相似词语
+
 `路径跟踪` == `轨迹跟踪`;
 `反步法`   == `反推法`  ;
-
-
 
 # <center>2024</center>
 
@@ -134,7 +132,6 @@ Many LiDARs performed worse on diamond-grade reflective sheet at close range, us
 The results for range measurement highlight the need for better manufacturing and calibration of LiDARs. All LiDARs had standard deviations much smaller than what was found in the residual error analysis of Section IV-B.
 The Velodyne sensors all have single laser precision on the order of ±5 mm, nearly an order of magnitude less than the overall point cloud precision. This tells us the calibration of the sensor is the main source of error.
 
-
 The vehicle and pedestrian were also segmented manually by establishing the ground plane and creating a bounding box using the known size of the object.
 
 This raises concerns about custom non-reflective paints which may quickly be rendered invisible to LiDARs.
@@ -148,8 +145,10 @@ The influence of range and angle of incidence varies in ALS and TLS. Ranges are 
 ---
 
 # <center>2019</center>
+
 `雷达相机标定` `*****`
 2019 Automatic extrinsic calibration between a camera and a 3D Lidar using 3D point and plane correspondences
+
 1. 提取标定板的法向量和中心点。相机使用pnp，雷达聚类后拟合边界后计算中心点和法向量。
 2. 法向量的方向用于计算旋转
 3. 把雷达坐标系下的中心点坐标转换到相机坐标系，最小化两个中心点的残差
@@ -293,7 +292,7 @@ The influence of range and angle of incidence varies in ALS and TLS. Ranges are 
 2018 SLAM estimation method for uncertain model noise parameters
 
 1 引言
-自适应噪声参数的3种估计滤波方法: 估计模型的噪声统计参数的自适应滤波算法[贝叶斯、最大似然、方差匹配、相关法; 通常收敛快于噪声变化; 时间不变噪声参数](1,2); 基于 innovation 和残差的协方差纠正算法[3,4](根据innovationsequence调整协方差矩阵或增益矩阵; 半自适应[5,6]); interacting multiple medel 方法[7,8];
+自适应噪声参数的3种估计滤波方法: 估计模型的噪声统计参数的自适应滤波算法[贝叶斯、最大似然、方差匹配、相关法; 通常收敛快于噪声变化; 时间不变噪声参数](1,2); 基于 innovation 和残差的协方差纠正算法[3,4](根据innovationsequence调整协方差矩阵或增益矩阵; 半自适应[5,6]); interacting multiple model 方法[7,8];
 
 若噪声统计参数为常量、高斯分布, 则根据最大后验估计原则的三种方法[9-11]
 
@@ -416,7 +415,6 @@ PID控制; 主从追随; 阿克曼转向;
 
 ---
 
-
 # <center>2016</center>
 
 `机械设计` `力学` `***`
@@ -456,7 +454,7 @@ PID控制; 主从追随; 阿克曼转向;
 
 相机模型; 单目视觉测距的方法;
 
-***
+---
 
 `卡尔曼滤波`
 
@@ -474,7 +472,7 @@ PID控制; 主从追随; 阿克曼转向;
 
 2015 MIRROR IDENTIFICATION AND CORRECTION OF 3D POINT CLOUDS
 
-This paper describes a complete solution to correct point clouds that contain a mirror of known size. In pratice, It's almost impossible to konw the size of mirror. So I just skip this paper.
+This paper describes a complete solution to correct point clouds that contain a mirror of known size. In practice, It's almost impossible to know the size of mirror. So I just skip this paper.
 
 ---
 
@@ -482,6 +480,7 @@ This paper describes a complete solution to correct point clouds that contain a 
 2015 A Review of LIDAR Radiometric Processing From Ad Hoc Intensity Correction to Rigorous Radiometric Calibration
 
 ---
+
 # <center>2014</center>
 
 `激光SLAM` `*****`
@@ -508,7 +507,7 @@ This paper describes a complete solution to correct point clouds that contain a 
 
 使用一张图片中的所有棋盘格，可以用于相机间的标定和相机激光雷达的标定。
 
-2012 
+2012
 
 # <center>2011</center>
 
@@ -519,7 +518,6 @@ This paper describes a complete solution to correct point clouds that contain a 
 介绍ORB特征
 
 ---
-
 
 `点云分割` `激光雷达`
 
