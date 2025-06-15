@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "ROS visual"
-date:   2022-11-20 08:30:00 +0800
+date:   2025-06-15 21:55:07 +0800
 categories: [OS]
 excerpt: 这篇文章整理了ROS的可视化。
 tags:

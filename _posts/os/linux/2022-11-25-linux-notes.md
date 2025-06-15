@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  Linux笔记
-date:   2025-06-10 22:33:30 +0800
+date:   2025-06-15 21:55:07 +0800
 categories: [OS]
 excerpt: Linux系统的学习笔记
 tags:
@@ -195,7 +195,7 @@ rsync -ah --progress source destination
 ```bash
 rename 's/slang_/sl_/' *.c  # replace all "slang_" with "sl_"; find all files end with "*c"; if we omit "sl_", all "slang_" will be deleted.
 rename 's/^parameter/value/' *.c  # ^ means all files start with "parameter"
-rename 's/(stri|stra)ng/bang/' *.c  # replace all "string" and "strang" with "sl_"
+rename 's/(stri|stro)ng/bang/' *.c  # replace all "string" and "strong" with "sl_"
 rename 'y/a-z/A-Z/' *.prg  # upper all character
 rename 's/lifelog(\d{4})\.txt/$1.md/' *.txt   # replace all "*lifelog*.txt"; "(\d{4})" means four characters after "lifelog" and will be store in "$1".
 ```
@@ -454,7 +454,6 @@ vi来自于unix系统。vim则是vi的改进版。更多命令可以看终端里
 |:s/boot/booot|把当前行的首个boot替换为booot|
 |:s/boot/booot/g|把当前行的boot替换为booot|
 |%s/boot/booot|把每行的首个boot替换为booot|
-
 
 # 三、网络配置
 
@@ -978,12 +977,12 @@ find . -name "gtsam"
 |`-le`|less or equal缩写|
 |`-gt`||
 |`-ge`|great缩写|
-|文件权限|
+|文件权限||
 |`-r`||
 |`-w`||
 |`-x`||
 |文件类型||
-|`-e`|eistence缩写，文件是否存在|
+|`-e`|existence缩写，文件是否存在|
 |`-f`|是否为常规文件|
 |`-d`|是否为目录|
 |`-z`||
@@ -1193,7 +1192,7 @@ dh_make -f ../helloworld-1.0.0.tar.gz -n -s -y
 # -y：Automatic yes to prompts and run non-interactively. The package class needs to be set for dh_make to run fully automatically.
 ```
 
-6. 如果你的软件包需要那些标准的 `make install` 没有安装的文件, create file `install`. 
+6. 如果你的软件包需要那些标准的 `make install` 没有安装的文件, create file `install`.
 7. create deb file: `dpkg-buildpackage -us -uc`
 
 ##### NOTE

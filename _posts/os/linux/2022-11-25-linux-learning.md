@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Linux以及相关qa"
-date:   2025-06-10 22:33:30 +0800
+date:   2025-06-15 21:55:07 +0800
 categories: [OS]
 excerpt: 总结了Linux常用命令、qa
 tags:
@@ -40,6 +40,7 @@ dpkg -i *.deb
 ##### 1. 添加到环境变量
 
 为了添加到环境变量，以使每个终端都生效，常输入类似下面的命令。
+
 ```bash
 echo "source /home/nnnn/Documents/mws/devel/setup.bash " >> ~/.bashrc
 ```
@@ -121,7 +122,7 @@ adb start-server
 adb devices 
 ```
 
-4. You can run `adb devices` to list all avaliable devices or `adb shell` to connect device now.
+4. You can run `adb devices` to list all available devices or `adb shell` to connect device now.
 5. You can use `adb push <source> <destination>` to copy files from the computer to the device and use `adb pull <source> <destination>` copy files from the device to the computer.
 
 ##### 2. 网络连接和设备
@@ -331,8 +332,7 @@ sudo apt install libgsettings-qt1
 
 ##### 14 NTFS下的文件被锁定为只读
 
-在Windows和ubuntu双系统的前提下会发生。通常是因为没有正确关闭Windows导致的，例如系统卡死直接按电源键强制关机，NTFS分区会存放Widnows未释放缓存，导致Ubuntu无法写入。。重新进入win然后正常关机即可解决。
-
+在Windows和ubuntu双系统的前提下会发生。通常是因为没有正确关闭Windows导致的，例如系统卡死直接按电源键强制关机，NTFS分区会存放Windows未释放缓存，导致Ubuntu无法写入。。重新进入win然后正常关机即可解决。
 
 ##### 15 Ubuntu系统键盘鼠标失灵方案
 
@@ -382,7 +382,7 @@ invalid command name "scp"
 
 修改`/etc/sudoers`文件，允许当前用户使用`sudo`。
 
-##### 23 acivate IP configuration
+##### 23 activate IP configuration
 
 在`settings->network->wired`中修改完IP地址以后，需要先关闭wired再打开，设置的IP地址才能生效
 
@@ -394,7 +394,7 @@ invalid command name "scp"
 
 ubuntu桌面卡死。按“ctrl+alt+F1”进入tty终端，然后登录，之后执行命令`sudo pkill Xorg`或者`sudo restart lightdm`。这个命令会重启桌面的可视化程序。
 
-##### 26 recovary grub for ubuntu
+##### 26 recovery grub for ubuntu
 
 Windows10更新后覆盖了`grub`引导，重启后会直接进入Windows系统，没有选择系统的界面，无法进入其它系统。
 
@@ -469,7 +469,7 @@ sudo apt install libfuse2
 
 ##### 30 remove software
 
-It ocurred when I run cmd `sudo dpkg -r foxglove-studio.deb`.
+It occurred when I run cmd `sudo dpkg -r foxglove-studio.deb`.
 
 ```bash
 dpkg: error: you must specify packages by their own names, not by quoting the names of the files they come in
@@ -479,7 +479,7 @@ Actually, I should run cmd `sudo dpkg -r foxglove-studio`.
 
 ##### 31 dpkg configuration
 
-It ocurred when I used `apt` to install package.
+It occurred when I used `apt` to install package.
 
 ```bash
 E: dpkg was interrupted, you must manually run 'sudo dpkg --configuration -a' tp correct the problem.
@@ -505,17 +505,17 @@ use `rm -f`.
 2. install ceres 2.1.0
 3. uninstall glog 0.4.0
 4. install glog 0.6.0
-5. failed to compile a C++ package because glog cloudn't be found.
+5. failed to compile a C++ package because glog couldn't be found.
 solution: compile and install ceres again.
 
 ##### 34 no grub of Ubuntu after motherboard replacement
 
-1. prepare a USB drive intalled `Ubuntu Live`
+1. prepare a USB drive installed `Ubuntu Live`
 2. power-off computer, insert drive, power-on computer
 3. select drive to boot, select `Try Ubuntu`
 4. connect to network
 5. open a terminal and input `sudo add-apt-repository ppa:yannubuntu/boot-repair`, `sudo apt-get update`, `sudo apt-get install -y boot-repair` in sequence.
-6. run `boot-repair` to start this tool and select `Recommended repair`. 
+6. run `boot-repair` to start this tool and select `Recommended repair`.
 7. reboot when repairing is completed.
 
 ##### 35 can't get into ubuntu when boot
@@ -526,7 +526,7 @@ infomation displayed on screen like below
 dev nvme0n1p11 clean
 ```
 
-Because I deleted folder `/etc/systemd/system` accidently. Copy same folder from another computer to solve it.
+Because I deleted folder `/etc/systemd/system` accidentally. Copy same folder from another computer to solve it.
 
 ##### 36 ssh server on ubuntu
 
