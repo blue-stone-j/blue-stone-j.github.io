@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "computer network"
-date:   2025-06-13 22:55:21 +0800
+date:   2025-06-18 22:55:41 +0800
 categories: [Tech]
 excerpt: computer network
 tags:
@@ -117,19 +117,19 @@ ForwardX11 yes
 
 Refer to [here](https://zhuanlan.zhihu.com/p/615584874?utm_id=0#)
 
-|option||
-|---|---|
-|`-L`|local|
-|`-R`|remote|
-|`-D`|dynamic|
+| option |         |
+| ------ | ------- |
+| `-L`   | local   |
+| `-R`   | remote  |
+| `-D`   | dynamic |
 
 Assume that we have 3 Host(computer), A, B and C.
 
-|host|position|port|
-|---|---|---|
-|A|destination|X|
-|B|remote|Y|
-|C|local|Z|
+| host | position    | port |
+| ---- | ----------- | ---- |
+| A    | destination | X    |
+| B    | remote      | Y    |
+| C    | local       | Z    |
 
 ![port forwarding](/assets/images/posts/ssh/port-forwarding.png)
 
