@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "vscode使用"
-date:   2025-06-10 22:33:30 +0800
+date:   2025-06-20 22:12:15 +0800
 categories: [Tech]
 excerpt: 记录了vscode的使用方法、技巧以及在使用中遇到的问题和解决方案
 tags:
@@ -28,11 +28,15 @@ there are three levels of settings:
 
 ### 添加垂直标尺
 
-文件/File–>首选项/Preferences–>设置/Settings->搜索`editor.rulers` -->更改设置`editor.rulers: [80,120]`，或者其他期望的值，即可。
+`文件/File`–>`首选项/Preferences`–>`设置/Settings`->搜索`editor.rulers` -->更改设置`editor.rulers: [80,120]`，或者其他期望的值，即可。
 
 ### 阻止自动生成make文件
 
 `Cmake: Configure On Edit`和`Cmake: Configure On Open`
+
+### buffer in terminal
+
+`文件/File`–>`首选项/Preferences`–>`设置/Settings`->搜索`scrollBack`.
 
 ### Test Editor
 

@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  reflectance for lidar beam
-date:   2025-06-12 23:08:25 +0800
+date:   2025-06-20 22:12:15 +0800
 categories: [Tech]
 excerpt: reflectance for lidar beam
 tags:
@@ -20,16 +20,16 @@ Surface can reflect beam from lidar.
 3. Surface Roughness (Texture)
 4. Surface Orientation (Incident Angle)
 
-|Factor| Effect on Intensity|
-|---|---|
-|Surface color |Dark → Low; Bright → High|
-|Material reflectivity |High albedo → High intensity|
-|Texture / roughness| Smooth → High; Rough → Low|
-|Angle of incidence |Perpendicular → High|
-|Distance to target| Farther → Lower intensity|
-|Atmospheric interference |Fog/dust → Lower intensity|
-|LiDAR wavelength| Depends on material response|
-|Sensor power & sensitivity |Higher → Stronger returns|
+| Factor                     | Effect on Intensity          |
+| -------------------------- | ---------------------------- |
+| Surface color              | Dark → Low; Bright → High    |
+| Material reflectivity      | High albedo → High intensity |
+| Texture / roughness        | Smooth → High; Rough → Low   |
+| Angle of incidence         | Perpendicular → High         |
+| Distance to target         | Farther → Lower intensity    |
+| Atmospheric interference   | Fog/dust → Lower intensity   |
+| LiDAR wavelength           | Depends on material response |
+| Sensor power & sensitivity | Higher → Stronger returns    |
 
 note:
 
@@ -42,12 +42,12 @@ note:
 
 # reflectance models
 
-|Reflectance Type |example| Effect When direction of light and viewpoint are the same|
-|---|---|---|
-|Lambertian | unpolished chalk |No change — still view-independent|
-|Phong | polished plastic or wood with a shiny coating|Specular highlight is maximized|
-|Blinn-Phong | |Specular term maximized (via halfway vector)|
-|Cook-Torrance |brushed metal, skin, or real-world materials under realistic lighting |Strong specular peak (especially at oblique angles)|
+| Reflectance Type | example                                                               | Effect When direction of light and viewpoint are the same |
+| ---------------- | --------------------------------------------------------------------- | --------------------------------------------------------- |
+| Lambertian       | unpolished chalk                                                      | No change — still view-independent                        |
+| Phong            | polished plastic or wood with a shiny coating                         | Specular highlight is maximized                           |
+| Blinn-Phong      |                                                                       | Specular term maximized (via halfway vector)              |
+| Cook-Torrance    | brushed metal, skin, or real-world materials under realistic lighting | Strong specular peak (especially at oblique angles)       |
 
 ![Reflectance Models](/assets/images/posts/reflectance-models/reflectance_models_angle.png).
 
@@ -140,13 +140,13 @@ While intensity values can match, they do not mean the surfaces are the same. Th
 
 ### intensity and angle
 
-|Surface Type| 0° (Normal) |~45° |~80° |Characteristic Pattern|
-|---|---|---|---|---|
-|Lambertian |High| Medium |Low Cosine| decay|
-|Specular |Low |Low |High only if sensor = specular | Sharp peak at specular angle|
-|Diffuse + Specular Mix |High |Medium| Bump| Cosine + spike|
-|Retroreflective |High |High |High| Flat or inverted V|
-|Subsurface Scatter |High |Medium |Medium| Gentle decline|
+| Surface Type           | 0° (Normal) | ~45°   | ~80°                           | Characteristic Pattern       |
+| ---------------------- | ----------- | ------ | ------------------------------ | ---------------------------- |
+| Lambertian             | High        | Medium | Low Cosine                     | decay                        |
+| Specular               | Low         | Low    | High only if sensor = specular | Sharp peak at specular angle |
+| Diffuse + Specular Mix | High        | Medium | Bump                           | Cosine + spike               |
+| Retroreflective        | High        | High   | High                           | Flat or inverted V           |
+| Subsurface Scatter     | High        | Medium | Medium                         | Gentle decline               |
 
 for alphat
 
