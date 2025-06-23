@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  自动驾驶行业分析
-date:   2025-06-13 22:55:21 +0800
+date:   2025-06-23 08:18:45 +0800
 categories: []
 excerpt: 关于自动驾驶行业的相关信息
 tags:
@@ -72,7 +72,7 @@ tags:
 1. foundation models
 2. task planning
 3. ViLA+CoPA: vision language model control plan action
-4. diffusion policy: decsion and plan
+4. diffusion policy: decision and plan
 
 ### 效率陷阱
 
@@ -101,6 +101,6 @@ tags:
 
 ### 蔚来
 
-1. weilai L2 use orin 1024
+1. NIO L2 use orin 1024
 
 ### 华为

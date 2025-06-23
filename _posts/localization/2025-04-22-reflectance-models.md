@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  reflectance for lidar beam
-date:   2025-06-20 22:12:15 +0800
+date:   2025-06-23 08:18:45 +0800
 categories: [Tech]
 excerpt: reflectance for lidar beam
 tags:
@@ -148,7 +148,7 @@ While intensity values can match, they do not mean the surfaces are the same. Th
 | Retroreflective        | High        | High   | High                           | Flat or inverted V           |
 | Subsurface Scatter     | High        | Medium | Medium                         | Gentle decline               |
 
-for alphat
+for asphalt
 
 1. The fall-off may be less smooth.
 2. There may be small fluctuations in return intensity even for fixed angle and distance.

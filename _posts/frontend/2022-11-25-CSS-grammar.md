@@ -1,12 +1,12 @@
 ---
 layout: post
 title:  "CSS语法"
-date:   2025-06-12 23:43:08 +0800
+date:   2025-06-23 08:18:45 +0800
 categories: [Design]
 excerpt: 部分CSS语法
 tags:
   -  
-  - Markdowm
+  - markdown
   - 
 ---
 

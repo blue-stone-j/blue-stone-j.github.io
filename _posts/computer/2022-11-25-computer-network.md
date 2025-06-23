@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "computer network"
-date:   2025-06-18 22:55:41 +0800
+date:   2025-06-23 08:18:45 +0800
 categories: [Tech]
 excerpt: computer network
 tags:
@@ -55,7 +55,7 @@ Usually, we connect with specific username.
 
 ##### 2. port
 
-Default posr for SSH is 22. We can specify port as need.
+Default port for SSH is 22. We can specify port as need.
 
 ```bash
 ssh -p 123 qing@192.168.1.100
@@ -155,7 +155,7 @@ If you get error like below
 Remote port forwarding failed for listen port
 ```
 
-Check whether another process is listening this port. It's possible that you had created this tunel but you tried to create same tunel.
+Check whether another process is listening this port. It's possible that you had created this tunnel but you tried to create same tunnel.
 
 # Proxy and VPN
 
@@ -163,7 +163,7 @@ Check whether another process is listening this port. It's possible that you had
 
 ##### forward proxy
 
-User A send a request to proxy server and specify destination(server B). Proxy server transfer the request to server B and transfer respond to userA after receiving from server B. User A hide behind proxy server from server B. In this case, user A konw there is a proxy server.
+User A send a request to proxy server and specify destination(server B). Proxy server transfer the request to server B and transfer respond to userA after receiving from server B. User A hide behind proxy server from server B. In this case, user A known there is a proxy server.
 
 ##### reverse proxy
 
@@ -179,7 +179,7 @@ Proxy server edit request fields and transfer data. Proxy server is the actual r
 
 ### WireGuard
 
-`WireGuard` is a light VPN sodtware. Although its security is challeged by net expert, it's a good tool for fresh because its simpleness. Unlik as `OpenVPN`, a VPN subnet is consisted of VPN server and client(s). Here are steps that I install and configure VPN. I use a cloud server with a static public IP as VPN server. I use ubuntu 20 for both server and client. Therefore, if you use other operation system, like IOS or Windows, you can refer to other instruction. Good new is that it's much easier to configure on IOS or Windows than that on Linux distribution(such as Ubuntu 20).
+`WireGuard` is a light VPN software. Although its security is challenged by net expert, it's a good tool for fresh because its simpleness. unlike as `OpenVPN`, a VPN subnet is consisted of VPN server and client(s). Here are steps that I install and configure VPN. I use a cloud server with a static public IP as VPN server. I use ubuntu 20 for both server and client. Therefore, if you use other operation system, like IOS or Windows, you can refer to other instruction. Good new is that it's much easier to configure on IOS or Windows than that on Linux distribution(such as Ubuntu 20).
 
 ##### 1. Install WireGuard
 
@@ -188,7 +188,7 @@ Proxy server edit request fields and transfer data. Proxy server is the actual r
 sudo apt install wireguard
 ```
 
-I install it on both server and client. If your client is phone with IOS or Android, you can download `WireGuard` on `APP Store` or `Google Play` repectively.
+I install it on both server and client. If your client is phone with IOS or Android, you can download `WireGuard` on `APP Store` or `Google Play` respectively.
 
 ##### 2. Configure WireGuard
 
@@ -264,7 +264,7 @@ If you want to start WireGuard on boot
 systemctl enable wg-quick@wg0
 ```
 
-If you get this `ping: sendmsg: Required key not available`, you should check your configuration for your server and client. If you have double checked and everything is in his position, try to use another terminal software on your client. I used `SecureCRT` first. It close any proxy defaultly. I changed to default terminal and try again, it worked. Then I returned to SecureCRT, WireGuard worked normally.
+If you get this `ping: sendmsg: Required key not available`, you should check your configuration for your server and client. If you have double checked and everything is in his position, try to use another terminal software on your client. I used `SecureCRT` first. It close any proxy by default. I changed to default terminal and try again, it worked. Then I returned to SecureCRT, WireGuard worked normally.
 
 # domain and IP
 
@@ -294,7 +294,7 @@ sudo systemctl restart NetworkManager
 ping s.top
 ```
 
-sucessful if you see output as below
+successful if you see output as below
 
 ```bash
 PING s.top (256.543.234.764) 56(84) bytes of data.

@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Linux以及相关qa"
-date:   2025-06-15 21:55:07 +0800
+date:   2025-06-23 08:18:45 +0800
 categories: [OS]
 excerpt: 总结了Linux常用命令、qa
 tags:
@@ -166,28 +166,28 @@ Type=Application
 Categories=Utility;
 ```
 
-|item|Description|
-|---|---|
-|Name       |The name of your application.|
-|Comment    |A short description of your application.|
-|Exec       |The full path to your compiled executable.|
-|Icon       |The full path to an icon file for your application (optional but recommended).|
-|Terminal   |Set to true if your application runs in a terminal; otherwise, set it to false.|
-|Type       |The type of the desktop entry, usually Application.|
-|Categories |The category under which your application should appear in the application menu.|
+| item       | Description                                                                      |
+| ---------- | -------------------------------------------------------------------------------- |
+| Name       | The name of your application.                                                    |
+| Comment    | A short description of your application.                                         |
+| Exec       | The full path to your compiled executable.                                       |
+| Icon       | The full path to an icon file for your application (optional but recommended).   |
+| Terminal   | Set to true if your application runs in a terminal; otherwise, set it to false.  |
+| Type       | The type of the desktop entry, usually Application.                              |
+| Categories | The category under which your application should appear in the application menu. |
 
-|symbol|placeholders|
-|---|---|
-|`%f` | A single file name.|
-|`%F` | Multiple file names.|
-|`%u` | A single URL.|
-|`%U` | Multiple URLs.|
-|`%d` | The directory of the file to open.|
-|`%D` | The directories of the files to open.|
-|`%n` | The filename without a path.|
-|`%N` | The filenames without paths.|
-|`%i` | The icon.|
-|`%c` | The translated name of the application.|
+| symbol | placeholders                            |
+| ------ | --------------------------------------- |
+| `%f`   | A single file name.                     |
+| `%F`   | Multiple file names.                    |
+| `%u`   | A single URL.                           |
+| `%U`   | Multiple URLs.                          |
+| `%d`   | The directory of the file to open.      |
+| `%D`   | The directories of the files to open.   |
+| `%n`   | The filename without a path.            |
+| `%N`   | The filenames without paths.            |
+| `%i`   | The icon.                               |
+| `%c`   | The translated name of the application. |
 
 # 十、question&answer
 

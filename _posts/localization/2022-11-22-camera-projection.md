@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  camera-projection
-date:   2025-06-02 01:11:23 +0800
+date:   2025-06-23 08:18:45 +0800
 categories: [Localization]
 excerpt: camera-projection
 tags:
@@ -15,7 +15,7 @@ tags:
 
 Projection model: Classical pinhole.
 
-Distortion model: Radial-tangential (Brown–Conrady model).
+Distortion model: Radial-tangential (Brown–conrad model).
 
 ### pinhole-equidistant (Pinhole + Equidistant Distortion)
 

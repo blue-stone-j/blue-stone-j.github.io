@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "常用软件使用"
-date:   2025-06-16 00:25:10 +0800
+date:   2025-06-23 08:18:45 +0800
 categories: [Tech]
 excerpt: 记录了常用软件的使用方法、技巧以及在使用中遇到的问题和解决方案
 tags:
@@ -169,10 +169,6 @@ cmake ..
 make
 sudo make install
 ```
-
-### 4. yaml
-
-[30分钟学会Yaml-cpp 0.6.0](https://zhuanlan.zhihu.com/p/96831410). 这个教程里说版本要大于`0.6.0`，个人推荐安装这个版本，版本不要太新。
 
 ### 8. PCL
 

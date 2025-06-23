@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "从零创建博客"
-date:   2025-06-18 22:55:41 +0800
+date:   2025-06-23 08:18:45 +0800
 categories: [Tech]
 excerpt: 从零开始创建博客，也给出了一些小问题的解决方案
 tags:
@@ -158,7 +158,7 @@ jekyll clean
 
 ### 8. 添加latex支持
 
-markdown和jekyll都没有对数学公式的原生支持，上下标等通过html实现比较负责，而且影响编辑时的可读性。添加latex支持支持后，可以使用Latex语法的公式。此处以`mathjax`为例添加该支持。在根目录中找到`_layouts`文件夹，在`defalult.html`中添加如下代码。把这段代码和`body`块保持同级即可。
+markdown和jekyll都没有对数学公式的原生支持，上下标等通过html实现比较负责，而且影响编辑时的可读性。添加latex支持支持后，可以使用Latex语法的公式。此处以`mathjax`为例添加该支持。在根目录中找到`_layouts`文件夹，在`default.html`中添加如下代码。把这段代码和`body`块保持同级即可。
 
 ```html
 <script type="text/x-mathjax-config">
