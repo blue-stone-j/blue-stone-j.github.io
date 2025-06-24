@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "ubuntu20 安装及配置"
-date:   2025-06-13 20:03:28 +0800
+date:   2025-06-24 22:21:26 +0800
 categories: [OS]
 excerpt: 安装Ubuntu 20系统，然后安装常用库。
 tags:
@@ -113,23 +113,6 @@ sed -e '/add_library(flann_cpp SHARED/ s/""/empty.cpp/' \
 
 参考自这个链接：<https://www.cnblogs.com/jiangyibo/p/16828214.html>。其本质是因为编译生成库文件或可执行文件时，必须链接`cpp`文件。但是源码里面没有对应的`cpp`文件。这个解决方案中创建了空`cpp`文件并链接过去。
 
-# pcl
-
-ubuntu20 的默认安装是不包含gpu和cuda模块的。如果要使用这两个模块，必须通过源码编译安装，在编译时也要选择对应的模块。
-
-### 1. 下载1.10.1
-
-注意不要使用1.10.0这个版本，这个版本的源码存在bug，无法正确完成编译安装。
-
-### 2. 执行cmake
-
-执行`ccmake .. -DCMAKE_BUILD_TYPE=Release`配置cmake。
-
-1. 如果报和 `ccmake` 相关的错误，按照终端提示输入 `sudo apt-get install cmake-curses-gui` 安装后再运行
-2. `By not providing "Findrealsense2.cmake" in CMAKE_MODULE_PATH this project has asked CMake to find a package configuration file provided by "realsense2", but CMake did not find one.`: `sudo apt install ros-$ROS_DISTRO-realsense2*`
-3. `Unsupported gpu architecture 'compute_30'`: gpu的硬件架构不支持'compute_30'，把配置cmake的界面中的`CUDA_ARCH_BIN`对应的右侧里的"3.0"删除，这样就不需要针对“3.0”这个架构生成库文件。
-4. `/home/hyc-pc/software/pcl/cuda/common/include/pcl/cuda/point_cloud.h(199): error: shared_ptr is not a template`: 这是1.10.0版本存在的bug，下载1.10.1再安装。
-
 # Sophus
 
 如果使用默认的安装位置，可以在文件`/usr/local/share/sophus/cmake/SophusConfigVersion.cmake`中查看版本信息。我安装的版本为`1.22.10`。该库不支持Debug模式，编译时如果使用debug模式，得到的可执行文件无法执行。
@@ -148,9 +131,48 @@ sudo apt install git
 
 # SuiteSparse is a collection of sparse matrix algorithms.
 sudo apt install libsuitesparse-dev
+
+sudo apt-get install libssl-dev
+
+sudo apt install libgoogle-glog-dev
+
+sudo apt install libgtest-dev
+
+sudo apt install libboost-all-dev
+
+# googlhash, used by eigen
+sudo apt install libsparsehash-dev
+
+# Automatic Differentiation by OverLoading in C++, used by eigen
+sudo apt install libadolc-dev
+
+# a high-performance numerical library for solving large, sparse, nonsymmetric systems of linear equations of the form Ax = b. used by eigen
+sudo apt install libsuperlu-dev
+
+sudo apt install pkg-config
+
+# FFTW (Fastest Fourier Transform in the West) is a highly optimized C library for computing discrete Fourier transforms (DFTs) in one or more dimensions
+# used by eigen
+sudo apt install libfftw3-dev
+
+# MPFR (Multiple Precision Floating-Point Reliable) is a C library for arbitrary-precision floating-point arithmetic, with correct rounding.
+# used by eigen
+sudo apt install libmpfr-dev
+
+# mpreal is a C++ wrapper for the MPFR library, designed to provide an easy and natural interface for arbitrary-precision floating-point arithmetic
+# used by eigen
+
+# METIS is a software library for partitioning graphs, computing fill-reducing orderings for sparse matrices, and related problems.
+# used by ceres
+sudo apt-get install libmetis-dev
+
+# This tool is commonly used on Debian-based Linux distributions (like Ubuntu) to display Linux Standard Base (LSB) and distribution-specific information, such as the release number and codename.
+sudo apt install lsb-release
 ```
 
 # configuration
+
+The default version of `glibc` (GNU C Library) on Ubuntu 20.04 (Focal Fossa) is `2.31`. `GLIBC_2.2.5,` is a backward-compatible symbol version that has existed for many years. All modern `glibc` versions (including 2.31) support `GLIBC_2.2.5`.
 
 ### keyring
 

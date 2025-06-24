@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Linux以及相关qa"
-date:   2025-06-23 08:18:45 +0800
+date:   2025-06-24 22:21:26 +0800
 categories: [OS]
 excerpt: 总结了Linux常用命令、qa
 tags:
@@ -544,6 +544,12 @@ sudo systemctl start ssh
 
 Check again using `sudo systemctl status ssh`. It should show`Active: active (running)`
 
-##### lsb_release: not found
+##### sudo command not found
 
-This tool is commonly used on Debian-based Linux distributions (like Ubuntu) to display Linux Standard Base (LSB) and distribution-specific information, such as the release number and codename. You can install it using `sudo apt install lsb-release`.
+```bash
+bash: sudo: command not found
+```
+
+run `apt-get install`. It's possible that you get `E: Unable to locate package sudo`.
+
+run `apt-get update` and then run `apt-get install`.
