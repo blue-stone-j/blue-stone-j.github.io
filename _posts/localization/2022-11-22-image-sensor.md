@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  图像传感器
-date:   2025-06-13 22:55:21 +0800
+date:   2025-06-26 22:44:43 +0800
 categories: [Localization]
 excerpt: 图像传感器总结
 tags:
@@ -41,3 +41,7 @@ tags:
 标定时只需要按照可见光的方式标定即可。
 
 相机焦距6mm，500M分辨率，水平60°。另外一个25°，检测距离120米。
+
+### properties of camera
+
+The readout time of a rolling shutter (RS) camera refers to the duration it takes to capture all rows (scanlines) of the image sensor — from top to bottom — during a single frame.

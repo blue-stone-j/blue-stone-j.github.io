@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "ubuntu20 安装及配置"
-date:   2025-06-24 22:21:26 +0800
+date:   2025-06-26 22:44:43 +0800
 categories: [OS]
 excerpt: 安装Ubuntu 20系统，然后安装常用库。
 tags:
@@ -47,9 +47,19 @@ sudo dkms install -m nvidia -v 535.54.03 #410.78是安装驱动的版本
 不同版本的库依赖的cuda版本是不一样的。我的选择理由有
 
 1. ubuntu20中默认的PCL库为1.10，cuda11.04是合适的版本之一
-2. nvidia发布了cuPCL，其测试的环境为cuda11.04
+2. nvidia发布了`cuPCL`，其测试的环境为cuda11.04
 
 综上所述，我选择安装cuda11.04.
+
+### use docker from nvidia
+
+This image includes: `nvcc` and development libraries.
+
+```bash
+docker pull nvidia/cuda:12.9.0-devel-ubuntu20.04
+
+docker run --rm -it --gpus all nvidia/cuda:12.9.0-devel-ubuntu20.04 bash
+```
 
 # qt
 
@@ -136,10 +146,16 @@ sudo apt-get install libssl-dev
 
 sudo apt install libgoogle-glog-dev
 
+# a C++ library developed by Google to handle command-line flags and arguments in a structured and type-safe way.
+# allows you to declare and parse command-line options (flags) without manually parsing argv[].
+sudo apt install libgflags-dev
+
 sudo apt install libgtest-dev
 
+# default version 1.71
 sudo apt install libboost-all-dev
 
+# a C++ library developed by Google that provides highly memory-efficient hash table implementations
 # googlhash, used by eigen
 sudo apt install libsparsehash-dev
 
@@ -149,6 +165,7 @@ sudo apt install libadolc-dev
 # a high-performance numerical library for solving large, sparse, nonsymmetric systems of linear equations of the form Ax = b. used by eigen
 sudo apt install libsuperlu-dev
 
+# a helper tool used when compiling and linking programs.
 sudo apt install pkg-config
 
 # FFTW (Fastest Fourier Transform in the West) is a highly optimized C library for computing discrete Fourier transforms (DFTs) in one or more dimensions
@@ -159,8 +176,17 @@ sudo apt install libfftw3-dev
 # used by eigen
 sudo apt install libmpfr-dev
 
+# GMP (GNU Multiple Precision Arithmetic Library) is a C library for arbitrary-precision arithmetic
+sudo apt install libgmp-dev
+
 # mpreal is a C++ wrapper for the MPFR library, designed to provide an easy and natural interface for arbitrary-precision floating-point arithmetic
 # used by eigen
+git clone https://github.com/advanpix/mpreal.git
+cd mpreal
+mkdir build && cd build
+cmake ..
+make
+sudo make install
 
 # METIS is a software library for partitioning graphs, computing fill-reducing orderings for sparse matrices, and related problems.
 # used by ceres

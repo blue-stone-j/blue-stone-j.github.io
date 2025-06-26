@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Eigen学习"
-date:   2025-06-13 22:55:21 +0800
+date:   2025-06-26 22:44:43 +0800
 categories: [Tech]
 excerpt: 常用Eigen函数；Eigen的数据结构；等等。
 tags:
@@ -11,6 +11,23 @@ tags:
   - C++
 ---
 这篇文章整理了常用Eigen函数(用途、参数的意义，必要时也会列出该函数所在的头文件)以及一些其它关于Eigen库的知识。
+
+### cuda
+
+##### cuda support
+
+Eigen 3.4.x officially supports CUDA (better than older versions). You should be using at least 3.3.90 (development of 3.4) or 3.4.0 release.
+
+##### use cuda
+
+When writing .cu files with Eigen, include the following before including any Eigen headers:
+
+```C++
+#define EIGEN_USE_GPU
+#include <Eigen/Core>
+```
+
+Eigen's GPU support is partial. For example: You can use basic matrix operations (+, *, etc.) on the device. You cannot use features like LLT, SVD, etc., inside a CUDA kernel.
 
 ### 一、基础知识
 
