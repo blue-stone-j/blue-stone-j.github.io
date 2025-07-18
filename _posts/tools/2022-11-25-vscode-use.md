@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "vscode使用"
-date:   2025-06-20 22:12:15 +0800
+date:   2025-07-18 23:47:10 +0800
 categories: [Tech]
 excerpt: 记录了vscode的使用方法、技巧以及在使用中遇到的问题和解决方案
 tags:
@@ -173,6 +173,10 @@ When you install an extension on the remote server through VSCode Remote - SSH, 
 * The extension is stored and executed in the context of the VSCode server, launched by your local VSCode client.
 * It does not run as a persistent service.
 * If you log into the server via terminal (e.g., SSH directly from a terminal, or open a local editor on the server), the extensions do not activate or function — because there is no VSCode runtime environment active to manage them.
+
+### remote explorer
+
+When connect to a container, `vscode server` will be installed in container, which will convert this container from `Other containers` to `Dev containers`. If without internet access, you can copy folder `.vscode-server` from one `Dev containers`. This folder is in home directory by default.
 
 ### vscode-icons
 

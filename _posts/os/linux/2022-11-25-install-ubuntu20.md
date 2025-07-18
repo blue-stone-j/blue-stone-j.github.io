@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "ubuntu20 安装及配置"
-date:   2025-06-26 22:44:43 +0800
+date:   2025-07-18 23:47:10 +0800
 categories: [OS]
 excerpt: 安装Ubuntu 20系统，然后安装常用库。
 tags:
@@ -194,6 +194,9 @@ sudo apt-get install libmetis-dev
 
 # This tool is commonly used on Debian-based Linux distributions (like Ubuntu) to display Linux Standard Base (LSB) and distribution-specific information, such as the release number and codename.
 sudo apt install lsb-release
+
+# cereal： a header-only C++11 serialization library that makes it easy to serialize and deserialize data (e.g., to JSON, XML, or binary formats).
+sudo apt install libcereal-dev
 ```
 
 # configuration
