@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Linux以及相关qa"
-date:   2025-06-24 22:21:26 +0800
+date:   2025-07-19 21:48:04 +0800
 categories: [OS]
 excerpt: 总结了Linux常用命令、qa
 tags:
@@ -544,7 +544,7 @@ sudo systemctl start ssh
 
 Check again using `sudo systemctl status ssh`. It should show`Active: active (running)`
 
-##### sudo command not found
+##### 37 sudo command not found
 
 ```bash
 bash: sudo: command not found
@@ -553,3 +553,13 @@ bash: sudo: command not found
 run `apt-get install`. It's possible that you get `E: Unable to locate package sudo`.
 
 run `apt-get update` and then run `apt-get install`.
+
+##### 38
+
+I got error below when I ran `source ~/.bashrc`.
+
+```bash
+source not found
+```
+
+This typically means you're using `sh` instead of `bash`. Run `bash` and it works.
