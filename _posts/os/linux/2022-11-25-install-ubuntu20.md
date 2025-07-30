@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "ubuntu20 安装及配置"
-date:   2025-07-18 23:47:10 +0800
+date:   2025-07-30 22:02:02 +0800
 categories: [OS]
 excerpt: 安装Ubuntu 20系统，然后安装常用库。
 tags:
@@ -197,6 +197,10 @@ sudo apt install lsb-release
 
 # cereal： a header-only C++11 serialization library that makes it easy to serialize and deserialize data (e.g., to JSON, XML, or binary formats).
 sudo apt install libcereal-dev
+
+# protobuf: on Ubuntu 20.04, the default version of protobuf is 3.6.1 and the corresponding shared library version is libprotobuf.so.23
+# check version of protobuf
+protoc --version
 ```
 
 # configuration

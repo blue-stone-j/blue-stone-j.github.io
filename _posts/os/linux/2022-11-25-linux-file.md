@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  files and disk in Linux
-date:   2025-07-19 21:48:04 +0800
+date:   2025-07-30 22:02:02 +0800
 categories: [OS]
 excerpt: linux file 
 tags:
@@ -126,16 +126,20 @@ class: sys
 
 **echo**
 
-| 命令               | 描述                     |
-| ------------------ | ------------------------ |
-| `echo`             | 覆盖                     |
-| `"hello    world"` | 输出字符串               |
-| `\t`               | 制表符                   |
-| `\n`               | 换行                     |
-| `-e`               | 支持反斜线控制的字符转换 |
-| `echo $variable`   | 查询变量                 |
-| `echo '==$a=='`    | 把“$a”视为字符串         |
-| `echo "==$a=="`    | 把“$a”视为变量           |
+| 命令             | 描述                                     |
+| ---------------- | ---------------------------------------- |
+| `echo`           | 覆盖                                     |
+| `"hello world"`  | 输出字符串                               |
+| `\t`             | 制表符, horizontal tab                   |
+| `\n`             | 换行                                     |
+| `\"`             | double quote                             |
+| `-e`             | 支持反斜线控制的字符转换                 |
+| `\a`             | alert (bell sound)                       |
+| `\b`             | backspace                                |
+| `echo $variable` | 查询变量                                 |
+| `echo '==$a=='`  | 把“$a”视为字符串                         |
+| `echo "==$a=="`  | 把“$a”视为变量                           |
+| `-n`             | prevent `echo` adds a newline at the end |
 
 **重定向到文件**
 
@@ -373,11 +377,15 @@ sudo gsmartcontrol # 运行该工具
 **find**  
 基本用法：`find 搜索范围 选项`
 
-| 选项               | 示例                | 描述                    |
+| 选项               | 示例                | 描述                                   |
 | ------------------ | ------------------- |
-| `-name <查询方式>` | `find . -name md*`  | 指定文件名和查找模式，  |
-| `user <用户名>`    | `find .. user Joe`  | ”属于指定用户的所有文件 |
-| `-size <文件大小>` | `find / -size +10M` | 大于10M的文件           |
+| `-name <查询方式>` | `find . -name md*`  | find a file by name (case-sensitive)   |
+| `user <用户名>`    | `find .. user Joe`  | 属于指定用户的所有文件                 |
+| `-size <文件大小>` | `find / -size +10M` | 大于10M的文件                          |
+| `-iname`           |                     | find a file by name (case-insensitive) |
+| `-type f`          |                     | find fromcommon files                  |
+| `-type d`          |                     | find from directories                  |
+| `-mtime -7`        |                     | find files modified in the last 7 days |
 
 以下为一个使用示例，查看当前文件夹中名为“gtsam”的文件。
 
