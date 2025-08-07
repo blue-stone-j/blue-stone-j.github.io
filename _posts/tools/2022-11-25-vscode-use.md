@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "vscode使用"
-date:   2025-07-18 23:47:10 +0800
+date:   2025-08-07 19:20:39 +0800
 categories: [Tech]
 excerpt: 记录了vscode的使用方法、技巧以及在使用中遇到的问题和解决方案
 tags:
@@ -53,6 +53,10 @@ there are three levels of settings:
 
 ### format
 
+##### shortcut key
+
+`Shift + Alt + F`
+
 ##### clang-format
 
 1. install `clang-format`
@@ -70,7 +74,7 @@ sudo apt install clang-format
 
 Search `Editor: Format On Save Mode` in setting
 
-##### export PDF
+### export PDF
 
 I got error when I tried to export PDF from markdown.
 

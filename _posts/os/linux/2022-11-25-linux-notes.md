@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  Linux笔记
-date:   2025-07-19 21:48:04 +0800
+date:   2025-08-07 19:20:39 +0800
 categories: [OS]
 excerpt: Linux系统的学习笔记
 tags:
@@ -400,6 +400,8 @@ _chgrp_
 
 ### 11. 定时任务
 
+##### cron
+
 重启crond服务：`systemctl restart cron`  
 
 基本语法：`crontab`
@@ -418,6 +420,41 @@ _chgrp_
 | `,`    | 多个时间并列                                                    |
 | `2-5`  | 表示时间范围，从2到5，单位取决于其所在的位置                    |
 | `*/10` | *表示对应的时间，每隔这个时间就执行一次，单位取决于其所在的位置 |
+
+```bash
+# 分钟（0-59）、小时（0-23）、日（1-31）、月（1-12）、星期几（0-7，其中0和7都代表星期日）以及要执行的命令
+* * * * * command-to-execute
+```
+
+##### use systemd to manage perdioc task
+
+在`/etc/systemd/system/`目录下创建一个`.service`文件，如`mytask.service`。这个文件定义了要执行的任务。
+
+```bash
+[Unit]
+Description=My custom task
+
+[Service]
+Type=oneshot
+ExecStart=/path/to/your/script.sh
+```
+
+在相同目录下创建一个与服务文件同名但以`.timer`为后缀的文件，如`mytask.timer`。
+
+```bash
+[Unit]
+Description=Runs my custom task
+
+[Timer]
+OnCalendar=*-*-* 12:00:00
+Persistent=true
+
+[Install]
+WantedBy=timers.target
+```
+
+`OnCalendar`指定了任务运行的时间。上面的例子表示每天中午12点。
+使用`systemctl enable mytask.timer`启用定时器，这样在系统启动时定时器也会自动启动。使用`systemctl start mytask.timer`立即启动定时器。使用`systemctl list-timers`查看所有定时器及其下一次触发时间。
 
 # 九、文本处理工具
 

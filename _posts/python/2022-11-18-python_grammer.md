@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "python"
-date:   2025-06-15 21:55:07 +0800
+date:   2025-08-07 19:20:39 +0800
 categories: [Lan]
 excerpt: 这篇文章是python的基础语法
 tags:
