@@ -1,9 +1,9 @@
 ---
 layout: post
-title:  "ubuntu20 安装及配置"
-date:   2025-07-30 22:02:02 +0800
+title:  "install common libraries"
+date:   2025-08-09 23:07:14 +0800
 categories: [OS]
-excerpt: 安装Ubuntu 20系统，然后安装常用库。
+excerpt: install common libraries on ubuntu
 tags:
   - Ubuntu 
   - Linux
@@ -123,7 +123,55 @@ sed -e '/add_library(flann_cpp SHARED/ s/""/empty.cpp/' \
 
 参考自这个链接：<https://www.cnblogs.com/jiangyibo/p/16828214.html>。其本质是因为编译生成库文件或可执行文件时，必须链接`cpp`文件。但是源码里面没有对应的`cpp`文件。这个解决方案中创建了空`cpp`文件并链接过去。
 
+| Feature / Aspect           | **nanoflann**                                            | **FLANN (Fast Library for Approximate Nearest Neighbors)**             |
+| -------------------------- | -------------------------------------------------------- | ---------------------------------------------------------------------- |
+| **Type**                   | Header-only C++ library                                  | Full C++ library with optional Python bindings                         |
+| **Install**                | No installation needed (just include headers)            | Requires compilation or package installation (e.g., `libflann-dev`)    |
+| **Approximate Search**     | ❌ No (only exact search)                                 | ✅ Yes (supports approximate nearest neighbor search)                   |
+| **Best For**               | Low-dimensional, exact nearest neighbor (2D/3D, small N) | High-dimensional or large-scale approximate search (e.g., > 1M points) |
+| **Data Structures**        | KD-Tree (single or adaptive)                             | KD-Tree, k-means tree, composite tree, autotuned options               |
+| **Performance**            | Faster for low dimensions and small to medium datasets   | More scalable for high dimensions or large datasets                    |
+| **Dimensionality Support** | Best for 1D to 10D                                       | Designed for high-dimensional data (e.g., SIFT descriptors in 128D)    |
+| **Threading**              | ❌ No built-in multi-threading                            | ⚠️ Limited parallel support (some variants support OpenMP)              |
+| **API Simplicity**         | ✅ Very lightweight and easy to integrate                 | ❌ More complex setup and tuning                                        |
+| **Distance Metrics**       | Euclidean, Manhattan (user-defined via templates)        | Euclidean, Manhattan, Hamming, and others                              |
+| **License**                | BSD                                                      | BSD                                                                    |
+| **Python Support**         | ❌ None                                                   | ✅ Available via `pyflann`                                              |
+| **Maintenance**            | Actively maintained (as of 2025)                         | Largely unmaintained / frozen since \~2018                             |
+| **Documentation**          | Moderate (clear examples, but less formal docs)          | Good (but partially outdated)                                          |
+| **Dependencies**           | None                                                     | CMake, BLAS/LAPACK (optionally), and others                            |
+
+
 # Sophus
+
+```bash
+sudo apt-get install ros-noetic-sophus
+```
+
+If you need latest version, you should install it from source.
+
+```bash
+# Clone Sophus
+git clone https://github.com/strasdat/Sophus.git
+cd Sophus
+
+# (Optional) checkout a stable release
+git checkout 1.22.10   # example version
+
+# Build and install
+mkdir build && cd build
+cmake ..
+make -j$(nproc)
+sudo make install
+```
+
+use in cmake project
+
+```bash
+find_package(Sophus REQUIRED)
+
+target_link_libraries(your_target PUBLIC Sophus::Sophus)
+```
 
 如果使用默认的安装位置，可以在文件`/usr/local/share/sophus/cmake/SophusConfigVersion.cmake`中查看版本信息。我安装的版本为`1.22.10`。该库不支持Debug模式，编译时如果使用debug模式，得到的可执行文件无法执行。
 
