@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "STL vector"
-date:   2025-06-13 20:03:28 +0800
+date:   2025-08-30 09:57:15 +0800
 categories: [Lan]
 excerpt: 
 tags:
@@ -10,7 +10,7 @@ tags:
   - C++
 ---
 
-这篇文章整理了vector.
+这篇文章整理了`std::vector`.
 
 # Empirical Observation
 
