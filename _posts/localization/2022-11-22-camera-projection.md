@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  camera-projection
-date:   2025-06-23 08:18:45 +0800
+date:   2025-10-19 21:20:21 +0800
 categories: [Localization]
 excerpt: camera-projection
 tags:
@@ -32,6 +32,24 @@ Distortion model: FOV (Field-of-View) model proposed by Devernay and Faugeras.
 Single parameter: ω (omega), controlling the degree of distortion.
 
 Use case: Wide-angle lenses where radial distortion can be well-approximated by a single parameter.
+
+# distortion model
+
+### pinhole_radial
+
+simpler, only radial distortion.
+
+### pinhole_brown (Brown–Conrady model)
+
+more general, radial + tangential distortions (Brown–Conrady model).
+
+Radial distortion (𝑘1,𝑘2,𝑘3​)<br>
+Tangential distortion (𝑝1,𝑝2​), which accounts for lens misalignment or decentering.
+
+`Cal3DS2` implements pinhole intrinsics with radial (k1, k2) and tangential (p1, p2) distortion—i.e., the standard Brown model. It exposes accessors `k1()`, `k2()`, `p1()`, `p2()`.<br>
+`Cal3Fisheye` is a different fisheye/equidistant model; do not use it for Brown.<br>
+`Cal3_S2` is the simple pinhole model without distortion.
+
 
 # vanishing point
 
