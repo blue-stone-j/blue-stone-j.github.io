@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "software-recommend"
-date:   2025-06-20 22:12:15 +0800
+date:   2025-10-27 20:53:17 +0800
 categories: [OS]
 excerpt: software recommend
 tags:
@@ -15,3 +15,5 @@ tags:
 * Fast, modern interface.
 * Shows folder sizes, file counts, and graphical bars.
 * Free and paid versions.
+
+##### TrafficMonitor

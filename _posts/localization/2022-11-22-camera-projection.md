@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  camera-projection
-date:   2025-10-19 21:20:21 +0800
+date:   2025-10-27 20:53:17 +0800
 categories: [Localization]
 excerpt: camera-projection
 tags:
@@ -22,6 +22,8 @@ Distortion model: Radial-tangential (Brown–conrad model).
 Projection model: Pinhole.
 
 Distortion model: Fisheye / Equidistant, often used in wide-angle or fisheye lenses.
+
+The FOV of a fisheye lens refers to the angular extent of the scene that can be captured, usually expressed in degrees. This field of view in 3D spaceis a solid angle in 3D, not a flat circle — it’s more like a cone or spherical cap. The field of view of a fisheye camera in the image is usually circular, but depending on lens design and sensor crop, it can also be rectangular with a distorted projection.
 
 ### pinhole-fov (Pinhole + Field-of-View Distortion)
 
@@ -49,7 +51,6 @@ Tangential distortion (𝑝1,𝑝2​), which accounts for lens misalignment or 
 `Cal3DS2` implements pinhole intrinsics with radial (k1, k2) and tangential (p1, p2) distortion—i.e., the standard Brown model. It exposes accessors `k1()`, `k2()`, `p1()`, `p2()`.<br>
 `Cal3Fisheye` is a different fisheye/equidistant model; do not use it for Brown.<br>
 `Cal3_S2` is the simple pinhole model without distortion.
-
 
 # vanishing point
 
