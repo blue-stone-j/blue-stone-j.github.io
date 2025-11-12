@@ -1,40 +1,40 @@
 ---
 layout: post
 title:  "python modules"
-date:   2025-06-10 22:33:30 +0800
+date:   2025-11-12 23:27:32 +0800
 categories: [Lan]
 excerpt: python modules
 tags:
   - python
 ---
 
-##### python3
+### python3
 
 ```bash
 sudo apt install python3
 python3 --version
 ```
 
-##### pip3
+### pip3
 
 ```bash
 sudo apt install python3-pip
 ```
 
-##### numpy
+### numpy
 
 ```bash
 # version
 python -c "import numpy; print(numpy.__version__)"
 ```
 
-##### matplotlib
+### matplotlib
 
 ```bash
 pip3 install matplotlib
 ```
 
-##### pandas
+### pandas
 
 `pandas` is a python library that provides data structures and functions for working with structured data, particularly for data analysis and manipulation.
 
@@ -42,7 +42,7 @@ pip3 install matplotlib
 pip3 install pandas
 ```
 
-##### ruamel
+### ruamel
 
 `ruamel.yaml` is the commonly used package from the ruamel suite for YAML parsing.
 
@@ -50,7 +50,7 @@ pip3 install pandas
 pip3 install ruamel.yaml
 ```
 
-##### seaborn
+### seaborn
 
 `seaborn` is a statistical data visualization library based on `matplotlib`
 
@@ -58,7 +58,7 @@ pip3 install ruamel.yaml
 pip3 install seaborn
 ```
 
-##### tkinter
+### tkinter
 
 ```bash
 sudo apt install python3-tk

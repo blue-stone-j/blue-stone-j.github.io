@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  camera-projection
-date:   2025-10-27 20:53:17 +0800
+date:   2025-11-12 23:27:32 +0800
 categories: [Localization]
 excerpt: camera-projection
 tags:
@@ -24,6 +24,14 @@ Projection model: Pinhole.
 Distortion model: Fisheye / Equidistant, often used in wide-angle or fisheye lenses.
 
 The FOV of a fisheye lens refers to the angular extent of the scene that can be captured, usually expressed in degrees. This field of view in 3D spaceis a solid angle in 3D, not a flat circle — it’s more like a cone or spherical cap. The field of view of a fisheye camera in the image is usually circular, but depending on lens design and sensor crop, it can also be rectangular with a distorted projection.
+
+Changes in polar angle θ per 1 px radially, it is constant and equals `180/(𝜋𝑓)`.
+
+| Region on Image | Expected Projection Error (Pixels) | Reason                                                       |
+| --------------- | ---------------------------------- | ------------------------------------------------------------ |
+| Near center     | Small                              | Distortion minimal, linear approximation valid               |
+| Toward edge     | Larger                             | Nonlinearity of fisheye projection and parameter sensitivity |
+| Extreme corners | Largest                            | Model extrapolation, less calibration coverage               |
 
 ### pinhole-fov (Pinhole + Field-of-View Distortion)
 
