@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Eigen学习"
-date:   2025-06-26 22:44:43 +0800
+date:   2025-12-17 18:52:43 +0800
 categories: [Tech]
 excerpt: 常用Eigen函数；Eigen的数据结构；等等。
 tags:
@@ -262,6 +262,9 @@ transform.translation() << 1.0f, 2.0f, 3.0f;
 
 // Extract the translation vector
 Eigen::Vector3f translation = transform.translation();
+// extract a rotation matrix: a reference to the 3×3 linear part (rotation + scaling + shear) of the affine transform.
+Eigen::Matrix3f rotation = transform.linear(); 
+
 ```
 
 ##### 9. Eigen与OpenCV的数据类型转换

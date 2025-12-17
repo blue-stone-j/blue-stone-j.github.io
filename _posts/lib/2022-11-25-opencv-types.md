@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "opencv-types"
-date:   2025-11-12 23:27:32 +0800
+date:   2025-12-17 18:52:43 +0800
 categories: [Tech]
 excerpt: data types in opencv
 tags:
@@ -24,6 +24,29 @@ cv::Mat matA(3, 3, CV_32F, cv::Scalar::all(0));
 
 ```C++
 void cvSetZero( CvArr* arr ) ;
+```
+
+Initialize from data pointer of `std::vector`.
+
+```C++
+std::ifstream file("test.jpg", std::ios::binary);
+std::vector<uchar> buffer(std::istreambuf_iterator<char>(file), {});
+cv::Mat img = cv::imdecode(buffer, cv::IMREAD_COLOR);
+```
+
+| What your `std::vector` contains | Can use `imdecode`? |
+| -------------------------------- | ------------------- |
+| JPEG/PNG/BMP encoded data        | ✔ Yes               |
+| Raw pixel values (RGB, gray)     | ✘ No                |
+| Float data                       | ✘ No                |
+| Point cloud data                 | ✘ No                |
+| Any numeric array                | ✘ No                |
+
+### deconstructor
+
+```C++
+// Releases memory and resets the matrix to an empty state
+mat.release();
 ```
 
 ### scalar
