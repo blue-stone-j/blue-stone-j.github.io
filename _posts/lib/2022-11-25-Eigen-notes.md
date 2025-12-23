@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Eigen学习"
-date:   2025-12-17 18:52:43 +0800
+date:   2025-12-23 20:18:44 +0800
 categories: [Tech]
 excerpt: 常用Eigen函数；Eigen的数据结构；等等。
 tags:
@@ -223,9 +223,8 @@ T.transposeInPlace();
 * mat1.transpose().colwise().reverse() : Rot90
 * reshape() : 不改变矩阵元素个数的情况下，改变矩阵中元素的大小,例如转置
 * conservativeResize(Eigen::NoChange, mat.cols() + 1): Resize the matrix to add one more column
-* cwiseAbs()
+* cwiseAbs(): computes the absolute value of each element
 * cwiseSqrt()
-* cwiseMin()
 
 ##### 4. Array本身运算
 
