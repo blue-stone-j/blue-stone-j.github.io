@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  transformation
-date:   2025-07-30 22:02:02 +0800
+date:   2025-12-28 20:24:30 +0800
 categories: [Localization]
 excerpt: transformation
 tags:
@@ -27,3 +27,25 @@ where:
 | Quaternion $\approx [1,0,0,0]$ | Identity quaternion (no rotation)        |
 
 "z is close to 1" means "A 180° rotation around the z-axis"。
+
+# rotation
+
+### rotation matrix
+
+intrinsic frame rotation
+
+1. Rotate the frame around its current Y
+2. Then rotate around the updated X
+
+For passive rotations, intrinsic frame rotations compose in the same order:
+$$ R_A = R_x(-\alpha)\,R_y(-\beta) $$
+$$ \mathbf{p}_{new}^{(A)} = R_x(-\alpha)\,R_y(-\beta)\,\mathbf{p}_{old} $$
+
+extrinsic frame rotation
+
+1. Rotate the frame around world Y
+2. Then rotate around world X
+
+Extrinsic frame rotations apply in reverse order:
+$$ R_B = R_y(-\beta)\,R_x(-\alpha) $$
+$$ \mathbf{p}_{new}^{(B)} = R_y(-\beta)\,R_x(-\alpha)\,\mathbf{p}_{old} $$
