@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Eigen学习"
-date:   2025-12-23 20:18:44 +0800
+date:   2025-12-29 22:39:12 +0800
 categories: [Tech]
 excerpt: 常用Eigen函数；Eigen的数据结构；等等。
 tags:
@@ -225,6 +225,8 @@ T.transposeInPlace();
 * conservativeResize(Eigen::NoChange, mat.cols() + 1): Resize the matrix to add one more column
 * cwiseAbs(): computes the absolute value of each element
 * cwiseSqrt()
+* topRightCorner<2,2>(): compile-time sizes specified, return type is `Eigen::Block<Eigen::Matrix<Scalar, M, N>, Rows, Cols>`
+* topRightCorner(2,2): run-time sizes specified
 
 ##### 4. Array本身运算
 
