@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "install common libraries"
-date:   2025-08-09 23:07:14 +0800
+date:   2026-03-28 08:47:41 +0800
 categories: [OS]
 excerpt: install common libraries on ubuntu
 tags:
@@ -179,6 +179,24 @@ target_link_libraries(your_target PUBLIC Sophus::Sophus)
 
 ```C++
 #define FMT_HEADER_ONLY
+```
+
+# LLVM
+
+### Prerequisites
+
+* CMake (≥ 3.13 recommended)
+* Python 3
+* Ninja (optional but recommended for faster builds)
+* A C++ compiler (Clang or GCC with C++17 support)
+
+### download code
+
+```bash
+git clone https://github.com/llvm/llvm-project.git
+cd llvm-project
+# checkout to specific version
+git checkout llvmorg-18.1.2
 ```
 
 # other common libraries

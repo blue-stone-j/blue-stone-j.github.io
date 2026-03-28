@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "C++ inheritance"
-date:   2025-11-12 23:27:32 +0800
+date:   2026-03-28 08:47:41 +0800
 categories: [Lan]
 excerpt: C++ inheritance
 tags:
@@ -27,3 +27,7 @@ If the base class function is declared `virtual`, then function call resolution 
 | `Derived(int v) : Base(v)`      | ✅      | Best method: call base constructor             |
 | Assign `value = v;` inside body | ✅      | Works but less efficient                       |
 | `Derived(int v) : value(v)`     | ❌      | Invalid — `value` is not a member of `Derived` |
+
+### static member
+
+In C++, a static data member belongs to the class itself, not to individual objects. A derived class does not get its own copy. It refers to the same static member defined in the base class unless it explicitly declares another one.

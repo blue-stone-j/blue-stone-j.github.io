@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "opencv-camera"
-date:   2025-12-23 20:18:44 +0800
+date:   2026-03-28 08:47:41 +0800
 categories: [Tech]
 excerpt:
 tags:
@@ -38,14 +38,8 @@ cv::Vec3d tvec(t_cw.x(), t_cw.y(), t_cw.z());
 cv::Vec3d rvec;
 cv::Rodrigues(R_cv, rvec);
 
-cv::fisheye::projectPoints(
-    objectPoints,
-    imagePoints,
-    rvec,
-    tvec,
-    K,
-    D
-);
+// Points with negative depth are still mathematically projected, even though they are physically behind the camera.
+cv::fisheye::projectPoints(objectPoints, imagePoints, rvec, tvec, K, D);
 ```
 
 ### undistortion

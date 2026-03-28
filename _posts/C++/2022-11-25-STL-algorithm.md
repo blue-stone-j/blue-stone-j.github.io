@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "STL algorithm"
-date:   2025-03-27 00:56:29 +0800
+date:   2026-03-28 08:47:41 +0800
 categories: [Lan]
 excerpt: 
 tags:
@@ -16,9 +16,23 @@ tags:
 #include <algorithm>
 ```
 
-# Empirical Observation
+# set operation
 
-#
+| Algorithm                       | Meaning           | explanation                     |
+| ------------------------------- | ----------------- | ------------------------------- |
+| `std::set_union`                | A ∪ B             | all elements from A and B       |
+| `std::set_intersection`         | A ∩ B             | elements common to both         |
+| `std::set_difference`           | A − B             | elements in A but not B         |
+| `std::set_symmetric_difference` | (A − B) ∪ (B − A) | elements in A or B but not both |
+
+common requirements:
+
+1. Inputs must be sorted
+2. Same comparator must be used
+3. Output range must be large enough
+4. Input ranges must not overlap with output
+
+# other
 
 ### std::unique
 
