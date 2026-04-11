@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  Linux笔记
-date:   2025-08-07 19:20:39 +0800
+date:   2026-04-11 08:51:32 +0800
 categories: [OS]
 excerpt: Linux系统的学习笔记
 tags:
@@ -11,32 +11,6 @@ class: sys
 ---
 
 这篇文章总结了Linux笔记，以ubuntu20.04为例。
-
-### 4. 文件操作命令
-
-**创建文件**
-
-* `touch file_name`: 在当前文件夹中创建空文件
-* `touch path/file_name`: 在指定路径创建文件
-
-**复制文件或目录**  
-默认不会修改文件属性。
-
-* `cp 选项 source dest`: 默认带有`-i`参数，即覆盖时询问。
-* `\cp 选项 source dest`: 如果有同名文件直接覆盖，不再询问。其中的“\”表示使用linux中的原生命令。
-
-| 选项               | 描述                                                                                                       |
-| ------------------ | ---------------------------------------------------------------------------------------------------------- |
-| `-r`               | recursive的简写,递归地复制文件夹                                                                           |
-| `-i`               | 覆盖时询问                                                                                                 |
-| `-u` or `--update` | Copy only when the source file is newer than the destination file or when the destination file is missing. |
-
-这是一个复制文件的辅助功能，用来显示复制的进度。
-`rsync` compares file size and modification time and will skip copying if nothing has changed.
-
-```Bash
-rsync -ah --progress source destination
-```
 
 # 四、系统管理
 
