@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "常用软件使用"
-date:   2025-06-24 22:21:26 +0800
+date:   2026-04-13 20:48:14 +0800
 categories: [Tech]
 excerpt: 记录了常用软件的使用方法、技巧以及在使用中遇到的问题和解决方案
 tags:
@@ -152,15 +152,6 @@ rosdep update
 
 ### 3. sophus
 
-```Bash
-git clone https://github.com/strasdat/Sophus.git
-cd sophus
-mkdir build
-cd build
-cmake ..
-make
-sudo make install
-```
 
 ### 8. PCL
 

@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "install common libraries"
-date:   2026-03-28 08:47:41 +0800
+date:   2026-04-13 20:48:14 +0800
 categories: [OS]
 excerpt: install common libraries on ubuntu
 tags:
@@ -140,13 +140,6 @@ sed -e '/add_library(flann_cpp SHARED/ s/""/empty.cpp/' \
 | **Maintenance**            | Actively maintained (as of 2025)                         | Largely unmaintained / frozen since \~2018                             |
 | **Documentation**          | Moderate (clear examples, but less formal docs)          | Good (but partially outdated)                                          |
 | **Dependencies**           | None                                                     | CMake, BLAS/LAPACK (optionally), and others                            |
-
-
-# Sophus
-
-```bash
-sudo apt-get install ros-noetic-sophus
-```
 
 If you need latest version, you should install it from source.
 
