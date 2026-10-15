@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Eigen学习"
-date:   2025-12-29 22:39:12 +0800
+date:   2026-10-15 06:34:20 -0700
 categories: [Tech]
 excerpt: 常用Eigen函数；Eigen的数据结构；等等。
 tags:
@@ -378,6 +378,17 @@ Eigen::Isometry3d T = Eigen::Isometry3d::Identity(); // 虽然称为 3d ，实�
 T.rotate ( rotationAxis ); // 按照 angle-axis 记录的旋转阵进行旋转
 T.pretranslate ( Eigen::Vector3d ( 1,3,4 ) ); // 在变换阵的”左边“添加一个平移
 T.translate( Eigen::Vector3d ( 1,3,4 ) ); // 在变换阵的”右边“增加一个平移???
+```
+
+transform vector
+
+```c++
+Eigen::Vector3d point(1.0, 2.0, 3.0);
+Eigen::Matrix4d T = Eigen::Matrix4d::Identity();
+
+// Set rotation and translation...
+Eigen::Vector3d transformed =
+    (T * point.homogeneous()).hnormalized();
 ```
 
 ### 五、求解

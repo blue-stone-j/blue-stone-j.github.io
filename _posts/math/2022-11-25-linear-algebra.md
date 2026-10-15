@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "线性代数"
-date:   2025-06-13 22:55:21 +0800
+date:   2026-10-15 06:34:20 -0700
 categories: [Math]
 excerpt: 用普通的直觉代替枯燥的证明
 tags:
@@ -90,3 +90,7 @@ singular values can diagnose:
 4. Confidence in parameter estimates
 
 If the Jacobian stabilizes, then its singular values also tend to: converge to fixed values, or reveal clearer rank structure as noisy or degenerate modes are reduced.
+
+### outer product
+
+if v is not unit length, the outer product rescales the parallel component by module of v^2.

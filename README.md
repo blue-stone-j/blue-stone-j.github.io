@@ -44,9 +44,9 @@ This file is configuration for this static site. Note that it's different from f
 
 I link Github Pages to my domain, which I bought from Aliyun. You can also get one if you are interested.
 
-### gitadd.sh
+### git_add.sh
 
-This is a shell to update last updated date for posts. It's deprecated now and this function is intergated into `pre-commit`.
+This is a shell to update last updated date for posts. It's deprecated now and this function is integrated into `pre-commit`.
 
 # License
 
